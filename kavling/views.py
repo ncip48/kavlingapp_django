@@ -20,7 +20,10 @@ def login_view(request):
             check = User.objects.get(username=username)
         except:
             messages.error(request, "Akun tidak ditemukan")
-            return redirect("login")
+            if next != "":
+                return redirect("signin" + "?next=" + next)
+            else:
+                return redirect("signin")
 
         user = authenticate(request, username=username, password=password)
         if user is not None:

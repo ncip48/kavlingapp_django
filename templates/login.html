@@ -42,7 +42,7 @@
           <p class="auth-msg">Masuk untuk mengelola sistem</p>
 
           {% if next %}
-          <form action="/signin/?next={{next}}" method="post" class="form-element" >
+          <form action="/signin?next={{next}}" method="post" class="form-element" >
           {%else%}
           <form action="/signin" method="post" class="form-element" >
           {% endif %}
@@ -67,15 +67,6 @@
                   <label for="basic_checkbox_1">Remember Me</label>
                 </div>
               </div>
-              <!-- /.col -->
-              <div class="col-6">
-                <div class="fog-pwd">
-                  <a href="javascript:void(0)"
-                    ><i class="ion ion-locked"></i> Forgot pwd?</a
-                  ><br />
-                </div>
-              </div>
-              <!-- /.col -->
               <div class="col-12 text-center">
                 <button type="submit" class="btn btn-rounded mt-10 btn-success">
                   SIGN IN
@@ -84,40 +75,6 @@
               <!-- /.col -->
             </div>
           </form>
-
-          <div class="text-center text-dark">
-            <p class="mt-50">- Sign With -</p>
-            <p class="gap-items-2 mb-20">
-              <a
-                class="btn btn-social-icon btn-round btn-outline btn-facebook"
-                href="#"
-                ><i class="fa fa-facebook"></i
-              ></a>
-              <a
-                class="btn btn-social-icon btn-round btn-outline btn-twitter"
-                href="#"
-                ><i class="fa fa-twitter"></i
-              ></a>
-              <a
-                class="btn btn-social-icon btn-round btn-outline btn-google"
-                href="#"
-                ><i class="fa fa-google"></i
-              ></a>
-              <a
-                class="btn btn-social-icon btn-round btn-outline btn-instagram"
-                href="#"
-                ><i class="fa fa-instagram"></i
-              ></a>
-            </p>
-          </div>
-          <!-- /.social-auth-links -->
-
-          <div class="mt-30 text-center">
-            <p>
-              Don't have an account?
-              <a href="auth_register2.html" class="text-info ms-5">Sign Up</a>
-            </p>
-          </div>
         </div>
       </div>
     </div>
