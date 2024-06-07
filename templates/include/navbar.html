@@ -195,9 +195,12 @@
                 ><i class="ti-settings text-muted me-2"></i> Settings</a
               >
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'logout' %}"
-                ><i class="ti-lock text-muted me-2"></i> Logout</a
-              >
+              <form action="{% url 'logout' %}" method="post" id="logout">
+                {% csrf_token %}
+                <a class="dropdown-item" href="#" onclick="logout.submit()">
+                  <i class="ti-lock text-muted me-2"></i> Logout
+                </a>
+              </form>
             </li>
           </ul>
         </li>
