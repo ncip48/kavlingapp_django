@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -13,9 +13,9 @@ def login_view(request):
         next = request.GET['next']
     
     if next != "":
-        action = "signin" + "?next=" + next
+        action = "?next=" + next
     else:
-        action = 'signin'
+        action = ''
         
     if request.method == "POST":
         username = request.POST.get("username").lower()
@@ -38,6 +38,10 @@ def login_view(request):
             messages.error(request, "Username atau password salah")
         
     return render(request, "login.html", {'action':action})
+
+def logout_view(request):
+    logout(request)
+    return redirect('login/')
 
 @login_required
 def dashboard(request):
