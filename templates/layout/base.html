@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" />
+
+    <title>Kavling App</title>
+
+    <!-- Vendors Style-->
+    <link rel="stylesheet" href="{% static 'css/vendors_css.css' %}" />
+
+    <!-- Style-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/skin_color.css' %}" />
+  </head>
+  <body class="hold-transition dark-skin sidebar-mini theme-warning fixed">
+    <div class="wrapper">
+      {% comment %}
+      <div id="loader"></div>
+      {% endcomment %} {% include "include/navbar.html" %} {% comment %} batas
+      {% endcomment %} {% include "include/sidebar.html" %}
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <div class="container-full">
+          <!-- Content Header (Page header) -->
+          {% block content %} {% endblock %}
+          <!-- /.content -->
+        </div>
+      </div>
+      <!-- /.content-wrapper -->
+
+      <footer class="main-footer">
+        &copy; {% now "Y" %}
+        <a href="https://dotech.cfd">PT Dotech Digital Solution</a>. All Rights
+        Reserved.
+      </footer>
+    </div>
+
+    <!-- Page Content overlay -->
+
+    <!-- Vendor JS -->
+    <script src="{% static 'js/vendors.min.js' %}"></script>
+    <script src="{% static 'js/pages/chat-popup.js' %}"></script>
+    <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>
+
+    <!-- Crypto Tokenizer Admin App -->
+    <script src="{% static 'js/template.js' %}"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script language="javascript">
+      $(document).ready(function () {
+        $("#items-table").dataTable({
+          searching: false,
+          lengthChange: false,
+        });
+      });
+    </script>
+  </body>
+</html>
