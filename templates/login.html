@@ -1,58 +1,47 @@
-{%extends "layout/login.html" %}
+{% extends 'layout/login.html' %}
 {% block content %}
-<div class="auth-2-outer row align-items-center h-p100 m-0">
-  <div class="auth-2 bg-white">
-    <div class="auth-logo fs-30">
-      <a href="/"><b>Kavling App </b>Admin</a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="auth-body">
-      {% for message in messages %}
-      {% if message.tags == 'error' %}
-      <div class="alert bg-danger-light alert-dismissible fade show" role="alert">
-      {% elif message.tag == 'success' %}
-      <div class="alert bg-success-light alert-dismissible fade show" role="alert">
-      {% endif %}
-        {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <div class="auth-2-outer row align-items-center h-p100 m-0">
+    <div class="auth-2 bg-white">
+      <div class="auth-logo fs-30">
+        <a href="/"><b>Kavling App</b>Admin</a>
       </div>
-      {% endfor %}
-      <p class="auth-msg">Masuk untuk mengelola sistem</p>
+      <!-- /.login-logo -->
+      <div class="auth-body">
+        {% for message in messages %}
+          <div class="alert bg-{% if message.tags == 'error' %}danger{% else %}success{% endif %}-light alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+        <p class="auth-msg">Masuk untuk mengelola sistem</p>
 
-      {% if next %}
-      <form action="/signin?next={{next}}" method="post" class="form-element" autocomplete="off">
-      {%else%}
-      <form action="/signin" method="post" class="form-element" autocomplete="off">
-      {% endif %}
-        {% csrf_token %}
-        <div class="form-group has-feedback">
-          <input type="username" class="form-control" placeholder="Username" name="username" />
-          <span class="ion ion-account form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-          <input
-            type="password"
-            class="form-control"
-            placeholder="Password"
-            name="password"
-          />
-          <span class="ion ion-locked form-control-feedback"></span>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div class="checkbox">
-              <input type="checkbox" id="basic_checkbox_1" />
-              <label for="basic_checkbox_1">Remember Me</label>
+        <form action="{{action}}"
+          method="post"
+          class="form-element"
+          autocomplete="off">
+          {% csrf_token %}
+          <div class="form-group has-feedback">
+            <input type="username" class="form-control" placeholder="Username" name="username" />
+            <span class="ion ion-account form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Password" name="password" />
+            <span class="ion ion-locked form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="checkbox">
+                <input type="checkbox" id="basic_checkbox_1" />
+                <label for="basic_checkbox_1">Remember Me</label>
+              </div>
             </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-rounded mt-10 btn-success">SIGN IN</button>
+            </div>
+            <!-- /.col -->
           </div>
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-rounded mt-10 btn-success">
-              SIGN IN
-            </button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>{% endblock content %}
+{% endblock %}

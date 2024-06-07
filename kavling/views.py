@@ -11,6 +11,11 @@ def login_view(request):
     next = ""
     if request.GET:  
         next = request.GET['next']
+    
+    if next != "":
+        action = "signin" + "?next=" + next
+    else:
+        action = 'signin'
         
     if request.method == "POST":
         username = request.POST.get("username").lower()
@@ -20,10 +25,7 @@ def login_view(request):
             check = User.objects.get(username=username)
         except:
             messages.error(request, "Akun tidak ditemukan")
-            if next != "":
-                return redirect("signin" + "?next=" + next)
-            else:
-                return redirect("signin")
+            return redirect(action)
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
@@ -34,8 +36,8 @@ def login_view(request):
                 return redirect(next)
         else:
             messages.error(request, "Username atau password salah")
-
-    return render(request, "login.html", {'next':next})
+        
+    return render(request, "login.html", {'action':action})
 
 @login_required
 def dashboard(request):
