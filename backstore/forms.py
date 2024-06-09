@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CharField, PasswordInput, TextInput
+from django.forms import ModelForm, CharField, PasswordInput, TextInput, Textarea
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from .models import *
@@ -57,6 +57,11 @@ class KavlingForm(ModelForm):
         label='Kode Kavling',
         widget=TextInput(attrs={'readonly': 'readonly'})
     )
+    
+    map_code = CharField(
+        label="Map Code",
+        widget=Textarea(attrs={'readonly': 'readonly'})
+    )
     class Meta:
         # merelasikan form dengan model
         model = Kavling
@@ -86,5 +91,43 @@ class KavlingForm(ModelForm):
             },
             'map_code': {
                 'required': _("Map Code harus diisi."),
+            },
+        }
+        
+class TemplateKavlingForm(ModelForm):
+    class Meta:
+        model = Site
+        fields = ('template_kavling')
+        labels = {
+            'template_kavling': _('Template Kavling'),
+        }
+        error_messages = {
+            'template_kavling': {
+                'required': _("Template Kavling harus diisi."),
+            },
+        }
+        
+class SiteForm(ModelForm):
+    class Meta:
+        model = Site
+        fields = ('logo', 'nama_website', 'nama_perusahaan', 'no_hp',)
+        labels = {
+            'logo': _('Logo'),
+            'nama_website': _('Nama Website'),
+            'nama_perusahaan': _('Nama Perusahaan'),
+            'no_hp': _('Nomor HP'),
+        }
+        error_messages = {
+            'logo': {
+                'required': _("Logo harus diisi."),
+            },
+            'nama_website': {
+                'required': _("Nama Website harus diisi."),
+            },
+            'nama_perusahaan': {
+                'required': _("Nama Perusahaan harus diisi."),
+            },
+            'no_hp': {
+                'required': _("Nomor HP harus diisi."),
             },
         }

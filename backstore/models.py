@@ -23,3 +23,16 @@ class Kavling(models.Model):
     class Meta:
         # define table name
         db_table = 'kavling'
+        
+class Site(models.Model):
+    
+    id = models.AutoField(primary_key=True)
+    logo = models.CharField(max_length=50)
+    nama_website = models.CharField(max_length=50)
+    nama_perusahaan = models.CharField(max_length=50)
+    template_kavling = models.TextField()
+    no_hp: models.CharField(max_length=15)
+    
+    class Meta:
+        # define table name
+        db_table = 'site'
