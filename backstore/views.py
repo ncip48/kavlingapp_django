@@ -5,8 +5,11 @@ from django.contrib import messages
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import permission_required
-from django.http import Http404
+from django.http import JsonResponse
 from .forms import *
+from django.views import generic
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -82,22 +85,24 @@ def user_index(request):
 def user_create(request):
     redirect_url = 'user'
     if request.POST:
+        email = request.POST.get('email')
+        if User.objects.filter(email=email).exists():
+            messages.error(request,'Email sudah terdaftar')
+            return redirect(redirect_url)
         try:
             with transaction.atomic():
                 form = UserForm(request.POST)
-                # Mengecek validasi form
                 if form.is_valid():
-                    # Membuat Task baru dengan data yang disubmit
-                    new_user = UserForm(request.POST)
-                    # Simpan data ke dalam table tasks
-                    new_user.save()
+                    user = form.save(commit=False)
+                    user.set_password(form.cleaned_data['password'])
+                    user.save()
                     messages.success(request, "Berhasil menambahkan data")
                     return redirect(redirect_url)
                 else:
                     messages.error(request, "Data tidak valid")
                     return redirect(redirect_url)
         except Exception as e:
-            messages.error(request, "Gagal menambahkan data")
+            messages.error(request, f"Gagal menambahkan data {e}")
             return redirect(redirect_url)
     else:
         form = UserForm()
@@ -109,13 +114,15 @@ def user_update(request, user_id):
     try:
         user = User.objects.get(pk=user_id)
     except User.DoesNotExist:
-        raise Http404("Data tidak ditemukan.")
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
     if request.POST:
         try:
             with transaction.atomic():
                 form = UserForm(request.POST, instance=user)
                 if form.is_valid():
-                    form.save()
+                    new_password= form.cleaned_data['password']
+                    user.set_password(new_password)
+                    user.save()
                     messages.success(request, 'Sukses Mengubah data')
                     return redirect(redirect_url)
                 else:
@@ -123,7 +130,7 @@ def user_update(request, user_id):
                     return redirect(redirect_url)
                 
         except Exception as e:
-            messages.error(request, "Gagal mengedit data")
+            messages.error(request, "Gagal mengedit data" + e)
             return redirect(redirect_url)
     else:
         form = UserForm(instance=user)

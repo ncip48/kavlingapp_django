@@ -14,13 +14,14 @@ class UserForm(ModelForm):
         # merelasikan form dengan model
         model = User
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('username', 'email', 'first_name', 'last_name')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password')
         # mengatur teks label untuk setiap field
         labels = {
             'username': _('Username'),
             'email': _('Email'),
             'first_name': _('Nama Depan'),
             'last_name': _('Nama Belakang'),
+            'password': _('Password'),
         }
         # mengatur teks pesan error untuk setiap validasi fieldnya
         error_messages = {
@@ -32,5 +33,8 @@ class UserForm(ModelForm):
             },
             'last_name': {
                 'required': _("Nama Belakang harus diisi."),
+            },
+             'password': {
+                'required': _("Password harus diisi."),
             },
         }
