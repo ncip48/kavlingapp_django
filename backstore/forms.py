@@ -97,7 +97,7 @@ class KavlingForm(ModelForm):
 class TemplateKavlingForm(ModelForm):
     class Meta:
         model = Site
-        fields = ('template_kavling')
+        fields = ('template_kavling',)
         labels = {
             'template_kavling': _('Template Kavling'),
         }
@@ -107,27 +107,27 @@ class TemplateKavlingForm(ModelForm):
             },
         }
         
-class SiteForm(ModelForm):
-    class Meta:
-        model = Site
-        fields = ('logo', 'nama_website', 'nama_perusahaan', 'no_hp',)
-        labels = {
-            'logo': _('Logo'),
-            'nama_website': _('Nama Website'),
-            'nama_perusahaan': _('Nama Perusahaan'),
-            'no_hp': _('Nomor HP'),
-        }
-        error_messages = {
-            'logo': {
-                'required': _("Logo harus diisi."),
-            },
-            'nama_website': {
-                'required': _("Nama Website harus diisi."),
-            },
-            'nama_perusahaan': {
-                'required': _("Nama Perusahaan harus diisi."),
-            },
-            'no_hp': {
-                'required': _("Nomor HP harus diisi."),
-            },
-        }
+# class SiteForm(ModelForm):
+#     class Meta:
+#         model = Site
+#         fields = ('logo', 'nama_website', 'nama_perusahaan', 'no_hp')
+#         labels = {
+#             'logo': _('Logo'),
+#             'nama_website': _('Nama Website'),
+#             'nama_perusahaan': _('Nama Perusahaan'),
+#             'no_hp': _('Nomor HP'),
+#         }
+#         error_messages = {
+#             'logo': {
+#                 'required': _("Logo harus diisi."),
+#             },
+#             'nama_website': {
+#                 'required': _("Nama Website harus diisi."),
+#             },
+#             'nama_perusahaan': {
+#                 'required': _("Nama Perusahaan harus diisi."),
+#             },
+#             'no_hp': {
+#                 'required': _("Nomor HP harus diisi."),
+#             },
+#         }

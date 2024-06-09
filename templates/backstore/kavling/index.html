@@ -11,6 +11,7 @@
               <li class="breadcrumb-item">
                 <a href="{% url 'dashboard' %}"><i class="mdi mdi-home-outline"></i></a>
               </li>
+              <li class="breadcrumb-item" aria-current="page">Master</li>
               <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
             </ol>
           </nav>
@@ -22,11 +23,11 @@
   <!-- Main content -->
   <section class="content">
     <div class="row">
-      <div class="col-12">
+      <div class="col-8">
         <div class="box">
           <div class="box-header with-border d-flex justify-content-between align-items-center">
             <h4 class="box-title">List {{ title }}</h4>
-            <a href="#" class="btn btn-primary ajax_modal" data-url="{% url 'kavling_import' %}" class="btn btn-primary btn-sm">Import</a>
+            <a href="#" class="btn btn-sm btn-primary ajax_modal" data-url="{% url 'kavling_import' %}" class="btn btn-primary btn-sm">Import</a>
           </div>
           <div class="box-body">
             <div class="table-responsive">
@@ -81,6 +82,17 @@
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="box">
+          <div class="box-header without-border d-flex justify-content-between align-items-center">
+            <h4 class="box-title">Preview Kavling</h4>
+            <a href="#" class="btn btn-primary btn-sm ajax_modal" data-url="{% url 'kavling_import' %}" class="btn btn-primary btn-sm">Ubah</a>
+          </div>
+          <div class="box-body">
+            
           </div>
         </div>
       </div>
