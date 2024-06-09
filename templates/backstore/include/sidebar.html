@@ -19,6 +19,18 @@
               <span>Dashboard</span>
             </a>
           </li>
+          <li
+            class="{% if request.resolver_match.url_name == 'user' %} active {% endif %}"
+          >
+            <a href="{% url 'user' %}">
+              <img
+                src="{% static 'images/svg-icon/user.svg' %}"
+                class="svg-icon"
+                alt=""
+              />
+              <span>User</span>
+            </a>
+          </li>
           <li class="treeview">
             <a href="#">
               <img

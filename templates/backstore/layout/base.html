@@ -11,34 +11,38 @@
 
     <title>Kavling App</title>
 
-    <!-- Vendors Style-->
+    <!-- Vendors Style -->
     <link rel="stylesheet" href="{% static 'css/vendors_css.css' %}" />
 
-    <!-- Style-->
+    <!-- Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/skin_color.css' %}" />
   </head>
-  <body class="hold-transition dark-skin sidebar-mini theme-warning fixed">
+  <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">
       {% comment %}
       <div id="loader"></div>
-      {% endcomment %} {% include "backstore/include/navbar.html" %}
+      {% endcomment %} {% include 'backstore/include/navbar.html' %}
       <!-- comment -->
-      {% include "backstore/include/sidebar.html" %}
+      {% include 'backstore/include/sidebar.html' %}
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <div class="container-full">
           <!-- Content Header (Page header) -->
-          {% block content %} {% endblock %}
+          {% block content %}
+
+          {% endblock %}
           <!-- /.content -->
         </div>
       </div>
       <!-- /.content-wrapper -->
 
+      <!-- modal -->
+      <div class="modal center-modal fade" id="ajax-modal" tabindex="-1" style="display: block" aria-modal="true" role="dialog"></div>
+
       <footer class="main-footer">
-        &copy; {% now "Y" %}
-        <a href="https://dotech.cfd">PT Dotech Digital Solution</a>. All Rights
-        Reserved.
+        &copy;{% now 'Y' %}
+        <a href="https://dotech.cfd">PT Dotech Digital Solution</a>. All Rights Reserved.
       </footer>
     </div>
 
@@ -48,6 +52,7 @@
     <script src="{% static 'js/vendors.min.js' %}"></script>
     <script src="{% static 'js/pages/chat-popup.js' %}"></script>
     <script src="{% static 'assets/icons/feather-icons/feather.min.js' %}"></script>
+    <script src="{% static 'js/jquery-validation/jquery.validate.min.js' %}"></script>
 
     <!-- Crypto Tokenizer Admin App -->
     <script src="{% static 'js/template.js' %}"></script>
@@ -55,11 +60,127 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script language="javascript">
       $(document).ready(function () {
-        $("#items-table").dataTable({
+        $('#items-table').dataTable({
           searching: false,
-          lengthChange: false,
-        });
-      });
+          lengthChange: false
+        })
+      })
     </script>
+    <script>
+      var $modal = $('#ajax-modal')
+      
+      function isJSON(str) {
+        if (typeof str == 'string') {
+          return false
+        } else {
+          return true
+        }
+      }
+      
+      var hl = function (element, errorClass, validClass) {
+        $(element).removeClass('is-valid').addClass('is-invalid')
+        let elem = $(element)
+        if (elem.hasClass('select2-offscreen')) {
+          $('#s2id_' + elem.attr('id') + ' ul').addClass(errorClass)
+        }
+      }
+      var uhl = function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid')
+        let elem = $(element)
+        if (elem.hasClass('select2-offscreen')) {
+          $('#s2id_' + elem.attr('id') + ' ul').removeClass(errorClass)
+        }
+      }
+      var sc = function (label, element) {
+        label.remove()
+        $(element).removeClass('is-invalid')
+      }
+      var erp = function (error, element) {
+        // render error placement for each input type
+        if (element.is('select') && (element.hasClass('select2') || element.hasClass('select2-hidden-accessible'))) {
+          $(element).parent().append(error)
+        } else if (element.is('select') || element.attr('type') == 'radio' || element.attr('type') == 'checkbox' || element.attr('type') == 'textarea') {
+          // for chosen elements, need to insert the error after the chosen container
+          //} else if (element.is("select") || element.attr("type") == "radio" || element.attr("type") == "checkbox" || element.attr("type") == "file" || element.attr("type") == "textarea") { // for chosen elements, need to insert the error after the chosen container
+          error.insertAfter($(element).closest('.form-group').children('div').children().last())
+        } else if (element.is('select')) {
+          error.appendTo($(element).parent())
+        } else if (element.hasClass('ckeditor')) {
+          error.appendTo($(element).closest('.form-group'))
+        } else if ($(element).parent().hasClass('input-group')) {
+          $(element).parent().append(error)
+        } else if ($(element).parent().hasClass('custom-file')) {
+          $(element).parent().parent().append(error)
+        } else {
+          error.insertAfter(element)
+        }
+      }
+      
+      $('body').on('click', '.ajax_modal', function (ev) {
+        ev.preventDefault()
+        let u = $(this).data('url')
+      
+        //fetch with ajax
+        $.ajax({
+          url: u,
+          type: 'GET',
+          success: function (response) {
+            if (!isJSON(response)) {
+              $modal.html(response)
+              $modal.modal('show')
+            } else {
+              toastr.error(response?.message)
+            }
+          },
+          error: function (error) {
+            toastr.error(error.responseJSON.error)
+          }
+        })
+      })
+      
+      $('#ajax-modal').on('show.bs.modal', function (e) {
+        var rules = {}
+      
+        // Iterate over input blocks with the class 'required' inside the modal
+        $('.input-blocks').each(function () {
+          if ($(this).find('[required]').length > 0) {
+            // Get the input element inside the current input block
+            var formElements = $(this).find('input, select, textarea')
+      
+            // Iterate over each form element
+            formElements.each(function () {
+              // Get the element's name attribute
+              var fieldName = $(this).attr('name')
+      
+              // Add the rule to the rules object
+              rules[fieldName] = {
+                required: true
+              }
+            })
+          }
+        })
+      
+        console.log(rules)
+      
+        // Initialize form validation with dynamic rules for the form inside the modal
+        $('#main-form', this).validate({
+          rules: rules,
+          submitHandler: function (form) {
+            // Submit the form
+            form.submit()
+          },
+          validClass: 'valid-feedback',
+          errorElement: 'div',
+          errorClass: 'invalid-feedback',
+          errorPlacement: erp,
+          highlight: hl,
+          unhighlight: uhl,
+          success: sc
+        })
+      })
+    </script>
+    {% block script %}
+
+    {% endblock %}
   </body>
 </html>
