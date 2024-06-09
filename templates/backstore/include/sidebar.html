@@ -34,22 +34,22 @@
           <li class="treeview">
             <a href="#">
               <img
-                src="{% static 'images/svg-icon/sidebar-menu/apps.svg' %}"
+                src="{% static 'images/svg-icon/sidebar-menu/uielements.svg' %}"
                 class="svg-icon"
                 alt=""
               />
-              <span>Decision Tree</span>
+              <span>Master Data</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
               </span>
             </a>
             <ul class="treeview-menu">
               <li
-                class="{% if request.resolver_match.url_name == 'index_dataset' %} active {% endif %}"
+                class="{% if request.resolver_match.url_name == 'kavling' %} active {% endif %}"
               >
-                <a href="{% url 'dashboard' %}">
+                <a href="{% url 'kavling' %}">
                   <i class="ti-more"></i>
-                  <span>Dataset</span>
+                  <span>Kavling</span>
                 </a>
               </li>
               <li
@@ -57,7 +57,15 @@
               >
                 <a href="{% url 'dashboard' %}">
                   <i class="ti-more"></i>
-                  <span>Prediksi</span>
+                  <span>Marketing</span>
+                </a>
+              </li>
+              <li
+                class="{% if request.resolver_match.url_name == 'index_prediksi' %} active {% endif %}"
+              >
+                <a href="{% url 'dashboard' %}">
+                  <i class="ti-more"></i>
+                  <span>Customer</span>
                 </a>
               </li>
             </ul>

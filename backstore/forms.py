@@ -1,6 +1,7 @@
 from django.forms import ModelForm, CharField, PasswordInput
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
+from .models import *
 
 # membuat class TaskForm untuk membuat task
 class UserForm(ModelForm):
@@ -40,5 +41,47 @@ class UserForm(ModelForm):
             },
             'last_name': {
                 'required': _("Nama Belakang harus diisi."),
+            },
+        }
+        
+class KavlingForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['kode_kavling'].required = True
+        self.fields['luas_tanah'].required = True
+        self.fields['harga_per_meter'].required = True
+        self.fields['harga_jual_cash'].required = False
+        self.fields['map_code'].required = False
+        self.fields['status'].required = False
+    class Meta:
+        # merelasikan form dengan model
+        model = Kavling
+        # mengeset field apa saja yang akan ditampilkan pada form
+        fields = ('kode_kavling', 'luas_tanah', 'harga_per_meter', 'harga_jual_cash', 'map_code', 'status')
+        # mengatur teks label untuk setiap field
+        labels = {
+            'kode_kavling': _('Kode Kavling'),
+            'luas_tanah': _('Luas Tanah'),
+            'harga_per_meter': _('Harga per Meter'),
+            'harga_jual_cash': _('Harga Jual Cash'),
+            'map_code': _('Map Code'),
+            'status': _('Status'),
+        }
+        # mengatur teks pesan error untuk setiap validasi fieldnya
+        error_messages = {
+            'kode_kavling': {
+                'required': _("Kode Kavling harus diisi."),
+            },
+            'luas_tanah': {
+                'required': _("Luas Tanah harus diisi."),
+            },
+            'harga_per_meter': {
+                'required': _("Harga per Meter harus diisi."),
+            },
+            'harga_jual_cash': {
+                'required': _("Harga Jual Cash harus diisi."),
+            },
+            'map_code': {
+                'required': _("Map Code harus diisi."),
             },
         }

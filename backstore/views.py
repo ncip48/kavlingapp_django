@@ -11,6 +11,7 @@ from django.views import generic
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
+from .models import *
 
 # Create your views here.
 
@@ -56,7 +57,7 @@ def custom_404(request, exception):
     return render(request, '404.html', status=404)
 
 @login_required
-@permission_required('dashboard.index')
+# @permission_required('dashboard.index')
 def dashboard(request):
     return render(request, 'backstore/dashboard.html')
 
@@ -148,6 +149,98 @@ def user_update(request, user_id):
     
 @login_required
 def user_delete(request, user_id):
+    redirect_url = 'user'
+    try:
+        user = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                user = User.objects.get(pk=user_id)
+                user.delete()
+                messages.success(request, 'Berhasil menghapus data')
+                return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, "Gagal menghapus data")
+            return redirect(redirect_url)
+    else:
+        context = {
+            'data': user, 
+            'url': reverse('user_delete', args=[user.id])
+        }
+        return render(request, 'backstore/default/delete.html', context)
+
+@login_required
+# @permission_required('catalog.awokwok', raise_exception=True)
+def kavling_index(request):
+    context = {
+        'title': 'Kavling',
+        'datas': Kavling.objects.all()
+    }
+    return render(request, 'backstore/kavling/index.html', context)
+
+@login_required
+def kavling_create(request):
+    redirect_url = 'kavling'
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = KavlingForm(request.POST)
+                if form.is_valid():
+                    user = form.save(commit=False)
+                    user.set_password(form.cleaned_data['password'])
+                    user.save()
+                    messages.success(request, "Berhasil menambahkan data")
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal menambahkan data {e}")
+            return redirect(redirect_url)
+    else:
+        form = KavlingForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'backstore/kavling/action.html', context)
+
+@login_required
+def kavling_update(request, user_id):
+    redirect_url = 'user'
+    try:
+        user = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = UserForm(request.POST, instance=user)
+                if form.is_valid():
+                    if request.POST.get('password') != '':
+                        new_password= form.cleaned_data['password']
+                        user.set_password(new_password)
+                    user.save()
+                    messages.success(request, 'Berhasil mengubah data')
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, "Gagal mengedit data")
+            return redirect(redirect_url)
+    else:
+        form = UserForm(instance=user)
+        form.fields['password'].required = False
+        context = {
+            'form': form, 
+            'data': user
+        }
+        return render(request, 'backstore/kavling/action.html', context)
+    
+@login_required
+def kavling_delete(request, user_id):
     redirect_url = 'user'
     try:
         user = User.objects.get(pk=user_id)
