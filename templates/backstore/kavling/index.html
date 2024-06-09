@@ -53,11 +53,11 @@
                         <td>Rp. {{ data.harga_jual_cash|intcomma }}</td>
                         <td>
                           {% if data.status == 0 %}
-                            <span class="label label-info">Tersedia</span>
+                            <span class="label label-primary">Tersedia</span>
                           {% elif data.status == 1 %}
                             <span class="label label-warning">Booking</span>
                           {% elif data.status == 2 %}
-                            <span class="label label-danger">
+                            <span class="label label-success">
                               Terjual{% if data.is_cash == 1 %}
                                 Cash
                               {% elif data.is_cash == 0 %}
@@ -89,10 +89,10 @@
         <div class="box">
           <div class="box-header without-border d-flex justify-content-between align-items-center">
             <h4 class="box-title">Preview Kavling</h4>
-            <a href="#" class="btn btn-primary btn-sm ajax_modal" data-url="{% url 'kavling_import' %}" class="btn btn-primary btn-sm">Ubah</a>
+            <a href="#" class="btn btn-primary btn-sm ajax_modal" data-url="{% url 'kavling_template' %}" class="btn btn-primary btn-sm">Ubah</a>
           </div>
           <div class="box-body">
-            
+            {{kavling.template_kavling|safe}}
           </div>
         </div>
       </div>

@@ -176,7 +176,8 @@ def user_delete(request, user_id):
 def kavling_index(request):
     context = {
         'title': 'Kavling',
-        'datas': Kavling.objects.all()
+        'datas': Kavling.objects.all(),
+        'kavling': Site.objects.first(),
     }
     return render(request, 'backstore/kavling/index.html', context)
 
@@ -225,6 +226,27 @@ def kavling_import(request):
             'form': form
         }
         return render(request, 'backstore/kavling/import.html', context)
+    
+@login_required
+def kavling_template(request):
+    redirect_url = 'kavling'
+    site = Site.objects.get(pk=1)
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = TemplateKavlingForm(request.POST, instance=site)
+                form.save()
+                messages.success(request, "Berhasil merubah data")
+                return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal menambahkan data {e}")
+            return redirect(redirect_url)
+    else:
+        form = TemplateKavlingForm(instance=site)
+        context = {
+            'form': form
+        }
+        return render(request, 'backstore/kavling/template.html', context)
 
 @login_required
 def kavling_update(request, kavling_id):
