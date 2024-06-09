@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'django.contrib.humanize',
     'backstore',
 ]
 
@@ -147,3 +148,6 @@ CORS_ALLOW_CREDENTIALS = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL='/login/'
+
+USE_L10N = True
+USE_THOUSAND_SEPARATOR = True

@@ -1,4 +1,6 @@
 {% extends 'backstore/layout/base.html' %} {% block content %}
+{% load humanize %}
+{% load l10n %}
   <div class="content-header">
     <div class="d-flex align-items-center">
       <div class="me-auto">
@@ -24,7 +26,7 @@
         <div class="box">
           <div class="box-header with-border d-flex justify-content-between align-items-center">
             <h4 class="box-title">List {{ title }}</h4>
-            <a href="#" class="btn btn-primary ajax_modal" data-url="{% url 'kavling_create' %}" class="btn btn-primary btn-sm">Tambah</a>
+            <a href="#" class="btn btn-primary ajax_modal" data-url="{% url 'kavling_import' %}" class="btn btn-primary btn-sm">Import</a>
           </div>
           <div class="box-body">
             <div class="table-responsive">
@@ -47,17 +49,21 @@
                         <td>{{ forloop.counter }}</td>
                         <td>{{ data.kode_kavling }}</td>
                         <td>{{ data.luas_tanah }}</td>
-                        <td>{{ data.harga_jual_cash }}</td>
+                        <td>Rp. {{ data.harga_jual_cash|intcomma }}</td>
                         <td>
-                          <td>
-                            {% if data.status == 0 %}
+                          {% if data.status == 0 %}
                             <span class="label label-info">Tersedia</span>
-                            {% elif data.status == 1 %}
+                          {% elif data.status == 1 %}
                             <span class="label label-warning">Booking</span>
-                            {% elif data.status == 2 %}
-                            <span class="label label-danger">Terjual {% if data.is_cash == 1 %}Cash{%else%}Kredit{%endif%}</span>
-                            {% endif %}
-                          </td>
+                          {% elif data.status == 2 %}
+                            <span class="label label-danger">
+                              Terjual{% if data.is_cash == 1 %}
+                                Cash
+                              {% elif data.is_cash == 0 %}
+                                Kredit
+                              {% endif %}
+                            </span>
+                          {% endif %}
                         </td>
                         <td class="text-center">
                           <div class="list-icons d-inline-flex">
@@ -69,7 +75,7 @@
                     {% endfor %}
                   {% else %}
                     <tr>
-                      <td colspan="5" class="text-center">Data tidak ditemukan.</td>
+                      <td colspan="6" class="text-center">Data tidak ditemukan.</td>
                     </tr>
                   {% endif %}
                 </tbody>

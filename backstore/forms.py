@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CharField, PasswordInput
+from django.forms import ModelForm, CharField, PasswordInput, TextInput
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from .models import *
@@ -52,12 +52,16 @@ class KavlingForm(ModelForm):
         self.fields['harga_per_meter'].required = True
         self.fields['harga_jual_cash'].required = False
         self.fields['map_code'].required = False
-        self.fields['status'].required = False
+        
+    kode_kavling = CharField(
+        label='Kode Kavling',
+        widget=TextInput(attrs={'readonly': 'readonly'})
+    )
     class Meta:
         # merelasikan form dengan model
         model = Kavling
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('kode_kavling', 'luas_tanah', 'harga_per_meter', 'harga_jual_cash', 'map_code', 'status')
+        fields = ('kode_kavling', 'luas_tanah', 'harga_per_meter', 'harga_jual_cash', 'map_code',)
         # mengatur teks label untuk setiap field
         labels = {
             'kode_kavling': _('Kode Kavling'),
@@ -65,7 +69,6 @@ class KavlingForm(ModelForm):
             'harga_per_meter': _('Harga per Meter'),
             'harga_jual_cash': _('Harga Jual Cash'),
             'map_code': _('Map Code'),
-            'status': _('Status'),
         }
         # mengatur teks pesan error untuk setiap validasi fieldnya
         error_messages = {
