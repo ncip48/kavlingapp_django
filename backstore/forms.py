@@ -8,17 +8,19 @@ class UserForm(ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['username'].required = True
         self.fields['first_name'].required = True
+        self.fields['email'].required = True
         
     class Meta:
         # merelasikan form dengan model
         model = User
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('username', 'first_name', 'last_name')
+        fields = ('username', 'email', 'first_name', 'last_name')
         # mengatur teks label untuk setiap field
         labels = {
             'username': _('Username'),
+            'email': _('Email'),
             'first_name': _('Nama Depan'),
-            'last_name': _('Nama Belakang')
+            'last_name': _('Nama Belakang'),
         }
         # mengatur teks pesan error untuk setiap validasi fieldnya
         error_messages = {
