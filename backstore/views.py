@@ -107,7 +107,11 @@ def user_create(request):
             return redirect(redirect_url)
     else:
         form = UserForm()
-        return render(request, 'backstore/user/action.html', {'form': form})
+        form.fields['password'].required = True
+        context = {
+            'form': form
+        }
+        return render(request, 'backstore/user/action.html', context)
 
 @login_required
 def user_update(request, user_id):
@@ -121,8 +125,9 @@ def user_update(request, user_id):
             with transaction.atomic():
                 form = UserForm(request.POST, instance=user)
                 if form.is_valid():
-                    new_password= form.cleaned_data['password']
-                    user.set_password(new_password)
+                    if request.POST.get('password') != '':
+                        new_password= form.cleaned_data['password']
+                        user.set_password(new_password)
                     user.save()
                     messages.success(request, 'Berhasil mengubah data')
                     return redirect(redirect_url)
@@ -134,7 +139,12 @@ def user_update(request, user_id):
             return redirect(redirect_url)
     else:
         form = UserForm(instance=user)
-        return render(request, 'backstore/user/action.html', {'form': form, 'data':user})
+        form.fields['password'].required = False
+        context = {
+            'form': form, 
+            'data': user
+        }
+        return render(request, 'backstore/user/action.html', context)
     
 @login_required
 def user_delete(request, user_id):
@@ -154,5 +164,8 @@ def user_delete(request, user_id):
             messages.error(request, "Gagal menghapus data")
             return redirect(redirect_url)
     else:
-        form = UserForm(instance=user)
-        return render(request, 'backstore/default/delete.html', {'data': user, 'url': reverse('user_delete', args=[user.id])})
+        context = {
+            'data': user, 
+            'url': reverse('user_delete', args=[user.id])
+        }
+        return render(request, 'backstore/default/delete.html', context)

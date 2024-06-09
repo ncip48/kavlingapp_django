@@ -9,6 +9,7 @@ class UserForm(ModelForm):
         self.fields['username'].required = True
         self.fields['first_name'].required = True
         self.fields['email'].required = True
+        self.fields['password'].required = False
     
     password = CharField(
         label='Password',
@@ -39,8 +40,5 @@ class UserForm(ModelForm):
             },
             'last_name': {
                 'required': _("Nama Belakang harus diisi."),
-            },
-             'password': {
-                'required': _("Password harus diisi."),
             },
         }
