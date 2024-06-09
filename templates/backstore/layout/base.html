@@ -18,6 +18,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/skin_color.css' %}" />
     <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}" />
+    <style>
+      .template {
+        position: "absolute";
+        height: 0px;
+        z-index: 1;
+      }
+
+      .floating {
+        position: "absolute";
+        z-index: 2;
+      }
+    </style>
   </head>
   <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">

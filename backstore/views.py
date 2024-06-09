@@ -12,6 +12,7 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from .models import *
+import re
 
 # Create your views here.
 
@@ -209,12 +210,21 @@ def kavling_create(request):
 def kavling_import(request):
     redirect_url = 'kavling'
     if request.POST:
+        # print(request.POST['kode'])
+        kode = request.POST['kode']
+        split_kode = re.findall(r'<g.*?</g>', kode, re.DOTALL)
+        # print(len(split_kode))
         try:
             with transaction.atomic():
-                kavling = Kavling(
-                    
-                )
-                kavling.save()
+                for code in split_kode:
+                    kavling = Kavling(
+                        map_code=code,
+                        luas_tanah=0,
+                        harga_per_meter=0,
+                        harga_jual_cash=0,
+                        
+                    )
+                    kavling.save()
                 messages.success(request, "Berhasil menambahkan data")
                 return redirect(redirect_url)
         except Exception as e:

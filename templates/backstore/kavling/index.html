@@ -92,7 +92,19 @@
             <a href="#" class="btn btn-primary btn-sm ajax_modal" data-url="{% url 'kavling_template' %}" class="btn btn-primary btn-sm">Ubah</a>
           </div>
           <div class="box-body">
-            {{kavling.template_kavling|safe}}
+            <div class="template">
+              {{kavling.template_kavling|safe}}
+            </div>
+            <div class="floating">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="355.59987393450007" height="293.1207845858" viewBox="134.86337583589997 107.76086809459997 355.59987393450007 293.1207845858" xml:space="preserve">
+              {% for kav in datas %}
+                <g>
+                  {{kav.map_code|safe}}
+                  <text>{{kav.kode_kavling}}</text>
+                </g>
+              {% endfor %}
+              </svg>
+            </div>
           </div>
         </div>
       </div>

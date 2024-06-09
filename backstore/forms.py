@@ -53,10 +53,10 @@ class KavlingForm(ModelForm):
         self.fields['harga_jual_cash'].required = False
         self.fields['map_code'].required = False
         
-    kode_kavling = CharField(
-        label='Kode Kavling',
-        widget=TextInput(attrs={'readonly': 'readonly'})
-    )
+    # kode_kavling = CharField(
+    #     label='Kode Kavling',
+    #     widget=TextInput(attrs={'readonly': 'readonly'})
+    # )
     
     map_code = CharField(
         label="Map Code",
