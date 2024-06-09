@@ -49,4 +49,12 @@ def custom_404(request, exception):
 
 @login_required
 def dashboard(request):
-    return render(request, 'empty/index.html',)
+    return render(request, 'backstore/dashboard.html')
+
+@login_required
+def user(request):
+    if request.GET:
+        context = {
+            'datas': User.objects.all()
+        }
+        return render(request, '', context)

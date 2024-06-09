@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from kavling import urls as kavling_urls
+from backstore import urls as backstore_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',  include(kavling_urls))
+    path('',  include(backstore_urls))
 ]
 
-handler404 = 'kavling.views.custom_404'
+handler404 = 'backstore.views.custom_404'
