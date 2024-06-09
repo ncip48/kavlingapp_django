@@ -29,6 +29,10 @@
         position: "absolute";
         z-index: 2;
       }
+
+      .clicked g {
+        cursor:pointer
+      }
     </style>
   </head>
   <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -78,6 +82,13 @@
           searching: false,
           lengthChange: false
         })
+
+        $('.clicked g').each(function(){
+          $(this).on('click', function(){
+            const text = $(this).text();
+            alert(text)
+          });
+        });
       })
     </script>
     <script>

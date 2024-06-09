@@ -99,8 +99,8 @@
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="355.59987393450007" height="293.1207845858" viewBox="134.86337583589997 107.76086809459997 355.59987393450007 293.1207845858" xml:space="preserve">
               {% for kav in datas %}
                 {{kav.map_code_g|safe}}
-                <text>{{kav.kode_kavling}}</text>
                 {{kav.map_code_path|safe}}
+                <text x="-5" y ="1">{{kav.kode_kavling}}</text>
                 </g>
               {% endfor %}
               </svg>
