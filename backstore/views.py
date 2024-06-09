@@ -10,6 +10,7 @@ from .forms import *
 from django.views import generic
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
 
 # Create your views here.
 
@@ -154,4 +155,4 @@ def user_delete(request, user_id):
             return redirect(redirect_url)
     else:
         form = UserForm(instance=user)
-        return render(request, 'backstore/user/action.html', {'form': form, 'data':user})
+        return render(request, 'backstore/default/delete.html', {'data': user, 'url': reverse('user_delete', args=[user.id])})
