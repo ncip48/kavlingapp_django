@@ -21,7 +21,6 @@
   <section class="content">
     <div class="row">
       <div class="col-12">
-        {% include "backstore/include/message.html" %}
         <div class="box">
           <div class="box-header with-border d-flex justify-content-between align-items-center">
             <h4 class="box-title">List {{ title }}</h4>
@@ -52,7 +51,7 @@
                         <td>{{ data.last_login }}</td>
                         <td class="text-center">
                           <div class="list-icons d-inline-flex">
-                            <a href="#" class="list-icons-item me-10"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'user_update' data.id %}"><i class="fa fa-pencil"></i></a>
                             <a href="#" class="list-icons-item me-10"><i class="fa fa-trash"></i></a>
                           </div>
                         </td>

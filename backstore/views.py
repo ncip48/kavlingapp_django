@@ -82,7 +82,6 @@ def user_index(request):
 def user_create(request):
     if request.POST:
         try:
-            id = request.POST.get("id")
             with transaction.atomic():
                 form = UserForm(request.POST)
                 # Mengecek validasi form
@@ -91,8 +90,8 @@ def user_create(request):
                     new_user = UserForm(request.POST)
                     # Simpan data ke dalam table tasks
                     new_user.save()
-            messages.success(request, "Berhasil menambahkan data")
-            return redirect('user')
+                messages.success(request, "Berhasil menambahkan data")
+                return redirect('user')
         except Exception as e:
             messages.error(request, "Gagal menambahkan data")
             return redirect('user')
@@ -103,26 +102,20 @@ def user_create(request):
 @login_required
 def user_update(request, user_id):
     try:
-        # mengambil data task yang akan diubah berdasarkan task id
-        task = User.objects.get(pk=user_id)
+        user = User.objects.get(pk=user_id)
     except User.DoesNotExist:
-        # Jika data task tidak ditemukan,
-        # maka akan di redirect ke halaman 404 (Page not found).
-        raise Http404("Task tidak ditemukan.")
-    # Mengecek method pada request
-    # Jika method-nya adalah POST, maka akan dijalankan
-    # proses validasi dan penyimpanan data
-    if request.method == 'POST':
-        form = UserForm(request.POST, instance=task)
-        if form.is_valid():
-            # Simpan perubahan data ke dalam table tasks
-            form.save()
-            # mengeset pesan sukses dan redirect ke halaman daftar task
-            messages.success(request, 'Sukses Mengubah Task.')
+        raise Http404("Data tidak ditemukan.")
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = UserForm(request.POST, instance=user)
+                if form.is_valid():
+                    form.save()
+                    messages.success(request, 'Sukses Mengubah data')
+                    return redirect('user')
+        except Exception as e:
+            messages.error(request, "Gagal mengedit data")
             return redirect('user')
-    # Jika method-nya bukan POST
     else:
-        # membuat objek dari class TaskForm
-        form = UserForm(instance=task)
-    # merender template form dengan memparsing data form
-    return render(request, 'backstore/user/action.html', {'form': form})
+        form = UserForm(instance=user)
+        return render(request, 'backstore/user/action.html', {'form': form, 'data':user})

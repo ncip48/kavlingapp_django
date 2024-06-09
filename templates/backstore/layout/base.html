@@ -17,6 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/skin_color.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}" />
   </head>
   <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
     <div class="wrapper">
@@ -56,6 +57,7 @@
 
     <!-- Crypto Tokenizer Admin App -->
     <script src="{% static 'js/template.js' %}"></script>
+    <script src="{% static 'js/toastr.min.js' %}"></script>
 
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script language="javascript">
@@ -160,7 +162,7 @@
           }
         })
       
-        console.log(rules)
+        //console.log(rules)
       
         // Initialize form validation with dynamic rules for the form inside the modal
         $('#main-form', this).validate({
@@ -179,6 +181,9 @@
         })
       })
     </script>
+
+    {% include "backstore/include/message.html" %}
+    
     {% block script %}
 
     {% endblock %}

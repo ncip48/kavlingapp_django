@@ -1,6 +1,11 @@
 {% for message in messages %}
-          <div class="alert bg-{% if message.tags == 'error' %}danger{% else %}success{% endif %}-light alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        {% endfor %}
+  {% if message.tags == 'error' %}
+  <script>
+    toastr.error('{{message}}');
+  </script>
+  {% else %}
+  <script>
+    toastr.success('{{message}}');
+  </script>
+  {% endif %}
+{% endfor %}
