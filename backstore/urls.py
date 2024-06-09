@@ -11,4 +11,5 @@ urlpatterns = [
     path('panel/user', user_index, name='user'),
     path('panel/user/create', user_create, name='user_create'),
     path('panel/user/update/<int:user_id>', user_update, name='user_update'),
+    path('panel/user/delete/<int:user_id>', user_delete, name='user_delete'),
 ]

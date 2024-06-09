@@ -123,14 +123,34 @@ def user_update(request, user_id):
                     new_password= form.cleaned_data['password']
                     user.set_password(new_password)
                     user.save()
-                    messages.success(request, 'Sukses Mengubah data')
+                    messages.success(request, 'Berhasil mengubah data')
                     return redirect(redirect_url)
                 else:
                     messages.error(request, "Data tidak valid")
                     return redirect(redirect_url)
-                
         except Exception as e:
-            messages.error(request, "Gagal mengedit data" + e)
+            messages.error(request, "Gagal mengedit data")
+            return redirect(redirect_url)
+    else:
+        form = UserForm(instance=user)
+        return render(request, 'backstore/user/action.html', {'form': form, 'data':user})
+    
+@login_required
+def user_delete(request, user_id):
+    redirect_url = 'user'
+    try:
+        user = User.objects.get(pk=user_id)
+    except User.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                user = User.objects.get(pk=user_id)
+                user.delete()
+                messages.success(request, 'Berhasil menghapus data')
+                return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, "Gagal menghapus data")
             return redirect(redirect_url)
     else:
         form = UserForm(instance=user)
