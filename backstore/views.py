@@ -68,7 +68,7 @@ def add_permission(request):
     permission = Permission.objects.get(name='Can view excel data')
     user.user_permissions.add(permission)
     user.save()
-    
+
 @login_required
 # @permission_required('catalog.awokwok', raise_exception=True)
 def user_index(request):
@@ -80,6 +80,7 @@ def user_index(request):
 
 @login_required
 def user_create(request):
+    redirect_url = 'user'
     if request.POST:
         try:
             with transaction.atomic():
@@ -90,17 +91,21 @@ def user_create(request):
                     new_user = UserForm(request.POST)
                     # Simpan data ke dalam table tasks
                     new_user.save()
-                messages.success(request, "Berhasil menambahkan data")
-                return redirect('user')
+                    messages.success(request, "Berhasil menambahkan data")
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
         except Exception as e:
             messages.error(request, "Gagal menambahkan data")
-            return redirect('user')
+            return redirect(redirect_url)
     else:
         form = UserForm()
         return render(request, 'backstore/user/action.html', {'form': form})
 
 @login_required
 def user_update(request, user_id):
+    redirect_url = 'user'
     try:
         user = User.objects.get(pk=user_id)
     except User.DoesNotExist:
@@ -112,10 +117,14 @@ def user_update(request, user_id):
                 if form.is_valid():
                     form.save()
                     messages.success(request, 'Sukses Mengubah data')
-                    return redirect('user')
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
+                
         except Exception as e:
             messages.error(request, "Gagal mengedit data")
-            return redirect('user')
+            return redirect(redirect_url)
     else:
         form = UserForm(instance=user)
         return render(request, 'backstore/user/action.html', {'form': form, 'data':user})

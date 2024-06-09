@@ -144,7 +144,7 @@
         var rules = {}
       
         // Iterate over input blocks with the class 'required' inside the modal
-        $('.input-blocks').each(function () {
+        $('.input-blockss').each(function () {
           if ($(this).find('[required]').length > 0) {
             // Get the input element inside the current input block
             var formElements = $(this).find('input, select, textarea')
@@ -183,7 +183,7 @@
     </script>
 
     {% include "backstore/include/message.html" %}
-    
+
     {% block script %}
 
     {% endblock %}
