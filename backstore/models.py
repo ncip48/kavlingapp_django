@@ -14,7 +14,8 @@ class Kavling(models.Model):
     luas_tanah = models.IntegerField()
     harga_per_meter = models.IntegerField()
     harga_jual_cash = models.IntegerField()
-    map_code = models.TextField()
+    map_code_g = models.TextField()
+    map_code_path = models.TextField()
     status = models.IntegerField(
         choices=KavlingStatus.choices, 
         default=KavlingStatus.TERSEDIA

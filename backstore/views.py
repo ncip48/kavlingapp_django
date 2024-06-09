@@ -216,13 +216,17 @@ def kavling_import(request):
         # print(len(split_kode))
         try:
             with transaction.atomic():
-                for code in split_kode:
+                for res in split_kode:
+                    # print(res)
+                    code = re.search(r'<g.*?>', res).group()
+                    path = re.search(r'<path.*? />', res).group()
+                    # print(code)
                     kavling = Kavling(
-                        map_code=code,
+                        map_code_g=code,
+                        map_code_path=path,
                         luas_tanah=0,
                         harga_per_meter=0,
-                        harga_jual_cash=0,
-                        
+                        harga_jual_cash=0,   
                     )
                     kavling.save()
                 messages.success(request, "Berhasil menambahkan data")
