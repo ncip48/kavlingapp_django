@@ -113,5 +113,25 @@
         "template_kavling": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" width=\"355.59987393450007\" height=\"293.1207845858\" viewBox=\"134.86337583589997 107.76086809459997 355.59987393450007 293.1207845858\" xml:space=\"preserve\">\n<desc>Created with Fabric.js 5.3.0</desc>\n<defs>\n</defs>\n<g transform=\"matrix(1 0 0 1 208.3249658359 272.3023476804)\" id=\"vWfcgrUidPQ3ZnMIUY5Xr\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-72.96159, -128.079305)\" d=\"M 25.37795 0 L 25.646749999999997 0.54114 L 25.115319999999997 0.60119 L 145.10392000000002 242.59013000000002 L 145.78129 242.39094000000003 L 145.92318 242.67658000000003 L 117.37299 256.15861 L 0 12.688970000000012 z\" stroke-linecap=\"round\" />\n</g>\n<g transform=\"matrix(1 0 0 1 325.6011897704 247.0827480946)\" id=\"_iGzlkTDEPjt9vQmwLjYE\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(49,226,247); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-164.36206, -138.82188)\" d=\"M 0 35.46217 L 315.28261 0 L 328.72411999999997 28.46071 L 189.06748999999996 259.13043999999996 L 117.58555999999996 277.64376 z M 63.47826 164.04148 L 328.22411999999997 27.960710000000006 L 318.16607 6.1618300000000055 L 47.08582999999999 132.0694 z\" stroke-linecap=\"round\" />\n</g>\n<g transform=\"matrix(1 0 0 1 348.8941076884 193.3625232968)\" id=\"bxJBFea0hjAq5c-Csg8XT\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-140.569145, -78.939825)\" d=\"M 0 125.90757 L 271.08024 0 L 281.13829 21.79888 L 16.39242999999999 157.87965 z\" stroke-linecap=\"round\" />\n</g>\n</svg>",
         "no_hp": ""
     }
+},
+{
+    "model": "backstore.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$UfrydpSA1pzGTKY7Z8sbE6$6mjJUpiKc+ICxRa2Cxeiizy2i/70cHZ8KUUPWX9qonU=",
+        "last_login": "2024-06-11T10:11:20.852Z",
+        "username": "ncip48",
+        "first_name": "Herly",
+        "last_name": "Chahya",
+        "email": "mbahcip00@gmail.com",
+        "is_active": true,
+        "date_joined": "2024-06-11T10:04:50.702Z",
+        "is_superuser": true,
+        "is_staff": true,
+        "role": 0,
+        "phone": "",
+        "groups": [],
+        "user_permissions": []
+    }
 }
 ]

@@ -151,3 +151,5 @@ LOGIN_URL='/login/'
 
 USE_L10N = True
 USE_THOUSAND_SEPARATOR = True
+
+AUTH_USER_MODEL = "backstore.User" 

@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User, Permission
+from django.contrib.auth.models import Permission
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -13,11 +13,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from .models import *
 import re
+from django_serverside_datatable.views import ServerSideDatatableView
+from django_serverside_datatable import datatable
+
 
 # Create your views here.
 
 #auth
 def login_view(request):
+    print(User.objects.all())
     next = ""
     if request.GET:  
         next = request.GET['next']
@@ -83,6 +87,18 @@ def user_index(request):
         'datas': User.objects.all()
     }
     return render(request, 'backstore/user/index.html', context)
+
+# class ListUserView(ServerSideDatatableView):
+# 	queryset = User.objects.all()
+# 	columns = ['username', 'email', 'full_name']
+
+def user_list(request, *args, **kwargs):
+    datas = User.objects.all()
+    columns = ['id', 'username', 'email', 'first_name', 'last_name','is_staff']
+    result = datatable.DataTablesServer(
+        request, columns, datas
+    ).output_result()
+    return JsonResponse(result, safe=False)
 
 @login_required
 def user_create(request):
@@ -312,5 +328,91 @@ def kavling_delete(request, kavling_id):
         context = {
             'data': kavling, 
             'url': reverse('kavling_delete', args=[kavling.id])
+        }
+        return render(request, 'backstore/default/delete.html', context)
+
+@login_required
+# @permission_required('catalog.awokwok', raise_exception=True)
+def customer_index(request):
+    context = {
+        'title': 'Customer',
+        'datas': Customer.objects.all(),
+    }
+    return render(request, 'backstore/customer/index.html', context)
+
+@login_required
+def customer_create(request):
+    redirect_url = 'customer'
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = CustomerForm(request.POST)
+                if form.is_valid():
+                    form.save()
+                    messages.success(request, "Berhasil menambahkan data")
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal menambahkan data {e}")
+            return redirect(redirect_url)
+    else:
+        form = CustomerForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'backstore/customer/action.html', context)
+    
+@login_required
+def customer_update(request, customer_id):
+    redirect_url = 'customer'
+    try:
+        customer = Customer.objects.get(pk=customer_id)
+    except Customer.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = CustomerForm(request.POST, instance=customer)
+                if form.is_valid():
+                    form.save()
+                    messages.success(request, 'Berhasil mengubah data')
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, "Gagal mengedit data")
+            return redirect(redirect_url)
+    else:
+        form = CustomerForm(instance=customer)
+        context = {
+            'form': form, 
+            'data': customer
+        }
+        return render(request, 'backstore/customer/action.html', context)
+    
+@login_required
+def customer_delete(request, customer_id):
+    redirect_url = 'customer'
+    try:
+        customer = Customer.objects.get(pk=customer_id)
+    except Customer.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                customer = Customer.objects.get(pk=customer_id)
+                customer.delete()
+                messages.success(request, 'Berhasil menghapus data')
+                return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, "Gagal menghapus data")
+            return redirect(redirect_url)
+    else:
+        context = {
+            'data': customer, 
+            'url': reverse('customer_delete', args=[customer.id])
         }
         return render(request, 'backstore/default/delete.html', context)
