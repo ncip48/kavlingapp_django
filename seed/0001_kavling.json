@@ -1,0 +1,117 @@
+[
+{
+    "model": "backstore.kavling",
+    "pk": 12,
+    "fields": {
+        "kode_kavling": "A-1",
+        "luas_tanah": 120,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 360000000,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 210 188.5259227041)\" id=\"vlQAwL4FmlSU1i02Filb1\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, 0.000005)\" d=\"M -48.26087 -44.34783 L -3.0434799999999953 51.304339999999996 L 48.260870000000004 26.086949999999995 L 4.782610000000005 -51.30435000000001 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 13,
+    "fields": {
+        "kode_kavling": "A-2",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 270 171.1346183562)\" id=\"seDzQX-BRXvNdvgKj7Bx5\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, -0.000005)\" d=\"M -44.78261 -34.41304 L -3.0434799999999953 40.86957 L 44.782610000000005 17.391310000000004 L 9.130440000000007 -40.86955999999999 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 14,
+    "fields": {
+        "kode_kavling": "A-3",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 325.652173913 155.1471903835)\" id=\"rinCV5ghO6mm6qiwMgTHV\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0.000005, 0.000005)\" d=\"M -36.08696 -25.38214 L -5.652179999999998 30.96909 L 36.08695 12.509160000000001 L 13.478250000000003 -30.969099999999997 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 15,
+    "fields": {
+        "kode_kavling": "A-4",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 393.48132183 139.9226989131)\" id=\"cY8ikmHrXzA2fvAElh08-\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, 0)\" d=\"M -46.08434 -16.2446 L -25.60241 25 L 46.084340000000005 -7.530119999999997 L 37.65061 -24.999999999999996 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 16,
+    "fields": {
+        "kode_kavling": "A-5",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 261.3583927118 282.3925784312)\" id=\"QKZ0PPmWhR-cCsn3eeVD6\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-0.00001, 0)\" d=\"M 13.14703 -33.73494 L 36.64101 13.253009999999996 L -13.961399999999998 33.734939999999995 L -36.64099 -10.240960000000008 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 17,
+    "fields": {
+        "kode_kavling": "A-6",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 299.5054182156 335.404626624)\" id=\"IW8OgKDmiVQjk4eWzgDV6\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-0.000005, 0)\" d=\"M -50.3012 -12.6506 L 33.43373999999999 -50 L 50.30121 30.722890000000007 L -18.975899999999996 50.00000000000001 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 18,
+    "fields": {
+        "kode_kavling": "A-7",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 319.0837314686 254.3805302384)\" id=\"4-2_8N6Yn5Q-TRmPkg3FF\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0.000005, 0.000005)\" d=\"M -39.75904 -9.33735 L -16.867469999999997 37.6506 L 13.253010000000003 25.60241 L 39.75903 2.7108399999999975 L 13.253010000000003 -37.65061 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 19,
+    "fields": {
+        "kode_kavling": "A-8",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g transform=\"matrix(1 0 0 1 413.9632495409 195.2667607363)\" id=\"ewFrI0-gdaxcJS_TpGM5B\"  >",
+        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, -0.000005)\" d=\"M -75 20.96317 L -51.72412 58.545190000000005 L 69.38687 -50.5299 L 75 -58.54518 z\" stroke-linecap=\"round\" />",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.site",
+    "pk": 1,
+    "fields": {
+        "logo": "",
+        "nama_website": "Kavling App",
+        "nama_perusahaan": "PT Dotech Digital Solution",
+        "template_kavling": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" width=\"355.59987393450007\" height=\"293.1207845858\" viewBox=\"134.86337583589997 107.76086809459997 355.59987393450007 293.1207845858\" xml:space=\"preserve\">\n<desc>Created with Fabric.js 5.3.0</desc>\n<defs>\n</defs>\n<g transform=\"matrix(1 0 0 1 208.3249658359 272.3023476804)\" id=\"vWfcgrUidPQ3ZnMIUY5Xr\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-72.96159, -128.079305)\" d=\"M 25.37795 0 L 25.646749999999997 0.54114 L 25.115319999999997 0.60119 L 145.10392000000002 242.59013000000002 L 145.78129 242.39094000000003 L 145.92318 242.67658000000003 L 117.37299 256.15861 L 0 12.688970000000012 z\" stroke-linecap=\"round\" />\n</g>\n<g transform=\"matrix(1 0 0 1 325.6011897704 247.0827480946)\" id=\"_iGzlkTDEPjt9vQmwLjYE\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(49,226,247); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-164.36206, -138.82188)\" d=\"M 0 35.46217 L 315.28261 0 L 328.72411999999997 28.46071 L 189.06748999999996 259.13043999999996 L 117.58555999999996 277.64376 z M 63.47826 164.04148 L 328.22411999999997 27.960710000000006 L 318.16607 6.1618300000000055 L 47.08582999999999 132.0694 z\" stroke-linecap=\"round\" />\n</g>\n<g transform=\"matrix(1 0 0 1 348.8941076884 193.3625232968)\" id=\"bxJBFea0hjAq5c-Csg8XT\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-140.569145, -78.939825)\" d=\"M 0 125.90757 L 271.08024 0 L 281.13829 21.79888 L 16.39242999999999 157.87965 z\" stroke-linecap=\"round\" />\n</g>\n</svg>",
+        "no_hp": ""
+    }
+}
+]
