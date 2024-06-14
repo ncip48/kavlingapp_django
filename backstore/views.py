@@ -263,11 +263,16 @@ def kavling_import(request):
                     text_x = re.search(r' x="([^"]+)"', text).group()
                     text_y = re.search(r' y="([^"]+)"', text).group()
                     check_transform = re.search(r'transform="([^"]+)"', text)
+                    check_fs = re.search(r'font-size="([^"]+)"', text)
                     if check_transform:
                         text_transform = check_transform.group()
                     else:
                         text_transform = ''
-                    text = f"{text_x} {text_y} {text_transform}"
+                    if check_fs:
+                        font_size = check_fs.group()
+                    else:
+                        font_size = ''
+                    text = f"{text_x} {text_y} {text_transform} {font_size}"
                     # print(text)
                     # print(text_x, text_y, kode_kavling)
                     kavling = Kavling(
