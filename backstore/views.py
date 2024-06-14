@@ -231,13 +231,8 @@ def kavling_create(request):
 def kavling_import(request):
     redirect_url = 'kavling'
     if request.POST:
-        # print(request.POST['kode'])
         kode = request.POST['kode']
         split_kode = re.findall(r'<g.*?</g>', kode, re.DOTALL)
-        split_text = re.findall(r'<text.*?</text>', kode, re.DOTALL)
-        # print(len(split_text))
-        # print(split_text)
-        # print(len(split_kode))
         try:
             with transaction.atomic():
                 for index, res in enumerate(split_kode):
@@ -265,9 +260,14 @@ def kavling_import(request):
                         text_match = re.search(r'<text.*?>([^<]+)</text>', x)
                         if text_match:
                             kode_kavling = text_match.group(1)
-                    text_x = re.search(r'x="([^"]+)"', text).group()
-                    text_y = re.search(r'y="([^"]+)"', text).group()
-                    text = f"{text_x} {text_y}"
+                    text_x = re.search(r' x="([^"]+)"', text).group()
+                    text_y = re.search(r' y="([^"]+)"', text).group()
+                    check_transform = re.search(r'transform="([^"]+)"', text)
+                    if check_transform:
+                        text_transform = check_transform.group()
+                    else:
+                        text_transform = ''
+                    text = f"{text_x} {text_y} {text_transform}"
                     # print(text)
                     # print(text_x, text_y, kode_kavling)
                     kavling = Kavling(
