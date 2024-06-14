@@ -16,8 +16,9 @@ class Kavling(models.Model):
     luas_tanah = models.IntegerField()
     harga_per_meter = models.IntegerField()
     harga_jual_cash = models.IntegerField()
-    map_code_g = models.TextField()
-    map_code_path = models.TextField()
+    map_code_g = models.TextField(null=True)
+    map_code_path = models.TextField(null=True)
+    text_code_svg = models.TextField(null=True)
     status = models.IntegerField(
         choices=KavlingStatus.choices, 
         default=KavlingStatus.TERSEDIA
@@ -27,6 +28,33 @@ class Kavling(models.Model):
         # define table name
         db_table = 'kavling'
         
+    @property
+    def transaksi(self):
+        return Transaksi.objects.get(id_kavling=self.id)
+        
+    @property
+    def get_color(self):
+        if self.status == 0:
+            return "white"
+        elif self.status == 1:
+            if self.transaksi.tipe_transaksi ==0:
+                return "blue"
+        elif self.status == 2:
+            if self.transaksi.tipe_transaksi == 1:
+                return "green"
+            elif self.transaksi.tipe_transaksi == 2:
+                return "red"
+        
+    @property
+    def get_font_color(self):
+        if self.status == 0:
+            return "black"
+        elif self.status == 1:
+            return "white"
+        elif self.status == 2:
+            return "white"
+        
+        
 class Site(models.Model):
     id = models.AutoField(primary_key=True)
     logo = models.CharField(max_length=50)
@@ -34,6 +62,7 @@ class Site(models.Model):
     nama_perusahaan = models.CharField(max_length=50)
     template_kavling = models.TextField()
     no_hp = models.CharField(max_length=15)
+    placement_template = models.TextField()
     class Meta:
         # define table name
         db_table = 'site'
@@ -81,3 +110,33 @@ class Customer(models.Model):
     class Meta:
         # define table name
         db_table = 'customer'
+        
+class Transaksi(models.Model):
+    class TransaksiTipe(models.IntegerChoices):
+        BOOKING = 0, "Booking"
+        CASH = 1, "Cash"
+        KREDIT = 2, "Kredit"
+        
+    id = models.AutoField(primary_key=True)
+    tanggal_transaksi = models.DateField(null=True)
+    id_kavling = models.ForeignKey(Kavling, on_delete=models.CASCADE)
+    tipe_transaksi = models.IntegerField(
+        choices=TransaksiTipe.choices, 
+        default=TransaksiTipe.BOOKING
+    )
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    marketing = models.ForeignKey(User, on_delete=models.CASCADE)
+    fee_marketing = models.IntegerField()
+    fee_notaris = models.IntegerField()
+    dp = models.IntegerField(null=True)
+    tenor = models.IntegerField(null=True)
+    cicilan_per_bulan = models.IntegerField(null=True)
+    tanggal_tempo = models.DateField(null=True)
+    pembayaran_cash = models.IntegerField(null=True)
+    pembelian_booking = models.IntegerField(null=True)
+    tanggal_batas_booking = models.DateField(null=True)
+    keterangan = models.TextField(null=True)
+    is_lunas = models.IntegerField(null=True)
+    class Meta:
+        # define table name
+        db_table = 'transaksi'

@@ -53,17 +53,19 @@
                         <td>Rp. {{ data.harga_jual_cash|intcomma }}</td>
                         <td>
                           {% if data.status == 0 %}
-                            <span class="label label-primary">Tersedia</span>
+                            <span class="label label-white">Tersedia</span>
                           {% elif data.status == 1 %}
-                            <span class="label label-warning">Booking</span>
+                            <span class="label label-primary">Booking</span>
                           {% elif data.status == 2 %}
-                            <span class="label label-success">
-                              Terjual{% if data.is_cash == 1 %}
-                                Cash
-                              {% elif data.is_cash == 0 %}
-                                Kredit
+                          {% if data.transaksi.tipe_transaksi == 1 %}
+                          <span class="label label-success">
+                                Terjual Cash
+                          </span>
+                              {% elif data.transaksi.tipe_transaksi == 2 %}
+                              <span class="label label-danger">
+                                Terjual Kredit
+                              </span>
                               {% endif %}
-                            </span>
                           {% endif %}
                         </td>
                         <td class="text-center">
@@ -96,15 +98,37 @@
               {{kavling.template_kavling|safe}}
             </div>
             <div class="floating">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="355.59987393450007" height="293.1207845858" viewBox="134.86337583589997 107.76086809459997 355.59987393450007 293.1207845858" xml:space="preserve">
+              {{kavling.placement_template|safe}}
               {% for kav in datas %}
                 {{kav.map_code_g|safe}}
-                {{kav.map_code_path|safe}}
-                <text x="-5" y ="1">{{kav.kode_kavling}}</text>
+                <path d="{{kav.map_code_path|safe}}" fill="{{kav.get_color}}" stroke="black"></path>
+                <text {{kav.text_code_svg|safe}} fill="{{kav.get_font_color}}">{{kav.kode_kavling}}</text>
                 </g>
               {% endfor %}
               </svg>
             </div>
+
+            <div class="information mt-20">
+              <div class="d-flex align-items-center">
+                <div style="height: 10px;width:30px;background-color: white;"></div>
+                <small class="ms-2">Tersedia</small>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="height: 10px;width:30px;background-color: blue;"></div>
+                <small class="ms-2">Booking</small>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="height: 10px;width:30px;background-color: red;"></div>
+                <small class="ms-2">Terjual Kredit</small>
+              </div>
+              <div class="d-flex align-items-center">
+                <div style="height: 10px;width:30px;background-color: green;"></div>
+                <small class="ms-2">Terjual Cash</small>
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            Belum ada template? buat <a href="{% url 'svg' %}">disini</a>
           </div>
         </div>
       </div>

@@ -63,6 +63,11 @@ def custom_404(request, exception):
 
 @login_required
 # @permission_required('dashboard.index')
+def svg(request):
+    return render(request, 'svg_editor/index.html')
+
+@login_required
+# @permission_required('dashboard.index')
 def dashboard(request):
     return render(request, 'backstore/dashboard.html')
 
@@ -229,17 +234,47 @@ def kavling_import(request):
         # print(request.POST['kode'])
         kode = request.POST['kode']
         split_kode = re.findall(r'<g.*?</g>', kode, re.DOTALL)
+        split_text = re.findall(r'<text.*?</text>', kode, re.DOTALL)
+        # print(len(split_text))
+        # print(split_text)
         # print(len(split_kode))
         try:
             with transaction.atomic():
-                for res in split_kode:
+                for index, res in enumerate(split_kode):
                     # print(res)
-                    code = re.search(r'<g.*?>', res).group()
-                    path = re.search(r'<path.*? />', res).group()
+                    # print(split_text[index])
+                    g_first = re.search(r'<g[^>]*>', res).group()
+                    # print(g_first)
+                    pattern = r'<g[^>]*>((?:(?!<g)[\s\S])*?)</g>'
+                    matches = re.findall(pattern, res)
+                    x = g_first + ''.join(matches) + '</g>'
+                    # print(x)
+                    code = re.search(r'<g.*?>', x).group()
+                    path = re.search(r'<path[^>]*/>', x).group()
+                    path = re.search(r'd="([^"]+)"', path).group(1)
                     # print(code)
+                    # print(path)
+                    text = re.search(r'<text[^>]*', x).group()
+                    if '<tspan' in x:
+                        text = re.search(r'<tspan[^>]*', x).group()
+                        text_match = re.search(r'<tspan.*?>([^<]+)</tspan>', x)
+                        if text_match:
+                            kode_kavling = text_match.group(1)
+                    else:
+                        text = text
+                        text_match = re.search(r'<text.*?>([^<]+)</text>', x)
+                        if text_match:
+                            kode_kavling = text_match.group(1)
+                    text_x = re.search(r'x="([^"]+)"', text).group()
+                    text_y = re.search(r'y="([^"]+)"', text).group()
+                    text = f"{text_x} {text_y}"
+                    # print(text)
+                    # print(text_x, text_y, kode_kavling)
                     kavling = Kavling(
+                        kode_kavling=kode_kavling,
                         map_code_g=code,
                         map_code_path=path,
+                        text_code_svg=text,
                         luas_tanah=0,
                         harga_per_meter=0,
                         harga_jual_cash=0,   
@@ -265,7 +300,10 @@ def kavling_template(request):
         try:
             with transaction.atomic():
                 form = TemplateKavlingForm(request.POST, instance=site)
-                form.save()
+                site = form.save(commit=False)
+                code = re.search(r'<svg.*?>', request.POST['template_kavling']).group()
+                site.placement_template = code
+                site.save()
                 messages.success(request, "Berhasil merubah data")
                 return redirect(redirect_url)
         except Exception as e:

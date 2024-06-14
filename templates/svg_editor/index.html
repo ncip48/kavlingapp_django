@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Editor</title>
+    <head>
+        <!-- You need to include the CSS for SVGEdit somewhere in your application -->
+       <link href="https://unpkg.com/svgedit@7.3.3/dist/editor/svgedit.css" rel="stylesheet" media="all"></link>
+     </head>
+</head>
+<body>
+    <!-- svgedit container can be positioned anywhere in the DOM
+         but it must have a width and a height -->
+    <div id="container" style="width:100%;height:100vh"></div>
+  </body>
+  <script type="module">
+    /* You need to call the Editor and load it in the <div> */
+    import Editor from '{% static 'svg/Editor.js' %}'
+    /* for available options see the file `docs/tutorials/ConfigOptions.md` */
+    const svgEditor = new Editor(document.getElementById('container'))
+    /* initialize the Editor */
+    svgEditor.init()
+    /* set the configuration */
+    svgEditor.setConfig({
+            allowInitialUserOverride: true,
+            extensions: [],
+            noDefaultExtensions: false,
+            userExtensions: []
+    })
+  </script>
+</html>

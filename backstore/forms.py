@@ -23,7 +23,7 @@ class UserForm(ModelForm):
         # merelasikan form dengan model
         model = User
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('username', 'email', 'first_name', 'last_name')
+        fields = ('username', 'email', 'first_name', 'last_name', 'role')
         # mengatur teks label untuk setiap field
         labels = {
             'username': _('Username'),

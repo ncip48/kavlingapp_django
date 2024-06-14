@@ -7,6 +7,9 @@ urlpatterns = [
     path('login/', login_view, name="login"),
     path('logout', logout_view, name="logout"),
     
+    #SVG Editor
+    path('panel/svg', svg, name='svg'),
+    #dashboard
     path('panel/dashboard', dashboard, name='dashboard'),
     #user
     path('panel/user', user_index, name='user'),
