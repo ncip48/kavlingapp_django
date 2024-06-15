@@ -49,7 +49,7 @@
                       <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ data.kode_kavling }}</td>
-                        <td>{{ data.luas_tanah }}m2</td>
+                        <td>{{ data.luas_tanah }}m<sup>2</sup></td>
                         <td>Rp. {{ data.harga_jual_cash|intcomma }}</td>
                         <td>
                           {% if data.status == 0 %}
@@ -94,40 +94,7 @@
             <a href="#" class="btn btn-primary btn-sm ajax_modal" data-url="{% url 'kavling_template' %}" class="btn btn-primary btn-sm">Ubah</a>
           </div>
           <div class="box-body">
-            <div class="template">
-              {{kavling.template_kavling|safe}}
-            </div>
-            <div class="floating">
-              {{kavling.placement_template|safe}}
-              {% for kav in datas %}
-                {{kav.map_code_g|safe}}
-                <path d="{{kav.map_code_path|safe}}" fill="{{kav.get_color}}" stroke="black" />
-                <text text-anchor="middle" {{kav.text_code_svg|safe}} fill="{{kav.get_font_color}}">{{kav.kode_kavling}}</text>
-                </g>
-              {% endfor %}
-              </svg>
-            </div>
-
-            <div class="information mt-20">
-              {% if datas %}
-              <div class="d-flex align-items-center">
-                <div style="height: 10px;width:30px;background-color: white;"></div>
-                <small class="ms-2">Tersedia</small>
-              </div>
-              <div class="d-flex align-items-center">
-                <div style="height: 10px;width:30px;background-color: blue;"></div>
-                <small class="ms-2">Booking</small>
-              </div>
-              <div class="d-flex align-items-center">
-                <div style="height: 10px;width:30px;background-color: red;"></div>
-                <small class="ms-2">Terjual Kredit</small>
-              </div>
-              <div class="d-flex align-items-center">
-                <div style="height: 10px;width:30px;background-color: green;"></div>
-                <small class="ms-2">Terjual Cash</small>
-              </div>
-              {%endif%}
-            </div>
+            {%include 'backstore/include/kavling.html' %}
           </div>
           <div class="box-footer">
             Belum ada template? buat <a href="https://svgedit.netlify.app/editor/index.html" target="_blank">disini</a>
@@ -139,5 +106,24 @@
 {% endblock %}
 
 {% block script %}
+<script>
+  $(document).ready(function() {
+    const cariHargaJual = (luas, harga_per_m) => luas * harga_per_m
+
+    
+    $('#ajax-modal').on('shown.bs.modal', function () {
+      $('#id_luas_tanah,#id_harga_per_meter').on('change', function(){
+        console.log('ok')
+        const value_luas = $('#id_luas_tanah').val()
+        const value_harga = $('#id_harga_per_meter').val()
+  
+        const totalHarga = cariHargaJual(value_luas, value_harga)
+        
+        $('#id_harga_jual_cash').val(totalHarga)
+      })
+      // Code to execute when modal is shown
+    })
+  });
+</script>
 
 {% endblock %}

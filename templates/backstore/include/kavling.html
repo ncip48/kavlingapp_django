@@ -1,0 +1,34 @@
+<div class="template">
+    {{kavling.template_kavling|safe}}
+  </div>
+  <div class="floating">
+    {{kavling.placement_template|safe}}
+    {% for kav in datas %}
+      {{kav.map_code_g|safe}}
+      <path d="{{kav.map_code_path|safe}}" fill="{{kav.get_color}}" stroke="black" />
+      <text text-anchor="middle" {{kav.text_code_svg|safe}} fill="{{kav.get_font_color}}">{{kav.kode_kavling}}</text>
+      </g>
+    {% endfor %}
+    </svg>
+  </div>
+
+  <div class="information mt-20">
+    {% if datas %}
+    <div class="d-flex align-items-center">
+      <div style="height: 10px;width:30px;background-color: white;"></div>
+      <small class="ms-2">Tersedia</small>
+    </div>
+    <div class="d-flex align-items-center">
+      <div style="height: 10px;width:30px;background-color: blue;"></div>
+      <small class="ms-2">Booking</small>
+    </div>
+    <div class="d-flex align-items-center">
+      <div style="height: 10px;width:30px;background-color: red;"></div>
+      <small class="ms-2">Terjual Kredit</small>
+    </div>
+    <div class="d-flex align-items-center">
+      <div style="height: 10px;width:30px;background-color: green;"></div>
+      <small class="ms-2">Terjual Cash</small>
+    </div>
+    {%endif%}
+  </div>
