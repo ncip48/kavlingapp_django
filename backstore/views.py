@@ -15,6 +15,7 @@ from .models import *
 import re
 from django_serverside_datatable.views import ServerSideDatatableView
 from django_serverside_datatable import datatable
+from backstore.functions.functions import handle_uploaded_file  
 
 
 # Create your views here.
@@ -391,7 +392,14 @@ def customer_create(request):
             with transaction.atomic():
                 form = CustomerForm(request.POST)
                 if form.is_valid():
-                    form.save()
+                    customer = form.save(commit=False)
+                    if 'ktp' in request.FILES:
+                        ktp = handle_uploaded_file(request.FILES['ktp'])
+                        customer.ktp = ktp
+                    if 'kk' in request.FILES:
+                        kk = handle_uploaded_file(request.FILES['kk'])  
+                        customer.kk = kk
+                    customer.save()
                     messages.success(request, "Berhasil menambahkan data")
                     return redirect(redirect_url)
                 else:
@@ -419,14 +427,20 @@ def customer_update(request, customer_id):
             with transaction.atomic():
                 form = CustomerForm(request.POST, instance=customer)
                 if form.is_valid():
-                    form.save()
+                    if 'ktp' in request.FILES:
+                        ktp = handle_uploaded_file(request.FILES['ktp'])
+                        customer.ktp = ktp
+                    if 'kk' in request.FILES:
+                        kk = handle_uploaded_file(request.FILES['kk'])  
+                        customer.kk = kk
+                    customer.save()
                     messages.success(request, 'Berhasil mengubah data')
                     return redirect(redirect_url)
                 else:
                     messages.error(request, "Data tidak valid")
                     return redirect(redirect_url)
         except Exception as e:
-            messages.error(request, "Gagal mengedit data")
+            messages.error(request, f"Gagal mengedit data {e}")
             return redirect(redirect_url)
     else:
         form = CustomerForm(instance=customer)

@@ -23,7 +23,7 @@ class UserForm(ModelForm):
         # merelasikan form dengan model
         model = User
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('username', 'email', 'first_name', 'last_name', 'role')
+        fields = ('username', 'email', 'first_name', 'last_name')
         # mengatur teks label untuk setiap field
         labels = {
             'username': _('Username'),
@@ -147,7 +147,7 @@ class CustomerForm(ModelForm):
         model = Customer
         fields = ('nama', 'nik', 'tempat_lahir', 'tanggal_lahir', 'no_hp', 'jk', 'alamat', 'email', 'pekerjaan', 'ktp', 'kk')
         widgets = {
-            'tanggal_lahir': DateInput()
+            'tanggal_lahir': DateInput(),
         }
         labels = {
             'nama': _('Nama'),
