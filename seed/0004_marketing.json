@@ -1,0 +1,26 @@
+[
+{
+    "model": "marketing.marketing",
+    "pk": 1,
+    "fields": {
+        "nama": "Rusdi",
+        "nik": "123123123",
+        "alamat": "Blandong",
+        "jk": 0,
+        "no_hp": "081234131314",
+        "email": "rusdi@gmail.com"
+    }
+},
+{
+    "model": "marketing.marketing",
+    "pk": 2,
+    "fields": {
+        "nama": "Sugiyono",
+        "nik": "21212121",
+        "alamat": "Jl Trunojoyo",
+        "jk": 0,
+        "no_hp": "08111111",
+        "email": null
+    }
+}
+]

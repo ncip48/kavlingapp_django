@@ -1,0 +1,36 @@
+[
+{
+    "model": "customer.customer",
+    "pk": 1,
+    "fields": {
+        "nama": "Dwi Elok",
+        "nik": "3521091505990002",
+        "tempat_lahir": "Magetan",
+        "tanggal_lahir": "2024-06-18",
+        "alamat": "Jl Raya Karas Magetan",
+        "jk": 0,
+        "no_hp": "081359569879",
+        "email": "dwieloknuraini773@gmail.com",
+        "pekerjaan": "Mahasiswa",
+        "ktp": "static/upload/725312f1-af06-456c-9de4-aa6ccdbe7d18.jpeg",
+        "kk": ""
+    }
+},
+{
+    "model": "customer.customer",
+    "pk": 4,
+    "fields": {
+        "nama": "Didik",
+        "nik": "9191919191",
+        "tempat_lahir": "Ngawi",
+        "tanggal_lahir": "2024-06-17",
+        "alamat": "Jl Kepo",
+        "jk": 0,
+        "no_hp": "081335241314",
+        "email": "didik@gmail.com",
+        "pekerjaan": null,
+        "ktp": "",
+        "kk": ""
+    }
+}
+]

@@ -1,0 +1,18 @@
+[
+{
+    "model": "website.site",
+    "pk": 1,
+    "fields": {
+        "logo": "static/upload/afe0b05b-a06e-44b5-be40-dd87c45204b6.jpeg",
+        "nama_website": "Kavling App",
+        "nama_perusahaan": "PT Dotech Digital Solution",
+        "alamat": "Jl Ronggowarsito",
+        "email": "kavling@gmail.com",
+        "template_kavling": "<svg viewBox=\"0 0 606 419\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" version=\"1.1\" xml:space=\"preserve\">\r\n <g id=\"svg_75\">\r\n   <path d=\"m270.5,14.5c0,0 -64,250 -64,250c0,0 -145,95 -145,95c0,0 16,32 16,32c0,0 156,-101 156,-101c0,0 32,-135 32,-135c0,0 319,72 319,72c0,0 3,-32 3,-32c0,0 -312,-74 -312,-74c0,0 24,-102 24,-102c0,0 -29,-5 -29,-5z\" fill=\"#f2bcbc\" id=\"svg_2\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\"/>\r\n   <path d=\"m298.5,22.5l305,70c0,0 -16,98 -16,102c0,4 -312,-72 -312,-72c0,0 23,-100 23,-100z\" fill=\"#c4c4f2\" id=\"svg_3\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\"/>\r\n   <path d=\"m265.5,155.5l317,69l-23,143l-464,49l-17,-26l154,-100l33,-135z\" fill=\"#c4c4f2\" id=\"svg_4\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\">Area Taman</path>\r\n   <path d=\"m62.5,358.5l-60,-180l160,-176l109,13l-64,250l-145,93z\" fill=\"#c4c4f2\" id=\"svg_5\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\"/>\r\n   <path d=\"m3.5,180.5l206,84l-147,94l-59,-178z\" fill=\"#ffaa56\" id=\"svg_6\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\">Area Taman</path>\r\n   <line fill=\"none\" id=\"svg_10\" stroke=\"#000000\" stroke-width=\"5\" x1=\"71\" x2=\"113\" y1=\"371\" y2=\"347\"/>\r\n   <line fill=\"none\" id=\"svg_11\" stroke=\"#000000\" stroke-width=\"5\" x1=\"137\" x2=\"167\" y1=\"330\" y2=\"310\"/>\r\n   <line fill=\"none\" id=\"svg_12\" stroke=\"#000000\" stroke-width=\"5\" x1=\"191\" x2=\"220\" y1=\"296\" y2=\"279\"/>\r\n   <line fill=\"none\" id=\"svg_13\" stroke=\"#000000\" stroke-width=\"5\" x1=\"228\" x2=\"236\" y1=\"257\" y2=\"223\"/>\r\n   <line fill=\"none\" id=\"svg_14\" stroke=\"#000000\" stroke-width=\"5\" x1=\"243\" x2=\"251\" y1=\"190\" y2=\"158\"/>\r\n   <line fill=\"none\" id=\"svg_15\" stroke=\"#000000\" stroke-width=\"5\" x1=\"268\" x2=\"311\" y1=\"138\" y2=\"149\"/>\r\n   <line fill=\"none\" id=\"svg_16\" stroke=\"#000000\" stroke-width=\"5\" x1=\"332\" x2=\"369\" y1=\"154\" y2=\"161\"/>\r\n   <line fill=\"none\" id=\"svg_17\" stroke=\"#000000\" stroke-width=\"5\" x1=\"391\" x2=\"425\" y1=\"166\" y2=\"173\"/>\r\n   <line fill=\"none\" id=\"svg_18\" stroke=\"#000000\" stroke-width=\"5\" x1=\"446\" x2=\"485\" y1=\"176\" y2=\"186\"/>\r\n   <line fill=\"none\" id=\"svg_19\" stroke=\"#000000\" stroke-width=\"5\" x1=\"504\" x2=\"539\" y1=\"190\" y2=\"200\"/>\r\n   <line fill=\"none\" id=\"svg_20\" stroke=\"#000000\" stroke-width=\"5\" x1=\"558\" x2=\"587\" y1=\"202\" y2=\"210\"/>\r\n   <line fill=\"none\" id=\"svg_21\" stroke=\"#000000\" stroke-width=\"5\" x1=\"262\" x2=\"272\" y1=\"105\" y2=\"73\">Area Taman</line>\r\n   <line fill=\"none\" id=\"svg_22\" stroke=\"#000000\" stroke-width=\"5\" x1=\"278\" x2=\"285\" y1=\"46\" y2=\"18\"/>\r\n   <text fill=\"#ffffff\" font-family=\"Serif\" font-size=\"19\" id=\"svg_73\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"0\" text-anchor=\"middle\" transform=\"rotate(29.0969 94 260.75)\" x=\"94\" xml:space=\"preserve\" y=\"267\">Area Taman</text>\r\n  </g>\r\n</svg>",
+        "no_telp": null,
+        "no_hp": "087843584104",
+        "placement_template": "<svg viewBox=\"0 0 606 419\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" version=\"1.1\" xml:space=\"preserve\">",
+        "ttd": "static/upload/031975a3-db14-44e2-b64d-80f6a9575485.jpeg"
+    }
+}
+]

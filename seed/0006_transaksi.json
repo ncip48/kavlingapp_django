@@ -1,0 +1,68 @@
+[
+{
+    "model": "transaksi.transaksi",
+    "pk": 4,
+    "fields": {
+        "tanggal_transaksi": "2024-06-17",
+        "id_kavling": 156,
+        "tipe_transaksi": 0,
+        "customer": 1,
+        "marketing": 1,
+        "fee_marketing": 1000000,
+        "fee_notaris": 0,
+        "dp": null,
+        "tenor": null,
+        "cicilan_per_bulan": null,
+        "tanggal_tempo": null,
+        "pembayaran_cash": null,
+        "pembelian_booking": 5000000,
+        "tanggal_batas_booking": "2024-06-26",
+        "keterangan": null,
+        "is_lunas": 0
+    }
+},
+{
+    "model": "transaksi.transaksi",
+    "pk": 5,
+    "fields": {
+        "tanggal_transaksi": "2024-06-17",
+        "id_kavling": 157,
+        "tipe_transaksi": 1,
+        "customer": 1,
+        "marketing": 1,
+        "fee_marketing": 500000,
+        "fee_notaris": 5000000,
+        "dp": null,
+        "tenor": null,
+        "cicilan_per_bulan": null,
+        "tanggal_tempo": null,
+        "pembayaran_cash": 180000000,
+        "pembelian_booking": null,
+        "tanggal_batas_booking": null,
+        "keterangan": null,
+        "is_lunas": 1
+    }
+},
+{
+    "model": "transaksi.transaksi",
+    "pk": 6,
+    "fields": {
+        "tanggal_transaksi": "2024-06-17",
+        "id_kavling": 169,
+        "tipe_transaksi": 2,
+        "customer": 4,
+        "marketing": 1,
+        "fee_marketing": 0,
+        "fee_notaris": 0,
+        "dp": 80000000,
+        "tenor": 12,
+        "cicilan_per_bulan": 68300000,
+        "tanggal_tempo": "2024-06-17",
+        "pembayaran_cash": null,
+        "pembelian_booking": null,
+        "tanggal_batas_booking": null,
+        "keterangan": null,
+        "is_lunas": 0
+    }
+}
+]

@@ -1,0 +1,198 @@
+[
+{
+    "model": "kavling.kavling",
+    "pk": 156,
+    "fields": {
+        "kode_kavling": "A-1",
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_36\">",
+        "map_code_path": "m277,121l57,15l26,-96l-60,-17l-23,98z",
+        "text_code_svg": " x=\"316.58\"  y=\"83.53\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 1
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 157,
+    "fields": {
+        "kode_kavling": "A-2",
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_37\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m340,137l26,-97l57,13l-26,98l-57,-14z",
+        "text_code_svg": " x=\"318.07\"  y=\"149.57\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 2
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 158,
+    "fields": {
+        "kode_kavling": "A-3",
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_38\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m402,152l27,-99c0,0 54,13 54,13c0,0 -25,99 -25,99c0,0 -56,-13 -56,-13z",
+        "text_code_svg": " x=\"316.3\"  y=\"213.83\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 159,
+    "fields": {
+        "kode_kavling": "A-4",
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_39\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m489,68l-26,99l53,12l27,-99l-54,-12z",
+        "text_code_svg": " x=\"319.64\"  y=\"273.76\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 160,
+    "fields": {
+        "kode_kavling": "A-5",
+        "luas_tanah": 58,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 174000000,
+        "map_code_g": "<g id=\"svg_40\">",
+        "map_code_path": "m521,182c0,0 27,-101 27,-101c0,0 54,12 54,12c0,0 -16,106 -16,106c0,0 -65,-17 -65,-17z",
+        "text_code_svg": " x=\"318.11\"  y=\"338.99\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 161,
+    "fields": {
+        "kode_kavling": "B-1",
+        "luas_tanah": 70,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 210000000,
+        "map_code_g": "<g id=\"svg_52\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m266,156l61,14l-26,127l-67,-7l32,-134z",
+        "text_code_svg": " x=\"280\"  y=\"231\" transform=\"rotate(-79.9275 280 224.75)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 162,
+    "fields": {
+        "kode_kavling": "B-2",
+        "luas_tanah": 70,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 210000000,
+        "map_code_g": "<g id=\"svg_54\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m333,172l-27,125l57,18l30,-130l-60,-13z",
+        "text_code_svg": " x=\"347.5\"  y=\"244.25\" transform=\"rotate(-79.9275 347.5 238)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 163,
+    "fields": {
+        "kode_kavling": "B-3",
+        "luas_tanah": 70,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 210000000,
+        "map_code_g": "<g id=\"svg_55\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m399,186l-30,132l78,10l26,-126l-74,-16z",
+        "text_code_svg": " x=\"418.5\"  y=\"260.25\" transform=\"matrix(0.174894 -0.984587 0.984587 0.174894 95.2216 621.627)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 164,
+    "fields": {
+        "kode_kavling": "B-4",
+        "luas_tanah": 90,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 270000000,
+        "map_code_g": "<g id=\"svg_56\">",
+        "map_code_path": "m479,204l-31,169l109,-10l23,-136l-101,-23z",
+        "text_code_svg": " x=\"514.5\"  y=\"290.25\" transform=\"matrix(0.996376 0.0850565 -0.0850565 0.996376 26.0205 -42.7324)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 165,
+    "fields": {
+        "kode_kavling": "C-1",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_68\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m210,261l-204,-87l44,-46l174,71l-14,62z",
+        "text_code_svg": " x=\"121\"  y=\"192\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 166,
+    "fields": {
+        "kode_kavling": "C-2",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_69\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m225,193l-172,-71l41,-42c0,0 145,58 145,58c0,0 -14,55 -14,55z",
+        "text_code_svg": " x=\"157.5\"  y=\"142.25\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 167,
+    "fields": {
+        "kode_kavling": "C-3",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_70\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m242,133l-146,-59l40,-42l120,38l-14,63z",
+        "text_code_svg": " x=\"190.5\"  y=\"85.25\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 168,
+    "fields": {
+        "kode_kavling": "C-4",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_71\">",
+        "map_code_path": "m140,29l117,36l12,-50l-108,-12l-21,26z",
+        "text_code_svg": " x=\"217.5\"  y=\"36.25\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "kavling.kavling",
+    "pk": 169,
+    "fields": {
+        "kode_kavling": "D-1",
+        "luas_tanah": 300,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 900000000,
+        "map_code_g": "<g id=\"svg_72\">",
+        "map_code_path": "m78,391l149,-95l72,7l59,18l87,12l-7,46l-341,37l-19,-25z",
+        "text_code_svg": " x=\"242\"  y=\"362\"  font-size=\"19\"",
+        "status": 2
+    }
+}
+]
