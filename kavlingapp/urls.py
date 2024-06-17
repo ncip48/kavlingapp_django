@@ -16,11 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from backstore import urls as backstore_urls
+from kavling import urls as kavling_urls
+from marketing import urls as marketing_urls
+from customer import urls as customer_urls
+from user import urls as user_urls
+from website import urls as site_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',  include(backstore_urls))
+    path('',  include(kavling_urls)),
+    path('',  include(marketing_urls)),
+    path('',  include(customer_urls)),
+    path('',  include(user_urls)),
+    path('',  include(site_urls)),
 ]
 
-handler404 = 'backstore.views.custom_404'
+handler404 = 'kavling.views.custom_404'

@@ -48,7 +48,12 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django.forms',
     'django.contrib.humanize',
-    'backstore',
+    'kavling',
+    'marketing',
+    'customer',
+    'user',
+    'website',
+    'transaksi'
 ]
 
 MIDDLEWARE = [
@@ -153,5 +158,5 @@ LOGIN_URL='/login/'
 USE_L10N = True
 USE_THOUSAND_SEPARATOR = True
 
-AUTH_USER_MODEL = "backstore.User" 
+AUTH_USER_MODEL = "user.User" 
 FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
