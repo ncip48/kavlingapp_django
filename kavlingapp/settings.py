@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'django.forms',
     'django.contrib.humanize',
     'backstore',
 ]
@@ -153,3 +154,4 @@ USE_L10N = True
 USE_THOUSAND_SEPARATOR = True
 
 AUTH_USER_MODEL = "backstore.User" 
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'

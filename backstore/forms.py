@@ -1,10 +1,13 @@
-from django.forms import ModelForm, CharField, PasswordInput, TextInput, Textarea
+from django.forms import ModelForm, CharField, PasswordInput, TextInput, Textarea, ClearableFileInput
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 from .models import *
 
-# membuat class TaskForm untuk membuat task
+class CustomImageFieldWidget(ClearableFileInput):
+        template_name = 'backstore/widgets/image_input.html'
+class DateInput(forms.DateInput):
+    input_type = 'date'
 class UserForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -117,6 +120,10 @@ class SiteForm(ModelForm):
     class Meta:
         model = Site
         fields = ('nama_website', 'nama_perusahaan', 'no_hp', 'alamat', 'email', 'no_telp', 'logo', 'ttd')
+        widgets = {
+            'logo': CustomImageFieldWidget,
+            'ttd': CustomImageFieldWidget
+        }
         labels = {
             'logo': _('Logo'),
             'nama_website': _('Nama Website'),
@@ -150,9 +157,6 @@ class SiteForm(ModelForm):
                 'required': _("Nomor Telepon harus diisi."),
             },
         }
-
-class DateInput(forms.DateInput):
-    input_type = 'date'
 class CustomerForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
