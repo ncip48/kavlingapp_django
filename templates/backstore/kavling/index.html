@@ -94,7 +94,7 @@
             <a href="#" class="btn btn-primary btn-sm ajax_modal" data-url="{% url 'kavling_template' %}" class="btn btn-primary btn-sm">Ubah</a>
           </div>
           <div class="box-body">
-            {%include 'backstore/include/kavling.html' %}
+            {%include 'backstore/include/kavling.html' with kavlings=datas %}
           </div>
           <div class="box-footer">
             Belum ada template? buat <a href="{% url 'svg' %}" target="_blank">disini</a>

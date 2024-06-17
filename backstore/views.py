@@ -70,7 +70,18 @@ def svg(request):
 @login_required
 # @permission_required('dashboard.index')
 def dashboard(request):
-    return render(request, 'backstore/dashboard.html')
+    context = {
+        'kavlings': Kavling.objects.all(),
+        'kavling': Site.objects.get(pk=1),
+        'count': {
+            'tersedia': Kavling.objects.filter(status=0).count(),
+            'booking': Kavling.objects.filter(status=1).count(),
+            'kredit': Kavling.objects.filter(transaksi__tipe_transaksi=2).count(),
+            'cash': Kavling.objects.filter(transaksi__tipe_transaksi=1).count(),
+        },
+        'title': 'Dashboard'
+    }
+    return render(request, 'backstore/dashboard.html', context)
 
 @login_required
 def add_permission(request):

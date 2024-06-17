@@ -1,3 +1,116 @@
 {% extends "backstore/layout/base.html" %} {% block content %}
-<h2 class="pt-3">dashboard</h2>
-Akurasi {{ accuracy }} {% endblock %}
+<div class="content-header">
+  <div class="d-flex align-items-center">
+    <div class="me-auto">
+      <h4 class="page-title">{{ title }}</h4>
+      <div class="d-inline-block align-items-center">
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'dashboard' %}"
+                ><i class="mdi mdi-home-outline"></i
+              ></a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {{title}}
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xl-3 col-12">
+      <div class="box">
+        <div class="box-header without-border">
+          <h4 class="box-title">Kavling Tersedia</h4>
+        </div>
+        <div class="box-body">
+          <p>{{count.tersedia}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-12">
+      <div class="box">
+        <div class="box-header without-border">
+          <h4 class="box-title">Kavling Booking</h4>
+        </div>
+        <div class="box-body">
+          <p>{{count.booking}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-12">
+      <div class="box">
+        <div class="box-header without-border">
+          <h4 class="box-title">Terjual Kredit</h4>
+        </div>
+        <div class="box-body">
+          <p>{{count.kredit}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-12">
+      <div class="box">
+        <div class="box-header without-border">
+          <h4 class="box-title">Terjual Cash</h4>
+        </div>
+        <div class="box-body">
+          <p>{{count.cash}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-4">
+      <div class="box">
+        <div
+          class="box-header d-flex justify-content-between align-items-center"
+        >
+          <h4 class="box-title">Denah Kavling</h4>
+        </div>
+        <div class="box-body">
+          {%include 'backstore/include/kavling.html' with kavlings=kavlings noinfo=True %}
+        </div>
+        <div class="box-footer">
+          {% if kavlings %}
+          <div class="d-flex align-items-center">
+            <div
+              style="height: 10px; width: 30px; background-color: white"
+            ></div>
+            <small class="ms-2">Tersedia</small>
+          </div>
+          <div class="d-flex align-items-center">
+            <div
+              style="height: 10px; width: 30px; background-color: blue"
+            ></div>
+            <small class="ms-2">Booking</small>
+          </div>
+          <div class="d-flex align-items-center">
+            <div style="height: 10px; width: 30px; background-color: red"></div>
+            <small class="ms-2">Terjual Kredit</small>
+          </div>
+          <div class="d-flex align-items-center">
+            <div
+              style="height: 10px; width: 30px; background-color: green"
+            ></div>
+            <small class="ms-2">Terjual Cash</small>
+          </div>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} {% block script %}
+<script>
+  $(".clicked g").each(function () {
+    $(this).on("click", function () {
+      const text = $(this).text();
+      alert(text);
+    });
+  });
+</script>
+{% endblock script %}
