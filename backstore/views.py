@@ -570,3 +570,41 @@ def marketing_delete(request, marketing_id):
             'url': reverse('marketing_delete', args=[marketing.id])
         }
         return render(request, 'backstore/default/delete.html', context)
+    
+@login_required
+def site_index(request):
+    site = Site.objects.get(pk=1)
+    context = {
+        'title': 'Pengaturan Website',
+        'data': site,
+        'form': SiteForm(instance=site)
+    }
+    return render(request, 'backstore/pengaturan_website.html', context)
+
+@login_required
+def site_update(request, site_id):
+    redirect_url = 'site'
+    try:
+        site = Site.objects.get(pk=site_id)
+    except Site.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                form = SiteForm(request.POST, instance=site)
+                if form.is_valid():
+                    if 'logo' in request.FILES:
+                        logo = handle_uploaded_file(request.FILES['logo'])
+                        site.logo = logo
+                    if 'ttd' in request.FILES:
+                        ttd = handle_uploaded_file(request.FILES['ttd'])  
+                        site.ttd = ttd
+                    site.save()
+                    messages.success(request, 'Berhasil mengubah data')
+                    return redirect(redirect_url)
+                else:
+                    messages.error(request, "Data tidak valid")
+                    return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal mengedit data {e}")
+            return redirect(redirect_url)

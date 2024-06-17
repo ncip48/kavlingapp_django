@@ -34,4 +34,7 @@ urlpatterns = [
     path('panel/customer/create', customer_create, name='customer_create'),
     path('panel/customer/update/<int:customer_id>', customer_update, name='customer_update'),
     path('panel/customer/delete/<int:customer_id>', customer_delete, name='customer_delete'),
+    #site
+    path('panel/site', site_index, name='site'),
+    path('panel/site/update/<int:site_id>', site_update, name='site_update'),
 ]

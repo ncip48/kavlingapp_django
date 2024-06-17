@@ -19,18 +19,6 @@
               <span>Dashboard</span>
             </a>
           </li>
-          <li
-            class="{% if request.resolver_match.url_name == 'user' %} active {% endif %}"
-          >
-            <a href="{% url 'user' %}">
-              <img
-                src="{% static 'images/svg-icon/user.svg' %}"
-                class="svg-icon"
-                alt=""
-              />
-              <span>User</span>
-            </a>
-          </li>
           <li class="treeview">
             <a href="#">
               <img
@@ -71,9 +59,33 @@
             </ul>
           </li>
           <li
-            class="{% if request.resolver_match.url_name == 'index_ocr' %} active {% endif %}"
+            class="{% if request.resolver_match.url_name == 'transaksi' %} active {% endif %}"
           >
-            <a href="{% url 'dashboard' %}">
+            <a href="{% url 'user' %}">
+              <img
+                src="{% static 'images/svg-icon/sidebar-menu/transactions.svg' %}"
+                class="svg-icon"
+                alt=""
+              />
+              <span>Transaksi</span>
+            </a>
+          </li>
+          <li
+            class="{% if request.resolver_match.url_name == 'user' %} active {% endif %}"
+          >
+            <a href="{% url 'user' %}">
+              <img
+                src="{% static 'images/svg-icon/user.svg' %}"
+                class="svg-icon"
+                alt=""
+              />
+              <span>User</span>
+            </a>
+          </li>
+          <li
+            class="{% if request.resolver_match.url_name == 'site' %} active {% endif %}"
+          >
+            <a href="{% url 'site' %}">
               <img
                 src="{% static 'images/svg-icon/settings.svg' %}"
                 class="svg-icon"

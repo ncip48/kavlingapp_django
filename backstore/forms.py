@@ -109,14 +109,23 @@ class TemplateKavlingForm(ModelForm):
         }
         
 class SiteForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['logo'].required = False
+        self.fields['ttd'].required = False
+        self.fields['no_telp'].required = False
     class Meta:
         model = Site
-        fields = ('logo', 'nama_website', 'nama_perusahaan', 'no_hp')
+        fields = ('nama_website', 'nama_perusahaan', 'no_hp', 'alamat', 'email', 'no_telp', 'logo', 'ttd')
         labels = {
             'logo': _('Logo'),
             'nama_website': _('Nama Website'),
             'nama_perusahaan': _('Nama Perusahaan'),
             'no_hp': _('Nomor HP'),
+            'alamat': _('Alamat'),
+            'email': _('Email'),
+            'no_telp': _('Nomor Telepon'),
+            'ttd': _('Tanda Tangan'),
         }
         error_messages = {
             'logo': {
@@ -130,6 +139,15 @@ class SiteForm(ModelForm):
             },
             'no_hp': {
                 'required': _("Nomor HP harus diisi."),
+            },
+            'alamat': {
+                'required': _("Alamat harus diisi."),
+            },
+            'email': {
+                'required': _("Email harus diisi."),
+            },
+            'no_telp': {
+                'required': _("Nomor Telepon harus diisi."),
             },
         }
 
