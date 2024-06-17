@@ -24,7 +24,12 @@ urlpatterns = [
     path('panel/kavling/template', kavling_template, name='kavling_template'),
     path('panel/kavling/update/<int:kavling_id>', kavling_update, name='kavling_update'),
     path('panel/kavling/delete/<int:kavling_id>', kavling_delete, name='kavling_delete'),
-    #
+    #marketing
+    path('panel/marketing', marketing_index, name='marketing'),
+    path('panel/marketing/create', marketing_create, name='marketing_create'),
+    path('panel/marketing/update/<int:marketing_id>', marketing_update, name='marketing_update'),
+    path('panel/marketing/delete/<int:marketing_id>', marketing_delete, name='marketing_delete'),
+    #customer
     path('panel/customer', customer_index, name='customer'),
     path('panel/customer/create', customer_create, name='customer_create'),
     path('panel/customer/update/<int:customer_id>', customer_update, name='customer_update'),

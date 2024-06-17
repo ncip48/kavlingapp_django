@@ -5,7 +5,7 @@
     {{kavling.placement_template|safe}}
     {% for kav in datas %}
       {{kav.map_code_g|safe}}
-      <path d="{{kav.map_code_path|safe}}" fill="{{kav.get_color}}" stroke="black" />
+      <path d="{{kav.map_code_path|safe}}" fill="{{kav.get_color}}" />
       <text text-anchor="middle" {{kav.text_code_svg|safe}} fill="{{kav.get_font_color}}">{{kav.kode_kavling}}</text>
       </g>
     {% endfor %}

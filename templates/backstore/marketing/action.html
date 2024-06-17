@@ -1,0 +1,28 @@
+{% if data %}
+  {% with is_edit=True %}
+  {% endwith %}
+{% else %}
+  {% with is_edit=False %}
+  {% endwith %}
+{% endif %}
+
+<form novalidate autocomplete="off" method="post" id="main-form" action="{% if data.id %}{% url 'marketing_update' data.id %}{% else %}{% url 'marketing_create' %}{% endif %}">
+  {% csrf_token %}
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{% if data.id %}Edit{% else %}Tambah{% endif %}</h5>
+        <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          {% include 'backstore/include/form_col.html' %}
+        </div>
+      </div>
+      <div class="modal-footer modal-footer-uniform d-flex">
+        <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Tutup</button>
+        <button type="submit" class="btn btn-sm btn-primary float-end">{% if data.id %}Update{% else %}Simpan{% endif %}</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -14,8 +14,8 @@ class Kavling(models.Model):
     id = models.AutoField(primary_key=True)
     kode_kavling = models.CharField(max_length=10)
     luas_tanah = models.IntegerField()
-    harga_per_meter = models.IntegerField()
-    harga_jual_cash = models.IntegerField()
+    harga_per_meter = models.IntegerField(null=True)
+    harga_jual_cash = models.IntegerField(null=True)
     map_code_g = models.TextField(null=True)
     map_code_path = models.TextField(null=True)
     text_code_svg = models.TextField(null=True)
@@ -87,6 +87,32 @@ class User(AbstractUser):
         # due date is calcualted 10 days from start_date
         return self.first_name + self.last_name
     
+class Marketing(models.Model):
+    class JenisKelamin(models.IntegerChoices):
+        LAKILAKI = 0, "Laki-Laki"
+        PEREMPUAN = 1, "Perempuan"
+        
+    id = models.AutoField(primary_key=True)
+    nama = models.CharField(max_length=50)
+    nik = models.CharField(max_length=20, unique=True)
+    alamat = models.TextField()
+    jk = models.IntegerField(
+        choices=JenisKelamin.choices, 
+        default=JenisKelamin.LAKILAKI
+    )
+    no_hp = models.CharField(max_length=15, null=True)
+    email = models.EmailField(null=True)
+    class Meta:
+        # define table name
+        db_table = 'marketing'
+        
+    @property
+    def penjualan_progress(self):
+        return Transaksi.objects.filter(marketing_id=self.id, is_lunas=0).count()
+    
+    def penjualan_close(self):
+        return Transaksi.objects.filter(marketing_id=self.id, is_lunas=1).count()
+    
 class Customer(models.Model):
     class JenisKelamin(models.IntegerChoices):
         LAKILAKI = 0, "Laki-Laki"
@@ -94,7 +120,7 @@ class Customer(models.Model):
         
     id = models.AutoField(primary_key=True)
     nama = models.CharField(max_length=50)
-    nik = models.CharField(max_length=20)
+    nik = models.CharField(max_length=20, unique=True)
     tempat_lahir = models.CharField(max_length=20, null=True)
     tanggal_lahir = models.DateField(null=True)
     alamat = models.TextField()
@@ -125,7 +151,7 @@ class Transaksi(models.Model):
         default=TransaksiTipe.BOOKING
     )
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    marketing = models.ForeignKey(User, on_delete=models.CASCADE)
+    marketing = models.ForeignKey(Marketing, on_delete=models.CASCADE)
     fee_marketing = models.IntegerField()
     fee_notaris = models.IntegerField()
     dp = models.IntegerField(null=True)
@@ -136,7 +162,7 @@ class Transaksi(models.Model):
     pembelian_booking = models.IntegerField(null=True)
     tanggal_batas_booking = models.DateField(null=True)
     keterangan = models.TextField(null=True)
-    is_lunas = models.IntegerField(null=True)
+    is_lunas = models.IntegerField(null=True, default=0)
     class Meta:
         # define table name
         db_table = 'transaksi'

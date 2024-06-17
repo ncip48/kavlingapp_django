@@ -48,7 +48,7 @@
                     {% for data in datas %}
                       <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td>{{ data.kode_kavling }}</td>
+                        <td class="fw-bold">{{ data.kode_kavling }}</td>
                         <td>{{ data.luas_tanah }}m<sup>2</sup></td>
                         <td>Rp. {{ data.harga_jual_cash|intcomma }}</td>
                         <td>
@@ -97,7 +97,7 @@
             {%include 'backstore/include/kavling.html' %}
           </div>
           <div class="box-footer">
-            Belum ada template? buat <a href="https://svgedit.netlify.app/editor/index.html" target="_blank">disini</a>
+            Belum ada template? buat <a href="{% url 'svg' %}" target="_blank">disini</a>
           </div>
         </div>
       </div>
@@ -112,8 +112,7 @@
 
     
     $('#ajax-modal').on('shown.bs.modal', function () {
-      $('#id_luas_tanah,#id_harga_per_meter').on('change', function(){
-        console.log('ok')
+      $('#id_luas_tanah,#id_harga_per_meter').on('input', function(){
         const value_luas = $('#id_luas_tanah').val()
         const value_harga = $('#id_harga_per_meter').val()
   
