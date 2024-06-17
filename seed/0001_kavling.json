@@ -1,106 +1,198 @@
 [
 {
     "model": "backstore.kavling",
-    "pk": 12,
+    "pk": 156,
     "fields": {
         "kode_kavling": "A-1",
-        "luas_tanah": 120,
+        "luas_tanah": 60,
         "harga_per_meter": 3000000,
-        "harga_jual_cash": 360000000,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 210 188.5259227041)\" id=\"vlQAwL4FmlSU1i02Filb1\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, 0.000005)\" d=\"M -48.26087 -44.34783 L -3.0434799999999953 51.304339999999996 L 48.260870000000004 26.086949999999995 L 4.782610000000005 -51.30435000000001 z\" stroke-linecap=\"round\" />",
-        "status": 0
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_36\">",
+        "map_code_path": "m277,121l57,15l26,-96l-60,-17l-23,98z",
+        "text_code_svg": " x=\"316.58\"  y=\"83.53\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 1
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 13,
+    "pk": 157,
     "fields": {
         "kode_kavling": "A-2",
-        "luas_tanah": 0,
-        "harga_per_meter": 0,
-        "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 270 171.1346183562)\" id=\"seDzQX-BRXvNdvgKj7Bx5\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, -0.000005)\" d=\"M -44.78261 -34.41304 L -3.0434799999999953 40.86957 L 44.782610000000005 17.391310000000004 L 9.130440000000007 -40.86955999999999 z\" stroke-linecap=\"round\" />",
-        "status": 0
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_37\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m340,137l26,-97l57,13l-26,98l-57,-14z",
+        "text_code_svg": " x=\"318.07\"  y=\"149.57\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
+        "status": 2
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 14,
+    "pk": 158,
     "fields": {
         "kode_kavling": "A-3",
-        "luas_tanah": 0,
-        "harga_per_meter": 0,
-        "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 325.652173913 155.1471903835)\" id=\"rinCV5ghO6mm6qiwMgTHV\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0.000005, 0.000005)\" d=\"M -36.08696 -25.38214 L -5.652179999999998 30.96909 L 36.08695 12.509160000000001 L 13.478250000000003 -30.969099999999997 z\" stroke-linecap=\"round\" />",
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_38\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m402,152l27,-99c0,0 54,13 54,13c0,0 -25,99 -25,99c0,0 -56,-13 -56,-13z",
+        "text_code_svg": " x=\"316.3\"  y=\"213.83\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
         "status": 0
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 15,
+    "pk": 159,
     "fields": {
         "kode_kavling": "A-4",
-        "luas_tanah": 0,
-        "harga_per_meter": 0,
-        "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 393.48132183 139.9226989131)\" id=\"cY8ikmHrXzA2fvAElh08-\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, 0)\" d=\"M -46.08434 -16.2446 L -25.60241 25 L 46.084340000000005 -7.530119999999997 L 37.65061 -24.999999999999996 z\" stroke-linecap=\"round\" />",
+        "luas_tanah": 60,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 180000000,
+        "map_code_g": "<g id=\"svg_39\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m489,68l-26,99l53,12l27,-99l-54,-12z",
+        "text_code_svg": " x=\"319.64\"  y=\"273.76\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
         "status": 0
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 16,
+    "pk": 160,
     "fields": {
         "kode_kavling": "A-5",
-        "luas_tanah": 0,
-        "harga_per_meter": 0,
-        "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 261.3583927118 282.3925784312)\" id=\"QKZ0PPmWhR-cCsn3eeVD6\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-0.00001, 0)\" d=\"M 13.14703 -33.73494 L 36.64101 13.253009999999996 L -13.961399999999998 33.734939999999995 L -36.64099 -10.240960000000008 z\" stroke-linecap=\"round\" />",
+        "luas_tanah": 58,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 174000000,
+        "map_code_g": "<g id=\"svg_40\">",
+        "map_code_path": "m521,182c0,0 27,-101 27,-101c0,0 54,12 54,12c0,0 -16,106 -16,106c0,0 -65,-17 -65,-17z",
+        "text_code_svg": " x=\"318.11\"  y=\"338.99\" transform=\"matrix(0.237771 -0.971321 0.971321 0.237771 166.659 369.877)\" font-size=\"19\"",
         "status": 0
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 17,
+    "pk": 161,
     "fields": {
-        "kode_kavling": "A-6",
-        "luas_tanah": 0,
-        "harga_per_meter": 0,
-        "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 299.5054182156 335.404626624)\" id=\"IW8OgKDmiVQjk4eWzgDV6\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-0.000005, 0)\" d=\"M -50.3012 -12.6506 L 33.43373999999999 -50 L 50.30121 30.722890000000007 L -18.975899999999996 50.00000000000001 z\" stroke-linecap=\"round\" />",
+        "kode_kavling": "B-1",
+        "luas_tanah": 70,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 210000000,
+        "map_code_g": "<g id=\"svg_52\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m266,156l61,14l-26,127l-67,-7l32,-134z",
+        "text_code_svg": " x=\"280\"  y=\"231\" transform=\"rotate(-79.9275 280 224.75)\" font-size=\"19\"",
         "status": 0
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 18,
+    "pk": 162,
     "fields": {
-        "kode_kavling": "A-7",
-        "luas_tanah": 0,
-        "harga_per_meter": 0,
-        "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 319.0837314686 254.3805302384)\" id=\"4-2_8N6Yn5Q-TRmPkg3FF\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0.000005, 0.000005)\" d=\"M -39.75904 -9.33735 L -16.867469999999997 37.6506 L 13.253010000000003 25.60241 L 39.75903 2.7108399999999975 L 13.253010000000003 -37.65061 z\" stroke-linecap=\"round\" />",
+        "kode_kavling": "B-2",
+        "luas_tanah": 70,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 210000000,
+        "map_code_g": "<g id=\"svg_54\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m333,172l-27,125l57,18l30,-130l-60,-13z",
+        "text_code_svg": " x=\"347.5\"  y=\"244.25\" transform=\"rotate(-79.9275 347.5 238)\" font-size=\"19\"",
         "status": 0
     }
 },
 {
     "model": "backstore.kavling",
-    "pk": 19,
+    "pk": 163,
     "fields": {
-        "kode_kavling": "A-8",
+        "kode_kavling": "B-3",
+        "luas_tanah": 70,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 210000000,
+        "map_code_g": "<g id=\"svg_55\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m399,186l-30,132l78,10l26,-126l-74,-16z",
+        "text_code_svg": " x=\"418.5\"  y=\"260.25\" transform=\"matrix(0.174894 -0.984587 0.984587 0.174894 95.2216 621.627)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 164,
+    "fields": {
+        "kode_kavling": "B-4",
+        "luas_tanah": 90,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 270000000,
+        "map_code_g": "<g id=\"svg_56\">",
+        "map_code_path": "m479,204l-31,169l109,-10l23,-136l-101,-23z",
+        "text_code_svg": " x=\"514.5\"  y=\"290.25\" transform=\"matrix(0.996376 0.0850565 -0.0850565 0.996376 26.0205 -42.7324)\" font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 165,
+    "fields": {
+        "kode_kavling": "C-1",
         "luas_tanah": 0,
         "harga_per_meter": 0,
         "harga_jual_cash": 0,
-        "map_code_g": "<g transform=\"matrix(1 0 0 1 413.9632495409 195.2667607363)\" id=\"ewFrI0-gdaxcJS_TpGM5B\"  >",
-        "map_code_path": "<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;\"  transform=\" translate(0, -0.000005)\" d=\"M -75 20.96317 L -51.72412 58.545190000000005 L 69.38687 -50.5299 L 75 -58.54518 z\" stroke-linecap=\"round\" />",
+        "map_code_g": "<g id=\"svg_68\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m210,261l-204,-87l44,-46l174,71l-14,62z",
+        "text_code_svg": " x=\"121\"  y=\"192\"  font-size=\"19\"",
         "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 166,
+    "fields": {
+        "kode_kavling": "C-2",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_69\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m225,193l-172,-71l41,-42c0,0 145,58 145,58c0,0 -14,55 -14,55z",
+        "text_code_svg": " x=\"157.5\"  y=\"142.25\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 167,
+    "fields": {
+        "kode_kavling": "C-3",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_70\" transform=\"matrix(1 0 0 1 0 0)\">",
+        "map_code_path": "m242,133l-146,-59l40,-42l120,38l-14,63z",
+        "text_code_svg": " x=\"190.5\"  y=\"85.25\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 168,
+    "fields": {
+        "kode_kavling": "C-4",
+        "luas_tanah": 0,
+        "harga_per_meter": 0,
+        "harga_jual_cash": 0,
+        "map_code_g": "<g id=\"svg_71\">",
+        "map_code_path": "m140,29l117,36l12,-50l-108,-12l-21,26z",
+        "text_code_svg": " x=\"217.5\"  y=\"36.25\"  font-size=\"19\"",
+        "status": 0
+    }
+},
+{
+    "model": "backstore.kavling",
+    "pk": 169,
+    "fields": {
+        "kode_kavling": "D-1",
+        "luas_tanah": 300,
+        "harga_per_meter": 3000000,
+        "harga_jual_cash": 900000000,
+        "map_code_g": "<g id=\"svg_72\">",
+        "map_code_path": "m78,391l149,-95l72,7l59,18l87,12l-7,46l-341,37l-19,-25z",
+        "text_code_svg": " x=\"242\"  y=\"362\"  font-size=\"19\"",
+        "status": 2
     }
 },
 {
@@ -110,8 +202,9 @@
         "logo": "",
         "nama_website": "Kavling App",
         "nama_perusahaan": "PT Dotech Digital Solution",
-        "template_kavling": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"1.1\" width=\"355.59987393450007\" height=\"293.1207845858\" viewBox=\"134.86337583589997 107.76086809459997 355.59987393450007 293.1207845858\" xml:space=\"preserve\">\n<desc>Created with Fabric.js 5.3.0</desc>\n<defs>\n</defs>\n<g transform=\"matrix(1 0 0 1 208.3249658359 272.3023476804)\" id=\"vWfcgrUidPQ3ZnMIUY5Xr\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-72.96159, -128.079305)\" d=\"M 25.37795 0 L 25.646749999999997 0.54114 L 25.115319999999997 0.60119 L 145.10392000000002 242.59013000000002 L 145.78129 242.39094000000003 L 145.92318 242.67658000000003 L 117.37299 256.15861 L 0 12.688970000000012 z\" stroke-linecap=\"round\" />\n</g>\n<g transform=\"matrix(1 0 0 1 325.6011897704 247.0827480946)\" id=\"_iGzlkTDEPjt9vQmwLjYE\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(49,226,247); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-164.36206, -138.82188)\" d=\"M 0 35.46217 L 315.28261 0 L 328.72411999999997 28.46071 L 189.06748999999996 259.13043999999996 L 117.58555999999996 277.64376 z M 63.47826 164.04148 L 328.22411999999997 27.960710000000006 L 318.16607 6.1618300000000055 L 47.08582999999999 132.0694 z\" stroke-linecap=\"round\" />\n</g>\n<g transform=\"matrix(1 0 0 1 348.8941076884 193.3625232968)\" id=\"bxJBFea0hjAq5c-Csg8XT\"  >\n<path style=\"stroke: rgb(0,0,0); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;\"  transform=\" translate(-140.569145, -78.939825)\" d=\"M 0 125.90757 L 271.08024 0 L 281.13829 21.79888 L 16.39242999999999 157.87965 z\" stroke-linecap=\"round\" />\n</g>\n</svg>",
-        "no_hp": ""
+        "template_kavling": "<svg viewBox=\"0 0 606 419\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" version=\"1.1\" xml:space=\"preserve\">\r\n <g id=\"svg_75\">\r\n   <path d=\"m270.5,14.5c0,0 -64,250 -64,250c0,0 -145,95 -145,95c0,0 16,32 16,32c0,0 156,-101 156,-101c0,0 32,-135 32,-135c0,0 319,72 319,72c0,0 3,-32 3,-32c0,0 -312,-74 -312,-74c0,0 24,-102 24,-102c0,0 -29,-5 -29,-5z\" fill=\"#f2bcbc\" id=\"svg_2\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\"/>\r\n   <path d=\"m298.5,22.5l305,70c0,0 -16,98 -16,102c0,4 -312,-72 -312,-72c0,0 23,-100 23,-100z\" fill=\"#c4c4f2\" id=\"svg_3\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\"/>\r\n   <path d=\"m265.5,155.5l317,69l-23,143l-464,49l-17,-26l154,-100l33,-135z\" fill=\"#c4c4f2\" id=\"svg_4\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\">Area Taman</path>\r\n   <path d=\"m62.5,358.5l-60,-180l160,-176l109,13l-64,250l-145,93z\" fill=\"#c4c4f2\" id=\"svg_5\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\"/>\r\n   <path d=\"m3.5,180.5l206,84l-147,94l-59,-178z\" fill=\"#ffaa56\" id=\"svg_6\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"5\">Area Taman</path>\r\n   <line fill=\"none\" id=\"svg_10\" stroke=\"#000000\" stroke-width=\"5\" x1=\"71\" x2=\"113\" y1=\"371\" y2=\"347\"/>\r\n   <line fill=\"none\" id=\"svg_11\" stroke=\"#000000\" stroke-width=\"5\" x1=\"137\" x2=\"167\" y1=\"330\" y2=\"310\"/>\r\n   <line fill=\"none\" id=\"svg_12\" stroke=\"#000000\" stroke-width=\"5\" x1=\"191\" x2=\"220\" y1=\"296\" y2=\"279\"/>\r\n   <line fill=\"none\" id=\"svg_13\" stroke=\"#000000\" stroke-width=\"5\" x1=\"228\" x2=\"236\" y1=\"257\" y2=\"223\"/>\r\n   <line fill=\"none\" id=\"svg_14\" stroke=\"#000000\" stroke-width=\"5\" x1=\"243\" x2=\"251\" y1=\"190\" y2=\"158\"/>\r\n   <line fill=\"none\" id=\"svg_15\" stroke=\"#000000\" stroke-width=\"5\" x1=\"268\" x2=\"311\" y1=\"138\" y2=\"149\"/>\r\n   <line fill=\"none\" id=\"svg_16\" stroke=\"#000000\" stroke-width=\"5\" x1=\"332\" x2=\"369\" y1=\"154\" y2=\"161\"/>\r\n   <line fill=\"none\" id=\"svg_17\" stroke=\"#000000\" stroke-width=\"5\" x1=\"391\" x2=\"425\" y1=\"166\" y2=\"173\"/>\r\n   <line fill=\"none\" id=\"svg_18\" stroke=\"#000000\" stroke-width=\"5\" x1=\"446\" x2=\"485\" y1=\"176\" y2=\"186\"/>\r\n   <line fill=\"none\" id=\"svg_19\" stroke=\"#000000\" stroke-width=\"5\" x1=\"504\" x2=\"539\" y1=\"190\" y2=\"200\"/>\r\n   <line fill=\"none\" id=\"svg_20\" stroke=\"#000000\" stroke-width=\"5\" x1=\"558\" x2=\"587\" y1=\"202\" y2=\"210\"/>\r\n   <line fill=\"none\" id=\"svg_21\" stroke=\"#000000\" stroke-width=\"5\" x1=\"262\" x2=\"272\" y1=\"105\" y2=\"73\">Area Taman</line>\r\n   <line fill=\"none\" id=\"svg_22\" stroke=\"#000000\" stroke-width=\"5\" x1=\"278\" x2=\"285\" y1=\"46\" y2=\"18\"/>\r\n   <text fill=\"#ffffff\" font-family=\"Serif\" font-size=\"19\" id=\"svg_73\" stroke=\"#000000\" stroke-opacity=\"0\" stroke-width=\"0\" text-anchor=\"middle\" transform=\"rotate(29.0969 94 260.75)\" x=\"94\" xml:space=\"preserve\" y=\"267\">Area Taman</text>\r\n  </g>\r\n</svg>",
+        "no_hp": "",
+        "placement_template": "<svg viewBox=\"0 0 606 419\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:svg=\"http://www.w3.org/2000/svg\" version=\"1.1\" xml:space=\"preserve\">"
     }
 },
 {
@@ -132,6 +225,150 @@
         "phone": "",
         "groups": [],
         "user_permissions": []
+    }
+},
+{
+    "model": "backstore.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$Q97xpJXLVMSntfVxvBTFZr$JNQK8YS0bTETL0Zv5cmfkiuiFdlrbw+QIYocAZDnDhY=",
+        "last_login": null,
+        "username": "didik",
+        "first_name": "Didik",
+        "last_name": "",
+        "email": "didik@gmail.com",
+        "is_active": true,
+        "date_joined": "2024-06-12T14:31:16.936Z",
+        "is_superuser": true,
+        "is_staff": true,
+        "role": 1,
+        "phone": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "backstore.marketing",
+    "pk": 1,
+    "fields": {
+        "nama": "Rusdi",
+        "nik": "123123123",
+        "alamat": "Blandong",
+        "jk": 0,
+        "no_hp": "081234131314",
+        "email": "rusdi@gmail.com"
+    }
+},
+{
+    "model": "backstore.marketing",
+    "pk": 2,
+    "fields": {
+        "nama": "Sugiyono",
+        "nik": "21212121",
+        "alamat": "Jl Trunojoyo",
+        "jk": 0,
+        "no_hp": "08111111",
+        "email": null
+    }
+},
+{
+    "model": "backstore.customer",
+    "pk": 1,
+    "fields": {
+        "nama": "Dwi Elok",
+        "nik": "3521091505990002",
+        "tempat_lahir": "Magetan",
+        "tanggal_lahir": "2024-06-18",
+        "alamat": "Jl Raya Karas Magetan",
+        "jk": 0,
+        "no_hp": "081359569879",
+        "email": "dwieloknuraini773@gmail.com",
+        "pekerjaan": "Mahasiswa",
+        "ktp": "static/upload/725312f1-af06-456c-9de4-aa6ccdbe7d18.jpeg",
+        "kk": ""
+    }
+},
+{
+    "model": "backstore.customer",
+    "pk": 4,
+    "fields": {
+        "nama": "Didik",
+        "nik": "9191919191",
+        "tempat_lahir": "Ngawi",
+        "tanggal_lahir": "2024-06-17",
+        "alamat": "Jl Kepo",
+        "jk": 0,
+        "no_hp": "081335241314",
+        "email": "didik@gmail.com",
+        "pekerjaan": null,
+        "ktp": "",
+        "kk": ""
+    }
+},
+{
+    "model": "backstore.transaksi",
+    "pk": 4,
+    "fields": {
+        "tanggal_transaksi": "2024-06-17",
+        "id_kavling": 156,
+        "tipe_transaksi": 0,
+        "customer": 1,
+        "marketing": 1,
+        "fee_marketing": 1000000,
+        "fee_notaris": 0,
+        "dp": null,
+        "tenor": null,
+        "cicilan_per_bulan": null,
+        "tanggal_tempo": null,
+        "pembayaran_cash": null,
+        "pembelian_booking": 5000000,
+        "tanggal_batas_booking": "2024-06-26",
+        "keterangan": null,
+        "is_lunas": 0
+    }
+},
+{
+    "model": "backstore.transaksi",
+    "pk": 5,
+    "fields": {
+        "tanggal_transaksi": "2024-06-17",
+        "id_kavling": 157,
+        "tipe_transaksi": 1,
+        "customer": 1,
+        "marketing": 1,
+        "fee_marketing": 500000,
+        "fee_notaris": 5000000,
+        "dp": null,
+        "tenor": null,
+        "cicilan_per_bulan": null,
+        "tanggal_tempo": null,
+        "pembayaran_cash": 180000000,
+        "pembelian_booking": null,
+        "tanggal_batas_booking": null,
+        "keterangan": null,
+        "is_lunas": 1
+    }
+},
+{
+    "model": "backstore.transaksi",
+    "pk": 6,
+    "fields": {
+        "tanggal_transaksi": "2024-06-17",
+        "id_kavling": 169,
+        "tipe_transaksi": 2,
+        "customer": 4,
+        "marketing": 1,
+        "fee_marketing": 0,
+        "fee_notaris": 0,
+        "dp": 80000000,
+        "tenor": 12,
+        "cicilan_per_bulan": 68300000,
+        "tanggal_tempo": "2024-06-17",
+        "pembayaran_cash": null,
+        "pembelian_booking": null,
+        "tanggal_batas_booking": null,
+        "keterangan": null,
+        "is_lunas": 0
     }
 }
 ]
