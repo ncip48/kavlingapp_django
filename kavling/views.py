@@ -20,22 +20,6 @@ def svg(request):
     return render(request, 'svg_editor/index.html')
 
 @login_required
-# @permission_required('dashboard.index')
-def dashboard(request):
-    context = {
-        'kavlings': Kavling.objects.all(),
-        'kavling': Site.objects.get(pk=1),
-        'count': {
-            'tersedia': Kavling.objects.filter(status=0).count(),
-            'booking': Kavling.objects.filter(status=1).count(),
-            'kredit': Kavling.objects.filter(transaksi__tipe_transaksi=2).count(),
-            'cash': Kavling.objects.filter(transaksi__tipe_transaksi=1).count(),
-        },
-        'title': 'Dashboard'
-    }
-    return render(request, 'backstore/dashboard.html', context)
-
-@login_required
 # @permission_required('catalog.awokwok', raise_exception=True)
 def kavling_index(request):
     context = {
@@ -215,3 +199,16 @@ def kavling_delete(request, kavling_id):
             'url': reverse('kavling_delete', args=[kavling.id])
         }
         return render(request, 'backstore/default/delete.html', context)
+    
+@login_required
+def kavling_detail(request, kavling_id):
+    try:
+        kavling = Kavling.objects.get(pk=kavling_id)
+    except Kavling.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    
+    context = {
+        'form': DetailKavlingForm(instance=kavling),
+        'data': kavling
+    }
+    return render(request, 'backstore/kavling/detail.html', context)

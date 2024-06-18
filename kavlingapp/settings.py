@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django.forms',
     'django.contrib.humanize',
+    'dashboard',
     'kavling',
     'marketing',
     'customer',

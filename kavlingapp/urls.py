@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dashboard import urls as dashboard_urls
 from kavling import urls as kavling_urls
 from marketing import urls as marketing_urls
 from customer import urls as customer_urls
@@ -23,7 +24,8 @@ from user import urls as user_urls
 from website import urls as site_urls
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('',  include(dashboard_urls)),
     path('',  include(kavling_urls)),
     path('',  include(marketing_urls)),
     path('',  include(customer_urls)),

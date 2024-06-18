@@ -26,6 +26,11 @@ class Kavling(models.Model):
         db_table = 'kavling'
         
     @property
+    def clean_g(self):
+        g = self.map_code_g
+        return g.replace('<g', '').replace('>', '')
+        
+    @property
     def transaksi(self):
         from transaksi.models import Transaksi
         return Transaksi.objects.get(id_kavling=self.id)
@@ -51,3 +56,16 @@ class Kavling(models.Model):
             return "white"
         elif self.status == 2:
             return "white"
+        
+    @property
+    def get_status_real(self):
+        if self.status == 0:
+            return "Tersedia"
+        elif self.status == 1:
+            if self.transaksi.tipe_transaksi ==0:
+                return "Booking"
+        elif self.status == 2:
+            if self.transaksi.tipe_transaksi == 1:
+                return "Terjual Cash"
+            elif self.transaksi.tipe_transaksi == 2:
+                return "Terjual Kredit"

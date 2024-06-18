@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CharField, Textarea
+from django.forms import ModelForm, CharField, Textarea, TextInput, ChoiceField, Select
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from .models import *
@@ -66,3 +66,21 @@ class TemplateKavlingForm(ModelForm):
                 'required': _("Template Kavling harus diisi."),
             },
         }
+        
+class DetailKavlingForm(ModelForm):
+        
+    kode_kavling = CharField(
+        label='Kode Kavling',
+        widget=TextInput(attrs={'readonly': 'readonly', 'disabled': 'disabled'})
+    )
+    luas_tanah = CharField(
+        label="Luas Tanah",
+        widget=TextInput(attrs={'readonly': 'readonly', 'disabled': 'disabled'})
+    )
+    harga_jual_cash = CharField(
+        label="Harga Cash",
+        widget=TextInput(attrs={'readonly': 'readonly', 'disabled': 'disabled'})
+    )
+    class Meta:
+        model = Kavling
+        fields = ('kode_kavling', 'luas_tanah', 'harga_jual_cash',)

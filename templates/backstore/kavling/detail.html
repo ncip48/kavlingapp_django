@@ -1,0 +1,26 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Detail Kavling</h5>
+      <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        {% include 'backstore/include/form.html' %}
+        <div class="form-group input-blocks">
+          <label for="id_pembelian_booking">Status:</label>
+          <input type="text" name="pembelian_booking" value="{{ data.get_status_real }}" readonly="readonly" disabled="disabled" class="form-control" required="" id="id_pembelian_booking" />
+        </div>
+        {% if data.transaksi %}
+        <div class="form-group input-blocks">
+          <label for="id_pembelian_booking">Nama Pembeli:</label>
+          <input type="text" name="pembelian_booking" value="{{ data.transaksi.customer.nama }}" readonly="readonly" disabled="disabled" class="form-control" required="" id="id_pembelian_booking" />
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="modal-footer modal-footer-uniform d-flex">
+      <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Tutup</button>
+    </div>
+  </div>
+</div>
