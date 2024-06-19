@@ -3,6 +3,7 @@
     "model": "kavling.kavling",
     "pk": 156,
     "fields": {
+        "unique_id": "2e9447ae-f1b4-44a8-92cb-55256976e6b5",
         "kode_kavling": "A-1",
         "luas_tanah": 60,
         "harga_per_meter": 3000000,
@@ -17,6 +18,7 @@
     "model": "kavling.kavling",
     "pk": 157,
     "fields": {
+        "unique_id": "92fa5e17-a80e-4d76-9efb-aea4e4135897",
         "kode_kavling": "A-2",
         "luas_tanah": 60,
         "harga_per_meter": 3000000,
@@ -31,6 +33,7 @@
     "model": "kavling.kavling",
     "pk": 158,
     "fields": {
+        "unique_id": "b193944c-c237-4a6a-ab26-82f7416864b2",
         "kode_kavling": "A-3",
         "luas_tanah": 60,
         "harga_per_meter": 3000000,
@@ -45,6 +48,7 @@
     "model": "kavling.kavling",
     "pk": 159,
     "fields": {
+        "unique_id": "c4a40426-96ec-4da7-ba1c-c9ed18edc81c",
         "kode_kavling": "A-4",
         "luas_tanah": 60,
         "harga_per_meter": 3000000,
@@ -59,6 +63,7 @@
     "model": "kavling.kavling",
     "pk": 160,
     "fields": {
+        "unique_id": "5668c079-312a-402d-a602-2a43a1f19ab5",
         "kode_kavling": "A-5",
         "luas_tanah": 58,
         "harga_per_meter": 3000000,
@@ -73,6 +78,7 @@
     "model": "kavling.kavling",
     "pk": 161,
     "fields": {
+        "unique_id": "dabff85c-11f2-40e9-8317-45a731e514b6",
         "kode_kavling": "B-1",
         "luas_tanah": 70,
         "harga_per_meter": 3000000,
@@ -87,6 +93,7 @@
     "model": "kavling.kavling",
     "pk": 162,
     "fields": {
+        "unique_id": "de520fc4-08a6-4511-8c59-db2972969049",
         "kode_kavling": "B-2",
         "luas_tanah": 70,
         "harga_per_meter": 3000000,
@@ -101,6 +108,7 @@
     "model": "kavling.kavling",
     "pk": 163,
     "fields": {
+        "unique_id": "0cd75f71-0c0c-4249-9272-e8d623992bbb",
         "kode_kavling": "B-3",
         "luas_tanah": 70,
         "harga_per_meter": 3000000,
@@ -115,6 +123,7 @@
     "model": "kavling.kavling",
     "pk": 164,
     "fields": {
+        "unique_id": "f8351b42-8dc7-44cf-b286-cfa84ef46717",
         "kode_kavling": "B-4",
         "luas_tanah": 90,
         "harga_per_meter": 3000000,
@@ -129,6 +138,7 @@
     "model": "kavling.kavling",
     "pk": 165,
     "fields": {
+        "unique_id": "dbc19a89-e3a6-4b0b-a962-6e2e5b59f7cf",
         "kode_kavling": "C-1",
         "luas_tanah": 0,
         "harga_per_meter": 0,
@@ -143,6 +153,7 @@
     "model": "kavling.kavling",
     "pk": 166,
     "fields": {
+        "unique_id": "b009c744-1427-4bb1-844d-a70ae9799bd4",
         "kode_kavling": "C-2",
         "luas_tanah": 0,
         "harga_per_meter": 0,
@@ -157,6 +168,7 @@
     "model": "kavling.kavling",
     "pk": 167,
     "fields": {
+        "unique_id": "796cbac6-e9af-4972-8672-087def012de0",
         "kode_kavling": "C-3",
         "luas_tanah": 0,
         "harga_per_meter": 0,
@@ -171,6 +183,7 @@
     "model": "kavling.kavling",
     "pk": 168,
     "fields": {
+        "unique_id": "35fe00ff-b22b-43d7-83b6-08fe1ead8906",
         "kode_kavling": "C-4",
         "luas_tanah": 0,
         "harga_per_meter": 0,
@@ -185,6 +198,7 @@
     "model": "kavling.kavling",
     "pk": 169,
     "fields": {
+        "unique_id": "34ba935d-c477-49c9-bb18-ce351a1e75dd",
         "kode_kavling": "D-1",
         "luas_tanah": 300,
         "harga_per_meter": 3000000,
