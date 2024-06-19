@@ -2,6 +2,7 @@ from django.db import models
 from customer.models import Customer
 from kavling.models import Kavling
 from marketing.models import Marketing
+import uuid
 
 # Create your models here.
 class Transaksi(models.Model):
@@ -11,6 +12,7 @@ class Transaksi(models.Model):
         KREDIT = 2, "Kredit"
         
     id = models.AutoField(primary_key=True)
+    unique_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     tanggal_transaksi = models.DateField(null=True)
     id_kavling = models.ForeignKey(Kavling, on_delete=models.CASCADE)
     tipe_transaksi = models.IntegerField(

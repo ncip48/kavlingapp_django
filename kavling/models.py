@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 class Kavling(models.Model):
@@ -9,6 +10,7 @@ class Kavling(models.Model):
         TERJUAL = 2, "Terjual"
     
     id = models.AutoField(primary_key=True)
+    unique_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     kode_kavling = models.CharField(max_length=10)
     luas_tanah = models.IntegerField()
     harga_per_meter = models.IntegerField(null=True)
