@@ -5,7 +5,7 @@
     "fields": {
         "unique_id": "7d1b1080-a0ee-4a76-8ae2-f0709c59c992",
         "tanggal_transaksi": "2024-06-17",
-        "id_kavling": 156,
+        "kavling": 156,
         "tipe_transaksi": 0,
         "customer": 1,
         "marketing": 1,
@@ -28,7 +28,7 @@
     "fields": {
         "unique_id": "e0009167-b478-46aa-abf0-7680f80b515a",
         "tanggal_transaksi": "2024-06-17",
-        "id_kavling": 157,
+        "kavling": 157,
         "tipe_transaksi": 1,
         "customer": 1,
         "marketing": 1,
@@ -51,7 +51,7 @@
     "fields": {
         "unique_id": "ccc8b822-d337-4266-aa9f-5abe9b049eb8",
         "tanggal_transaksi": "2024-06-17",
-        "id_kavling": 169,
+        "kavling": 169,
         "tipe_transaksi": 2,
         "customer": 4,
         "marketing": 1,

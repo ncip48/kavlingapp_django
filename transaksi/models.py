@@ -14,7 +14,7 @@ class Transaksi(models.Model):
     id = models.AutoField(primary_key=True)
     unique_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     tanggal_transaksi = models.DateField(null=True)
-    id_kavling = models.ForeignKey(Kavling, on_delete=models.CASCADE)
+    kavling = models.ForeignKey(Kavling, on_delete=models.CASCADE)
     tipe_transaksi = models.IntegerField(
         choices=TransaksiTipe.choices, 
         default=TransaksiTipe.BOOKING

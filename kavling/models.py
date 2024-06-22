@@ -35,7 +35,7 @@ class Kavling(models.Model):
     @property
     def transaksi(self):
         from transaksi.models import Transaksi
-        return Transaksi.objects.get(id_kavling=self.id)
+        return Transaksi.objects.get(kavling_id=self.id)
         
     @property
     def get_color(self):

@@ -22,6 +22,7 @@ from marketing import urls as marketing_urls
 from customer import urls as customer_urls
 from user import urls as user_urls
 from website import urls as site_urls
+from transaksi import urls as transaksi_urls
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -31,6 +32,7 @@ urlpatterns = [
     path('',  include(customer_urls)),
     path('',  include(user_urls)),
     path('',  include(site_urls)),
+    path('',  include(transaksi_urls)),
 ]
 
 handler404 = 'kavling.views.custom_404'

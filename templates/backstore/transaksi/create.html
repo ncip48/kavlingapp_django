@@ -1,0 +1,86 @@
+{% extends 'backstore/layout/base.html' %} {% block content %}
+  <div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="me-auto">
+        <h4 class="page-title">{{ title }}</h4>
+        <div class="d-inline-block align-items-center">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'dashboard' %}"><i class="mdi mdi-home-outline"></i></a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="box">
+          <div class="box-header d-flex justify-content-between align-items-center">
+            <h4 class="box-title">Pengaturan Website</h4>
+          </div>
+          <form novalidate autocomplete="off" method="post" id="main-form" enctype="multipart/form-data" action="{% url 'transaksi_create' %}">
+            {% csrf_token %}
+            <div class="box-body">
+              <div class="col-12 col-xl-4">
+                <div class="form-group input-blocks">
+                  <label for="id_kode_kavling">Kode Kavling:</label>
+                  <input type="text" name="kode_kavling" class="form-control" required="" id="id_kode_kavling" disabled readonly value="{{ kavling.kode_kavling }}" />
+                  <input type="hidden" name="kavling_id" class="form-control" required="" id="id_kavling_id" value="{{ kavling.id }}" />
+                </div>
+                <div class="form-group input-blocks">
+                  <label for="id_harga_jual_cash">Harga Jual Cash:</label>
+                  <input type="text" name="harga_jual_cash" class="form-control" required="" id="id_harga_jual_cash" disabled readonly value="{{ kavling.harga_jual_cash }}" />
+                </div>
+                {% include 'backstore/include/form.html' %}
+                <div class="cash_section">
+                  <hr class="mt-20" />
+                  <input type="hidden" name="is_lunas" class="form-control" id="id_is_lunas" value="1" />
+                  {% include 'backstore/include/form.html' with form=form_cash %}
+                </div>
+                <div class="kredit_section">
+                  <hr class="mt-20" />
+                  <input type="hidden" name="is_lunas" class="form-control" id="id_is_lunas" value="0" />
+                  <input type="hidden" name="is_lunas" class="form-control" id="id_is_lunas" value="0" />
+                  {% include 'backstore/include/form.html' with form=form_kredit %}
+                </div>
+              </div>
+            </div>
+            <div class="box-footer d-flex align-items-center justify-content-end">
+              <button type="submit" class="btn btn-sm btn-primary float-end">Simpan</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block script %}
+  <script>
+    $('.cash_section').hide()
+    $('.kredit_section').hide()
+    //add to select option with id_tipe_transaski with <option value="" selected>Pilih Tipe Transaksi</option>
+    $('#id_tipe_transaksi').prepend('<option value="" selected>Pilih Tipe Transaksi</option>')
+    $('#id_tipe_transaksi').on('change', function () {
+      const val = $(this).val()
+      if (!val) {
+        $('.cash_section').hide()
+        $('.kredit_section').hide()
+      } else {
+        if (val == '1') {
+          $('.cash_section').show()
+          $('.kredit_section').hide()
+        } else if (val == '2') {
+          $('.cash_section').hide()
+          $('.kredit_section').show()
+        }
+      }
+    })
+  </script>
+{% endblock %}

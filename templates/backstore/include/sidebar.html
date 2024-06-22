@@ -59,9 +59,9 @@
             </ul>
           </li>
           <li
-            class="{% if request.resolver_match.url_name == 'transaksi' %} active {% endif %}"
+            class="{% if request.resolver_match.url_name == 'transaksi' or request.resolver_match.url_name == 'transaksi_form' %} active {% endif %}"
           >
-            <a href="{% url 'user' %}">
+            <a href="{% url 'transaksi' %}">
               <img
                 src="{% static 'images/svg-icon/sidebar-menu/transactions.svg' %}"
                 class="svg-icon"

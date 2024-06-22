@@ -20,24 +20,36 @@
     <link rel="stylesheet" href="{% static 'css/toastr.min.css' %}" />
     <style>
       .template {
-        position: "absolute";
+        position: 'absolute';
         height: 0px;
         z-index: 1;
       }
-
+      
       .floating {
-        position: "absolute";
+        position: 'absolute';
         z-index: 2;
       }
-
+      
       .clicked g {
-        cursor:pointer
+        cursor: pointer;
       }
-
+      
       .theme-primary .label-white {
         background-color: white !important;
         color: black !important;
-    }
+      }
+      
+      /* Style for required fields */
+      .form-group.input-blocks label:after {
+        content: '*';
+        color: red;
+        margin-left: 3px;
+      }
+      
+      /* Hide asterisk for non-required fields */
+      .form-group.input-blocks input:not([required]) + label:after {
+        content: '';
+      }
     </style>
   </head>
   <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
@@ -203,7 +215,7 @@
       })
     </script>
 
-    {% include "backstore/include/message.html" %}
+    {% include 'backstore/include/message.html' %}
 
     {% block script %}
 

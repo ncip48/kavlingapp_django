@@ -16,8 +16,8 @@ class SiteForm(ModelForm):
         model = Site
         fields = ('nama_website', 'nama_perusahaan', 'no_hp', 'alamat', 'email', 'no_telp', 'logo', 'ttd')
         widgets = {
-            'logo': CustomImageFieldWidget,
-            'ttd': CustomImageFieldWidget
+            'logo': ClearableFileInput,
+            'ttd': ClearableFileInput
         }
         labels = {
             'logo': _('Logo'),

@@ -4,7 +4,7 @@
   <div class="floating">
     {{kavling.placement_template|safe}}
     {% for kav in kavlings %}
-      <g {{kav.clean_g|safe}} {% if action %} class="ajax_modal" data-url="{% url action kav.id %}"{% endif %}>
+      <g {{kav.clean_g|safe}} {% if action and ajax %} class="ajax_modal" data-url="{% url action kav.id %}" {% endif %} {% if action and not ajax and kav.status == 0 %} data-href="{% url action kav.unique_id %}" {% endif %}>
       <path d="{{kav.map_code_path|safe}}" fill="{{kav.get_color}}" />
       <text text-anchor="middle" {{kav.text_code_svg|safe}} fill="{{kav.get_font_color}}">{{kav.kode_kavling}}</text>
       </g>
