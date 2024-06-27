@@ -31,12 +31,12 @@
               <div class="col-12 col-xl-4">
                 <div class="form-group input-blocks">
                   <label for="id_kode_kavling">Kode Kavling:</label>
-                  <input type="text" name="kode_kavling" class="form-control" required="" id="id_kode_kavling" disabled readonly value="{{ kavling.kode_kavling }}" />
-                  <input type="hidden" name="kavling_id" class="form-control" required="" id="id_kavling_id" value="{{ kavling.id }}" />
+                  <input type="text" name="kode_kavling" class="form-control" id="id_kode_kavling" disabled readonly value="{{ kavling.kode_kavling }}" />
+                  <input type="hidden" name="kavling_id" class="form-control" id="id_kavling_id" value="{{ kavling.id }}" />
                 </div>
                 <div class="form-group input-blocks">
                   <label for="id_harga_jual_cash">Harga Jual Cash:</label>
-                  <input type="text" name="harga_jual_cash" class="form-control" required="" id="id_harga_jual_cash" disabled readonly value="{{ kavling.harga_jual_cash }}" />
+                  <input type="text" name="harga_jual_cash" class="form-control" id="id_harga_jual_cash" disabled readonly value="{{ kavling.harga_jual_cash }}" />
                 </div>
                 {% include 'backstore/include/form.html' %}
                 <div class="cash_section">

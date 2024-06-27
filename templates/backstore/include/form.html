@@ -1,7 +1,7 @@
 {% load widget_tweaks %}
 <!-- merender semua field form dari objek TaskForm -->
 {% for hidden_field in form.hidden_fields %}
-    {{ hidden_field }}
+  {{ hidden_field }}
 {% endfor %}
 {% if form.non_field_errors %}
   <div class="alert alert-danger" role="alert">
@@ -10,7 +10,7 @@
     {% endfor %}
   </div>
 {% endif %} {% for field in form.visible_fields %}
-  <div class="form-group input-blocks">
+  <div class="form-group input-blocks {% if field.field.required %}required{% endif %}">
     {{ field.label_tag }} {% if form.is_bound %}
       {% if field.errors %}
         {% render_field field class='form-control is-invalid' %} {% for error in field.errors %}

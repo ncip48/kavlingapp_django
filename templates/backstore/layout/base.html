@@ -40,16 +40,13 @@
       }
       
       /* Style for required fields */
-      .form-group.input-blocks label:after {
+      .required label::after {
         content: '*';
         color: red;
         margin-left: 3px;
       }
       
       /* Hide asterisk for non-required fields */
-      .form-group.input-blocks input:not([required]) + label:after {
-        content: '';
-      }
     </style>
   </head>
   <body class="hold-transition dark-skin sidebar-mini theme-primary fixed">
