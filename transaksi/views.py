@@ -28,7 +28,7 @@ def transaksi_form(request, unique_id):
     return render(request, 'backstore/transaksi/create.html', context)
 
 def transaksi_create(request):
-    redirect_url = 'transaksi'
+    redirect_url = 'penjualan'
     if request.POST:
         try:
             with transaction.atomic():
@@ -78,8 +78,7 @@ def transaksi_create(request):
 @login_required
 def penjualan_index(request):
     context = {
-        'kavlings': Kavling.objects.all(),
-        'kavling': Site.objects.get(pk=1),
+        'datas': Transaksi.objects.all(),
         'title': 'Penjualan'
     }
-    return render(request, 'backstore/transaksi/index.html', context)
+    return render(request, 'backstore/penjualan/index.html', context)

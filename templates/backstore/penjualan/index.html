@@ -1,0 +1,73 @@
+{% extends 'backstore/layout/base.html' %} {% block content %}
+  <div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="me-auto">
+        <h4 class="page-title">{{ title }}</h4>
+        <div class="d-inline-block align-items-center">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'dashboard' %}"><i class="mdi mdi-home-outline"></i></a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="table-responsive">
+              <table class="table no-margin table-hover" id="items-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Kavling</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- daftar task -->
+                  {% if datas %}
+                    {% for data in datas %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                          <span class="label label-primary">{{ data.kavling.kode_kavling }}</span>
+                        </td>
+                        <td>{{ data.customer.nama }}</td>
+                        <td>{{ data.kavling.get_status_real }}</td>
+                        <td class="text-center">
+                          <div class="list-icons d-inline-flex">
+                            <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'user_update' data.id %}"><i class="fa fa-eye"></i></a>
+                            <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'user_delete' data.id %}"><i class="fa fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  {% else %}
+                    <tr>
+                      <td colspan="5" class="text-center">Data tidak ditemukan.</td>
+                    </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
