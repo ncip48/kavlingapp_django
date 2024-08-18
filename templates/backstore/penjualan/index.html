@@ -44,7 +44,17 @@
                           <span class="label label-primary">{{ data.kavling.kode_kavling }}</span>
                         </td>
                         <td>{{ data.customer.nama }}</td>
-                        <td>{{ data.kavling.get_status_real }}</td>
+                        <td>
+                          {% if data.kavling.status == 1 %}
+                            <span class="label label-primary">Terjual Booking</span>
+                          {% elif data.kavling.status == 2 %}
+                            {% if data.kavling.transaksi.tipe_transaksi == 1 %}
+                              <span class="label label-success">Terjual Cash</span>
+                            {% elif data.kavling.transaksi.tipe_transaksi == 2 %}
+                              <span class="label label-danger">Terjual Kredit</span>
+                            {% endif %}
+                          {% endif %}
+                        </td>
                         <td class="text-center">
                           <div class="list-icons d-inline-flex">
                             <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'user_update' data.id %}"><i class="fa fa-eye"></i></a>
