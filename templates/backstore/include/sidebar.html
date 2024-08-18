@@ -71,6 +71,18 @@
             </a>
           </li>
           <li
+            class="{% if request.resolver_match.url_name == 'penjualan' or request.resolver_match.url_name == 'penjualan_form' %} active {% endif %}"
+          >
+            <a href="{% url 'penjualan' %}">
+              <img
+                src="{% static 'images/svg-icon/sidebar-menu/transactions.svg' %}"
+                class="svg-icon"
+                alt=""
+              />
+              <span>Penjualan</span>
+            </a>
+          </li>
+          <li
             class="{% if request.resolver_match.url_name == 'user' %} active {% endif %}"
           >
             <a href="{% url 'user' %}">

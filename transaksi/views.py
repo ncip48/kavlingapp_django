@@ -74,3 +74,12 @@ def transaksi_create(request):
         except Exception as e:
             messages.error(request, f"Gagal membuat transasksi {e}")
             return redirect(redirect_url)
+        
+@login_required
+def penjualan_index(request):
+    context = {
+        'kavlings': Kavling.objects.all(),
+        'kavling': Site.objects.get(pk=1),
+        'title': 'Penjualan'
+    }
+    return render(request, 'backstore/transaksi/index.html', context)
