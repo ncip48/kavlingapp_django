@@ -5,6 +5,8 @@ from website.models import Site
 from transaksi.forms import *
 from django.db import transaction
 from django.contrib import messages
+from django.http import JsonResponse
+from django.urls import reverse
 
 # Create your views here.
 @login_required
@@ -82,3 +84,33 @@ def penjualan_index(request):
         'title': 'Penjualan'
     }
     return render(request, 'backstore/penjualan/index.html', context)
+
+@login_required
+def penjualan_delete(request, transaksi_id):
+    redirect_url = 'penjualan'
+    try:
+        transaksi = Transaksi.objects.get(pk=transaksi_id)
+    except Transaksi.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                transaksi = Transaksi.objects.get(pk=transaksi_id)
+                
+                #update kavling
+                print("transaksi id",transaksi.kavling_id)
+                kavling = Kavling.objects.get(pk=transaksi.kavling_id)
+                kavling.status = 0
+                kavling.save()
+                transaksi.delete()
+                messages.success(request, 'Berhasil menghapus data')
+                return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal menghapus data {e}")
+            return redirect(redirect_url)
+    else:
+        context = {
+            'data': transaksi, 
+        'url': reverse('penjualan_delete', args=[transaksi.id])
+        }
+        return render(request, 'backstore/default/delete.html', context)
