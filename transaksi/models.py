@@ -3,6 +3,7 @@ from customer.models import Customer
 from kavling.models import Kavling
 from marketing.models import Marketing
 import uuid
+from terbilang import Terbilang
 
 # Create your models here.
 class Transaksi(models.Model):
@@ -35,3 +36,14 @@ class Transaksi(models.Model):
     class Meta:
         # define table name
         db_table = 'transaksi'
+        
+    @property
+    def terbilang(self):
+        terbilang =  Terbilang()
+        if self.tipe_transaksi == Transaksi.TransaksiTipe.BOOKING:
+            terbilang.parse(self.pembelian_booking)
+        elif self.tipe_transaksi == Transaksi.TransaksiTipe.CASH:
+            terbilang.parse(self.pembayaran_cash)
+        else:
+            terbilang.parse(self.dp)
+        return terbilang.getresult()

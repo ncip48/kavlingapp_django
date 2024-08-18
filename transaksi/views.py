@@ -98,7 +98,6 @@ def penjualan_delete(request, transaksi_id):
                 transaksi = Transaksi.objects.get(pk=transaksi_id)
                 
                 #update kavling
-                print("transaksi id",transaksi.kavling_id)
                 kavling = Kavling.objects.get(pk=transaksi.kavling_id)
                 kavling.status = 0
                 kavling.save()
