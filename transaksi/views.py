@@ -42,12 +42,30 @@ def transaksi_create(request):
                         transaksi.pembelian_booking = request.POST['pembelian_booking']
                         transaksi.tanggal_batas_booking = request.POST['tanggal_batas_booking']
                         transaksi.keterangan = request.POST['keterangan']
-                        transaksi.save()
                         
                         kavling = Kavling.objects.get(pk=request.POST['kavling_id'])
                         kavling.status = 1
                         kavling.save()
+                    elif request.POST.get('tipe_transaksi') == "1":
+                        transaksi.pembayaran_cash = request.POST['pembayaran_cash']
+                        transaksi.is_lunas = 1
+                        transaksi.keterangan = request.POST['keterangan']
                         
+                        kavling = Kavling.objects.get(pk=request.POST['kavling_id'])
+                        kavling.status = 2
+                        kavling.save()
+                    elif request.POST.get('tipe_transaksi') == "2":
+                        transaksi.dp = request.POST['dp']
+                        transaksi.tenor = request.POST['tenor']
+                        transaksi.cicilan_per_bulan = request.POST['cicilan_per_bulan']
+                        transaksi.tanggal_tempo = request.POST['tanggal_tempo']
+                        transaksi.keterangan = request.POST['keterangan']
+                        
+                        kavling = Kavling.objects.get(pk=request.POST['kavling_id'])
+                        kavling.status = 2
+                        kavling.save()
+                        
+                    transaksi.save()
                     messages.success(request, "Berhasil membuat transaksi")
                     return redirect(redirect_url)
                 else:

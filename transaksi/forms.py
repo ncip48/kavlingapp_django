@@ -73,6 +73,9 @@ class TransaksiFormKredit(ModelForm):
         model = Transaksi
         # mengeset field apa saja yang akan ditampilkan pada form
         fields = ('dp', 'tenor', 'cicilan_per_bulan', 'tanggal_tempo', 'keterangan',)
+        widgets = {
+            'tanggal_tempo': DateInput(),
+        }
         # mengatur teks label untuk setiap field
         labels = {
             'dp': _('DP'),
