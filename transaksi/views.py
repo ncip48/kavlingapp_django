@@ -7,6 +7,13 @@ from django.db import transaction
 from django.contrib import messages
 from django.http import JsonResponse
 from django.urls import reverse
+from io import BytesIO
+from django.http import HttpResponse
+from django.template.loader import get_template
+import locale
+locale.setlocale(locale.LC_ALL, "")
+
+from xhtml2pdf import pisa
 
 # Create your views here.
 @login_required
@@ -18,6 +25,7 @@ def transaksi_index(request):
     }
     return render(request, 'backstore/transaksi/index.html', context)
 
+@login_required
 def transaksi_form(request, unique_id):
     context = {
         'kavling': Kavling.objects.get(unique_id=unique_id),
@@ -29,6 +37,7 @@ def transaksi_form(request, unique_id):
     }
     return render(request, 'backstore/transaksi/create.html', context)
 
+@login_required
 def transaksi_create(request):
     redirect_url = 'penjualan'
     if request.POST:
@@ -113,3 +122,38 @@ def penjualan_delete(request, transaksi_id):
         'url': reverse('penjualan_delete', args=[transaksi.id])
         }
         return render(request, 'backstore/default/delete.html', context)
+    
+    
+def render_to_pdf(template_src, context_dict={}):
+    template = get_template(template_src)
+    html  = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if pdf.err:
+        return HttpResponse("Invalid PDF", status_code=400, content_type='text/plain')
+    return HttpResponse(result.getvalue(), content_type='application/pdf')
+
+@login_required
+def generate_pdf(request):
+    invoice_number = "007cae"
+    context = {
+        "bill_to": "Ethan Hunt",
+        "invoice_number": f"{invoice_number}",
+        "amount": locale.currency(100_000, grouping=True),
+        "date": "2021-07-04",
+        "pdf_title": f"Invoice #{invoice_number}",
+    }
+    response = render_to_pdf("pdf/invoice.html", context)
+    filename = f"Invoice_{invoice_number}.pdf"
+    """
+    Tell browser to view inline (default)
+    """
+    content = f"inline; filename={filename}"
+    download = request.GET.get("download")
+    if download:
+        """
+        Tells browser to initiate download
+        """
+        content = f"attachment; filename={filename}"
+    response["Content-Disposition"] = content
+    return response

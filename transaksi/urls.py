@@ -12,4 +12,5 @@ urlpatterns = [
     #penjualan
     path('panel/penjualan', penjualan_index, name='penjualan'),
     path('panel/penjualan/delete/<int:transaksi_id>', penjualan_delete, name='penjualan_delete'),
+    path('panel/penjualan/invoice', generate_pdf, name='invoice'),
 ]
