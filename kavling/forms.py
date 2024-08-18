@@ -68,6 +68,11 @@ class TemplateKavlingForm(ModelForm):
         }
         
 class DetailKavlingForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['kode_kavling'].required = False
+        self.fields['luas_tanah'].required = False
+        self.fields['harga_jual_cash'].required = False
         
     kode_kavling = CharField(
         label='Kode Kavling',
