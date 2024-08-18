@@ -5,5 +5,6 @@ from dashboard.views import *
 
 urlpatterns = [
     #dashboard
+    path('', dashboard, name='dashboard'),
     path('panel/dashboard', dashboard, name='dashboard'),
 ]

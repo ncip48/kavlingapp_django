@@ -131,7 +131,7 @@
         // render error placement for each input type
         if (element.is('select') && (element.hasClass('select2') || element.hasClass('select2-hidden-accessible'))) {
           $(element).parent().append(error)
-        } else if (element.is('select') || element.attr('type') == 'radio' || element.attr('type') == 'checkbox' || element.attr('type') == 'textarea') {
+        } else if (element.attr('type') == 'radio' || element.attr('type') == 'checkbox' || element.attr('type') == 'textarea') {
           // for chosen elements, need to insert the error after the chosen container
           //} else if (element.is("select") || element.attr("type") == "radio" || element.attr("type") == "checkbox" || element.attr("type") == "file" || element.attr("type") == "textarea") { // for chosen elements, need to insert the error after the chosen container
           error.insertAfter($(element).closest('.form-group').children('div').children().last())
@@ -174,7 +174,7 @@
         var rules = {}
       
         // Iterate over input blocks with the class 'required' inside the modal
-        $('.input-blockss').each(function () {
+        $('.input-blocks').each(function () {
           if ($(this).find('[required]').length > 0) {
             // Get the input element inside the current input block
             var formElements = $(this).find('input, select, textarea')
