@@ -46,4 +46,4 @@ class Transaksi(models.Model):
             terbilang.parse(self.pembayaran_cash)
         else:
             terbilang.parse(self.dp)
-        return terbilang.getresult()
+        return terbilang.getresult().title()
