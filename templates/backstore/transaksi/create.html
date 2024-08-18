@@ -28,7 +28,7 @@
           <form novalidate autocomplete="off" method="post" id="main-form" action="{% url 'transaksi_create' %}">
             {% csrf_token %}
             <div class="box-body">
-              <input type="hidden" name="unique_id" class="form-control" id="id_unique_id" disabled readonly value="{{ kavling.unique_id }}" />
+              <input type="hidden" name="kavling_id" class="form-control" id="id_kavling_id" value="{{ kavling.id }}" />
               <div class="col-12 col-xl-4">
                 <div class="form-group input-blocks">
                   <label for="id_kode_kavling">Kode Kavling:</label>

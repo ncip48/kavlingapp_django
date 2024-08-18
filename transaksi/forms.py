@@ -5,6 +5,10 @@ from transaksi.models import *
 class CustomerModelChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return f"{obj.nama} | {obj.no_hp}"
+    
+class MarketingModelChoiceField(ModelChoiceField):
+    def label_from_instance(self, obj):
+        return f"{obj.nama} | {obj.no_hp}"
 class DateInput(DateInput):
     input_type = 'date'
 class TransaksiForm(ModelForm):
@@ -16,11 +20,12 @@ class TransaksiForm(ModelForm):
     #     self.fields['password'].required = False
 
     customer = CustomerModelChoiceField(queryset=Customer.objects.all(),empty_label="Pilih Customer",to_field_name="id")        
+    marketing = MarketingModelChoiceField(queryset=Marketing.objects.all(),empty_label="Pilih Marketing",to_field_name="id")        
     class Meta:
         # merelasikan form dengan model
         model = Transaksi
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('tanggal_transaksi', 'customer', 'tipe_transaksi', 'fee_marketing', 'fee_notaris')
+        fields = ('tanggal_transaksi', 'customer', 'marketing', 'tipe_transaksi', 'fee_marketing', 'fee_notaris')
         widgets = {
             'tanggal_transaksi': DateInput(),
         }

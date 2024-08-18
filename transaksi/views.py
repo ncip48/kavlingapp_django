@@ -34,14 +34,20 @@ def transaksi_create(request):
             with transaction.atomic():
                 form = TransaksiForm(request.POST)
                 if form.is_valid():
-                    kavling_id = Kavling.objects.get(unique_id=request.POST.get('unique_id')).id
-                    print(kavling_id)
                     transaksi = form.save(commit=False)
-                    transaksi.kavling_id = kavling_id
-                    # if request.POST.get('tipe_transaksi') == "0":
-                    #     transaksi.pembayaran_booking = request.POST.get('pembayaran_booking')
+                    transaksi.kavling_id = request.POST['kavling_id']
+                    transaksi.customer_id = request.POST['customer']
+                    transaksi.marketing_id = request.POST['marketing']
+                    if request.POST.get('tipe_transaksi') == "0":
+                        transaksi.pembelian_booking = request.POST['pembelian_booking']
+                        transaksi.tanggal_batas_booking = request.POST['tanggal_batas_booking']
+                        transaksi.keterangan = request.POST['keterangan']
+                        transaksi.save()
                         
-                    transaksi.save()
+                        kavling = Kavling.objects.get(pk=request.POST['kavling_id'])
+                        kavling.status = 1
+                        kavling.save()
+                        
                     messages.success(request, "Berhasil membuat transaksi")
                     return redirect(redirect_url)
                 else:
