@@ -1,0 +1,76 @@
+{% extends 'backstore/layout/base.html' %} {% block content %}
+  <div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="me-auto">
+        <h4 class="page-title">{{ title }}</h4>
+        <div class="d-inline-block align-items-center">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'dashboard' %}"><i class="mdi mdi-home-outline"></i></a>
+              </li>
+              <li class="breadcrumb-item" aria-current="page">Home</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% load static %}
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-12">
+        <div class="box">
+          <div class="box-header with-border d-flex justify-content-between align-items-center">
+            <h4 class="box-title">List {{ title }}</h4>
+            <a href="#" class="btn btn-sm btn-primary ajax_modal" data-url="{% url 'galeri_create' %}" class="btn btn-primary btn-sm">Tambah</a>
+          </div>
+          <div class="box-body">
+            <div class="table-responsive">
+              <table class="table no-margin table-hover" id="items-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Keterangan</th>
+                    <th>Foto</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- daftar task -->
+                  {% if datas %}
+                    {% for data in datas %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ data.keterangan }}</td>
+                        <td>
+                          <a href="/{{ data.foto }}" target="_blank"><img src="/{{ data.foto }}" alt="Image preview" height="100" width="100" /></a>
+                        </td>
+                        <td class="text-center">
+                          <div class="list-icons d-inline-flex">
+                            <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'galeri_update' data.id %}"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'galeri_delete' data.id %}"><i class="fa fa-trash"></i></a>
+                          </div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  {% else %}
+                    <tr>
+                      <td colspan="5" class="text-center">Data tidak ditemukan.</td>
+                    </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %} {% block script %}
+
+{% endblock %}

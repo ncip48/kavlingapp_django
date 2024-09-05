@@ -61,6 +61,18 @@
           </li>
           {%endif%}
           <li
+            class="{% if request.resolver_match.url_name == 'galeri' or request.resolver_match.url_name == 'galeri_form' %} active {% endif %}"
+          >
+            <a href="{% url 'galeri' %}">
+              <img
+                src="{% static 'images/svg-icon/sidebar-menu/pages.svg' %}"
+                class="svg-icon"
+                alt=""
+              />
+              <span>Galeri</span>
+            </a>
+          </li>
+          <li
             class="{% if request.resolver_match.url_name == 'transaksi' or request.resolver_match.url_name == 'transaksi_form' %} active {% endif %}"
           >
             <a href="{% url 'transaksi' %}">

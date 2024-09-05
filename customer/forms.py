@@ -1,6 +1,6 @@
-from django.forms import ModelForm, DateInput
+from django.forms import ModelForm, DateInput, TextInput
 from django.utils.translation import gettext_lazy as _
-from customer.models import Customer
+from customer.models import Customer, Galeri
 
 class DateInput(DateInput):
     input_type = 'date'
@@ -54,3 +54,28 @@ class CustomerForm(ModelForm):
                 'required': _("Email harus diisi."),
             },
         }
+        
+class GaleriForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['keterangan'].required = True
+        self.fields['foto'].required = False
+    class Meta:
+        model = Galeri
+        fields = ('foto','keterangan')
+        labels = {
+            'keterangan': _('Keterangan'),
+            'foto': _('Foto')
+        }
+        widgets = {
+            'tanggal_lahir': TextInput(),
+        }
+        error_messages = {
+            'keterangan': {
+                'required': _("Keterangan harus diisi."),
+            },
+            'foto': {
+                'required': _("Foto harus diisi."),
+            },
+        }
+        

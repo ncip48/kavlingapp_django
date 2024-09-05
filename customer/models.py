@@ -26,3 +26,12 @@ class Customer(models.Model):
     class Meta:
         # define table name
         db_table = 'customer'
+        
+class Galeri(models.Model):
+        
+    id = models.AutoField(primary_key=True)
+    keterangan = models.TextField()
+    foto = models.FileField(null=True, max_length=100)
+    class Meta:
+        # define table name
+        db_table = 'galeri'
