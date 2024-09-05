@@ -110,6 +110,7 @@ def transaksi_update(request, transaksi_id):
                         transaksi.cicilan_per_bulan = request.POST['cicilan_per_bulan']
                         transaksi.tanggal_tempo = request.POST['tanggal_tempo']
                         transaksi.tipe_transaksi = 2
+                        transaksi.is_lunas = 0
                         
                         kavling = transaksi.kavling
                         kavling.status = 2
@@ -135,12 +136,16 @@ def penjualan_index(request):
 @login_required
 def penjualan_detail(request, unique_id):
     trx = Transaksi.objects.get(unique_id=unique_id)
+    
+    tenor_range = range(trx.tenor) if trx.tenor is not None else []
+    
     context = {
         'data': trx,
         'title': 'Detail Penjualan',
         'form': TransaksiFormReadOnly(instance=trx),
         'form_cash': TransaksiFormCash(),
         'form_kredit': TransaksiFormKredit(),
+        'tenor': tenor_range,
     }
     return render(request, 'backstore/penjualan/detail.html', context)
 
