@@ -71,3 +71,10 @@ class Kavling(models.Model):
                 return "Terjual Cash"
             elif self.transaksi.tipe_transaksi == 2:
                 return "Terjual Kredit"
+    
+    @property
+    def get_status_lunas(self):
+        if self.transaksi.is_lunas == 0:
+            return "Belum Lunas"
+        else:
+            return "Lunas"

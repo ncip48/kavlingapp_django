@@ -47,3 +47,7 @@ class Transaksi(models.Model):
         else:
             terbilang.parse(self.dp)
         return terbilang.getresult().title()
+    
+    @property
+    def kavling_instance(self):
+        return self.kavling

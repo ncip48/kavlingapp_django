@@ -87,12 +87,62 @@ def transaksi_create(request):
             return redirect(redirect_url)
         
 @login_required
+def transaksi_update(request, transaksi_id):
+    redirect_url = 'penjualan'
+    try:
+        transaksi = Transaksi.objects.get(pk=transaksi_id)
+    except Transaksi.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                    if request.POST.get('tipe_transaksi') == "1":
+                        transaksi.pembayaran_cash = request.POST['pembayaran_cash']
+                        transaksi.is_lunas = 1
+                        transaksi.tipe_transaksi = 1
+                        
+                        kavling = transaksi.kavling
+                        kavling.status = 2
+                        kavling.save()
+                    elif request.POST.get('tipe_transaksi') == "2":
+                        transaksi.dp = request.POST['dp']
+                        transaksi.tenor = request.POST['tenor']
+                        transaksi.cicilan_per_bulan = request.POST['cicilan_per_bulan']
+                        transaksi.tanggal_tempo = request.POST['tanggal_tempo']
+                        transaksi.tipe_transaksi = 2
+                        
+                        kavling = transaksi.kavling
+                        kavling.status = 2
+                        kavling.save()
+                    
+                    transaksi.keterangan = request.POST['keterangan']
+                    transaksi.pembelian_booking = None
+                    transaksi.save()
+                    messages.success(request, "Berhasil mengupdate transaksi")
+                    return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal mengupdate transasksi {e}")
+            return redirect(redirect_url)
+        
+@login_required
 def penjualan_index(request):
     context = {
         'datas': Transaksi.objects.all(),
         'title': 'Penjualan'
     }
     return render(request, 'backstore/penjualan/index.html', context)
+
+@login_required
+def penjualan_detail(request, unique_id):
+    trx = Transaksi.objects.get(unique_id=unique_id)
+    context = {
+        'data': trx,
+        'title': 'Detail Penjualan',
+        'form': TransaksiFormReadOnly(instance=trx),
+        'form_cash': TransaksiFormCash(),
+        'form_kredit': TransaksiFormKredit(),
+    }
+    return render(request, 'backstore/penjualan/detail.html', context)
 
 @login_required
 def penjualan_delete(request, transaksi_id):

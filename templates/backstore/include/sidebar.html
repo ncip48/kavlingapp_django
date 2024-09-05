@@ -71,7 +71,7 @@
             </a>
           </li>
           <li
-            class="{% if request.resolver_match.url_name == 'penjualan' or request.resolver_match.url_name == 'penjualan_form' %} active {% endif %}"
+            class="{% if request.resolver_match.url_name == 'penjualan' or request.resolver_match.url_name == 'penjualan_detail' %} active {% endif %}"
           >
             <a href="{% url 'penjualan' %}">
               <img

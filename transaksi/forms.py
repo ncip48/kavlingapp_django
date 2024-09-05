@@ -1,4 +1,4 @@
-from django.forms import ModelForm, DateInput, ModelChoiceField
+from django.forms import ModelForm, DateInput, ModelChoiceField, Select
 from django.utils.translation import gettext_lazy as _
 from transaksi.models import *
 
@@ -36,6 +36,29 @@ class TransaksiForm(ModelForm):
             'tipe_transaksi': _('Tipe Transaksi'),
             'fee_marketing': _('Fee Marketing'),
             'fee_notaris': _('Fee Notaris'),
+        }
+        
+class TransaksiFormReadOnly(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Disable fields to prevent user interaction
+        self.fields['tanggal_transaksi'].disabled = True
+        self.fields['customer'].disabled = True
+
+    customer = CustomerModelChoiceField(queryset=Customer.objects.all(),empty_label="Pilih Customer",to_field_name="id")     
+    class Meta:
+        # merelasikan form dengan model
+        model = Transaksi
+        # mengeset field apa saja yang akan ditampilkan pada form
+        fields = ('tanggal_transaksi', 'customer',)
+        widgets = {
+            'tanggal_transaksi': DateInput(),
+            'tipe_transaksi': Select(attrs={'disabled': 'disabled'}),  # Ensure choice field is read-only
+        }
+        # mengatur teks label untuk setiap field
+        labels = {
+            'tanggal_transaksi': _('Tanggal Transaksi'),
+            'customer': _('Customer'),
         }
         
 class TransaksiFormCash(ModelForm):
