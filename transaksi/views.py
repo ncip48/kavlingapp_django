@@ -248,6 +248,17 @@ def cicilan_create(request, transaksi_id):
                     tanggal_pembayaran=current_date
                 )
                 
+                if pembayaran_ke == "1":
+                    transaksi.pembayaran_cash = transaksi.cicilan_per_bulan + transaksi.dp
+                else:
+                    # Ensure that transaksi.pembayaran_cash is initialized if it's not already set
+                    transaksi.pembayaran_cash += transaksi.cicilan_per_bulan
+                
+                pmb = int(pembayaran_ke)
+                if pmb == int(transaksi.tenor):
+                    transaksi.is_lunas = 1
+                
+                transaksi.save()
                 messages.success(request, "Berhasil membayar cicilan")
                 return redirect(redirect_url)
         except Exception as e:
