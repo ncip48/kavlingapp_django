@@ -127,10 +127,22 @@ def transaksi_update(request, transaksi_id):
         
 @login_required
 def penjualan_index(request):
+    # Get the user's role
+    role = request.user.role
+
+    # Base context dictionary
     context = {
-        'datas': Transaksi.objects.all(),
-        'title': 'Penjualan'
+        'title': 'Penjualan',
     }
+
+    # Filter 'datas' based on role
+    if role == 1:
+        # Assuming 'marketing_id' is a field in the 'Transaksi' model
+        context['datas'] = Transaksi.objects.filter(marketing_id=request.user.id)
+    else:
+        # Default behavior for other roles
+        context['datas'] = Transaksi.objects.all()
+        
     return render(request, 'backstore/penjualan/index.html', context)
 
 @login_required
