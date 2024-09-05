@@ -67,6 +67,9 @@ def customer_update(request, customer_id):
                     if 'kk' in request.FILES:
                         kk = handle_uploaded_file(request.FILES['kk'])  
                         customer.kk = kk
+                    if 'foto_orang' in request.FILES:
+                        foto_orang = handle_uploaded_file(request.FILES['foto_orang'])  
+                        customer.foto_orang = foto_orang
                     customer.save()
                     messages.success(request, 'Berhasil mengubah data')
                     return redirect(redirect_url)

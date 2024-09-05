@@ -22,6 +22,7 @@ class Customer(models.Model):
     pekerjaan = models.CharField(null=True, max_length=100)
     ktp = models.FileField(null=True, max_length=100)
     kk = models.FileField(null=True, max_length=100)
+    foto_orang = models.FileField(null=True, max_length=100)
     class Meta:
         # define table name
         db_table = 'customer'

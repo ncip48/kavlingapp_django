@@ -13,9 +13,10 @@ class CustomerForm(ModelForm):
         self.fields['pekerjaan'].required = False
         self.fields['ktp'].required = False
         self.fields['kk'].required = False
+        self.fields['foto_orang'].required = False
     class Meta:
         model = Customer
-        fields = ('nama', 'nik', 'tempat_lahir', 'tanggal_lahir', 'no_hp', 'jk', 'alamat', 'email', 'pekerjaan', 'ktp', 'kk')
+        fields = ('nama', 'nik', 'tempat_lahir', 'tanggal_lahir', 'no_hp', 'jk', 'alamat', 'email', 'pekerjaan', 'ktp', 'kk', 'foto_orang')
         widgets = {
             'tanggal_lahir': DateInput(),
         }
@@ -31,6 +32,7 @@ class CustomerForm(ModelForm):
             'pekerjaan': _('Pekerjaan'),
             'ktp': _('KTP'),
             'kk': _('KK'),
+            'foto_orang': _('Foto Orang')
         }
         error_messages = {
             'nama': {

@@ -1,4 +1,5 @@
 {% extends 'backstore/layout/base.html' %} {% block content %}
+{% load custom_filters %}
   <div class="content-header">
     <div class="d-flex align-items-center">
       <div class="me-auto">
@@ -16,7 +17,6 @@
       </div>
     </div>
   </div>
-
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -96,13 +96,30 @@
                     <div class="form-group input-blocks">
                         <label for="id_tenor_{{ forloop.counter }}">Cicilan ke-{{ forloop.counter }}:</label>
                         <div class="input-group">
-                            <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Belum ada pembayaran" />
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-danger btn-sm">Bayar</button>
-                            </div>
+                            {% with cicilan=data.cicilan|index_list:forloop.counter|default:"" %}
+                                {% if cicilan %}
+                                    {% if cicilan.pembayaran_ke == forloop.counter %}
+                                        <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Pembayaran ke {{cicilan.pembayaran_ke}} : {{cicilan.nominal}}" />
+                                    {% else %}
+                                        <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Belum ada pembayaran" />
+                                    {% endif %}
+                                {% else %}
+                                    <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Belum ada pembayaran" />
+                                {% endif %}
+                            {% endwith %}
+
+                            {% with cicilan=data.cicilan|index_list:forloop.counter|default:"" %}
+                                {% if not cicilan %}
+                                    
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-danger btn-sm">Bayar</button>
+                                        </div>
+                                    
+                                {% endif %}
+                            {% endwith %}
                         </div>
                     </div>
-                    {%endfor%}
+                {% endfor %}
                 </div>
                 </div>
                 

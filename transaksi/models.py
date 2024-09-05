@@ -51,3 +51,18 @@ class Transaksi(models.Model):
     @property
     def kavling_instance(self):
         return self.kavling
+    
+    @property
+    def cicilan(self):
+        return Cicilan.objects.filter(transaksi_id=self.id)
+    
+class Cicilan(models.Model):
+    id = models.AutoField(primary_key=True)
+    unique_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
+    transaksi = models.ForeignKey(Transaksi, on_delete=models.CASCADE)
+    pembayaran_ke = models.IntegerField(null=True)
+    nominal = models.IntegerField()
+    
+    class Meta:
+        # define table name
+        db_table = 'cicilan'
