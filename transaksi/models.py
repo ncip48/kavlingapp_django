@@ -62,6 +62,7 @@ class Cicilan(models.Model):
     transaksi = models.ForeignKey(Transaksi, on_delete=models.CASCADE)
     pembayaran_ke = models.IntegerField(null=True)
     nominal = models.IntegerField()
+    tanggal_pembayaran = models.DateField(null=True)
     
     class Meta:
         # define table name

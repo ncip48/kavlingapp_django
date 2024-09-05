@@ -12,7 +12,7 @@ from django.http import HttpResponse
 from django.template.loader import get_template
 import locale
 locale.setlocale(locale.LC_ALL, "")
-
+from datetime import datetime
 from xhtml2pdf import pisa
 
 # Create your views here.
@@ -212,3 +212,32 @@ def generate_pdf(request):
         content = f"attachment; filename={filename}"
     response["Content-Disposition"] = content
     return response
+
+@login_required
+def cicilan_create(request, transaksi_id):
+    try:
+        transaksi = Transaksi.objects.get(pk=transaksi_id)
+        redirect_url = f'/panel/penjualan/{transaksi.unique_id}'
+    except Transaksi.DoesNotExist:
+        return JsonResponse({'success': False, 'message': "Data tidak ditemukan"})
+    if request.POST:
+        try:
+            with transaction.atomic():
+                pembayaran_ke = request.POST.get('pembayaran_ke')
+                nominal = transaksi.cicilan_per_bulan
+                current_date = datetime.now().date()
+                
+                
+                # Check if cicilan already exists
+                cicilan, created = Cicilan.objects.update_or_create(
+                    transaksi=transaksi,
+                    pembayaran_ke=pembayaran_ke,
+                    nominal=nominal,
+                    tanggal_pembayaran=current_date
+                )
+                
+                messages.success(request, "Berhasil membayar cicilan")
+                return redirect(redirect_url)
+        except Exception as e:
+            messages.error(request, f"Gagal membayar cicilan {e}")
+            return redirect(redirect_url)

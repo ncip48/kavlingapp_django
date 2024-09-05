@@ -87,24 +87,23 @@
             <div class="box-header d-flex justify-content-between align-items-center">
                 <h4 class="box-title">Riwayat Cicilan</h4>
             </div>
-            <form novalidate autocomplete="off" method="post" id="main-form" action="{% url 'transaksi_update' data.id %}">
-                {% csrf_token %}
-                <div class="box-body">
+            <div class="box-body">
                 <input type="hidden" name="kavling_id" class="form-control" id="id_kavling_id" value="{{ kavling.id }}" />
                 <div class="col-12">
                     {% for i in tenor %}
+                    <form novalidate autocomplete="off" method="post" id="main-form" action="{% url 'cicilan_create' data.id %}">
+                    {% csrf_token %}
                     <div class="form-group input-blocks">
                         <label for="id_tenor_{{ forloop.counter }}">Cicilan ke-{{ forloop.counter }}:</label>
                         <div class="input-group">
                             {% with cicilan=data.cicilan|index_list:forloop.counter|default:"" %}
                                 {% if cicilan %}
                                     {% if cicilan.pembayaran_ke == forloop.counter %}
-                                        <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Pembayaran ke {{cicilan.pembayaran_ke}} : {{cicilan.nominal}}" />
-                                    {% else %}
-                                        <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Belum ada pembayaran" />
+                                        <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly disabled value="Pembayaran ke {{cicilan.pembayaran_ke}} : {{cicilan.nominal}} | Tanggal {{cicilan.tanggal_pembayaran}}" />
                                     {% endif %}
                                 {% else %}
-                                    <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly value="Belum ada pembayaran" />
+                                    <input type="hidden" name="pembayaran_ke" class="form-control" id="ipembayaran_ke" value="{{forloop.counter}}" />
+                                    <input type="text" class="form-control" readonly disabled value="Belum ada pembayaran" />
                                 {% endif %}
                             {% endwith %}
 
@@ -112,18 +111,18 @@
                                 {% if not cicilan %}
                                     
                                         <div class="input-group-append">
-                                            <button type="button" class="btn btn-danger btn-sm">Bayar</button>
+                                            <button type="submit" class="btn btn-danger btn-sm">Bayar</button>
                                         </div>
                                     
                                 {% endif %}
                             {% endwith %}
                         </div>
                     </div>
+                </form>
                 {% endfor %}
                 </div>
                 </div>
                 
-            </form>
             </div>
         </div>
         {%endif%}
