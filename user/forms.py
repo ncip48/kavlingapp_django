@@ -21,7 +21,7 @@ class UserForm(ModelForm):
         # merelasikan form dengan model
         model = User
         # mengeset field apa saja yang akan ditampilkan pada form
-        fields = ('username', 'email', 'first_name', 'last_name')
+        fields = ('username', 'email', 'first_name', 'last_name', 'role')
         # mengatur teks label untuk setiap field
         labels = {
             'username': _('Username'),
@@ -29,6 +29,7 @@ class UserForm(ModelForm):
             'first_name': _('Nama Depan'),
             'last_name': _('Nama Belakang'),
             'password': _('Password'),
+            'role': _('Hak Akses')
         }
         # mengatur teks pesan error untuk setiap validasi fieldnya
         error_messages = {
