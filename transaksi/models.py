@@ -48,6 +48,15 @@ class Transaksi(models.Model):
             terbilang.parse(self.dp)
         return terbilang.getresult().title()
     
+    @property
+    def nominal_awal(self):
+        if self.tipe_transaksi == Transaksi.TransaksiTipe.BOOKING:
+            return self.pembelian_booking
+        elif self.tipe_transaksi == Transaksi.TransaksiTipe.CASH:
+            return self.pembayaran_cash
+        else:
+            return self.dp
+    
     
     @property
     def untuk_pembayaran(self):
@@ -56,7 +65,7 @@ class Transaksi(models.Model):
         elif self.tipe_transaksi == Transaksi.TransaksiTipe.CASH:
             return f'Pembelian Kavling {self.kavling.kode_kavling}'
         else:
-            f'DP Kavling {self.kavling.kode_kavling}'
+            return f'DP Kavling {self.kavling.kode_kavling}'
         
     
     @property

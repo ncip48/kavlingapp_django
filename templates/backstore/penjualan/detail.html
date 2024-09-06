@@ -71,7 +71,11 @@
                     <input type="hidden" name="is_lunas" class="form-control" id="id_is_lunas" value="0" />
                     {% include 'backstore/include/form.html' with form=form_booking %}
                     </div>
-                    Download Kwitansi : <a href="{% url 'generate_kwitansi' data.unique_id %}">Download</a>
+                    <div class="form-group input-blocks">
+                        <label for="id_harga_jual_cash">Nominal Awal:</label>
+                        <input type="text" name="harga_jual_cash" class="form-control" id="id_harga_jual_cash" disabled readonly value="{{ data.nominal_awal }}" />
+                        </div>
+                    Download Kwitansi : <a href="{% url 'generate_kwitansi' data.unique_id %}" target="_blank">Download</a>
                 </div>
                 </div>
                 {%if data.tipe_transaksi is 0 %}
