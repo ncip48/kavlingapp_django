@@ -14,6 +14,13 @@ import locale
 locale.setlocale(locale.LC_ALL, "")
 from datetime import datetime
 from xhtml2pdf import pisa
+from django.conf import settings
+import os
+from django.templatetags.static import static
+from datetime import datetime
+# import locale
+# for German locale
+# locale.setlocale(locale.LC_TIME, 'id_ID.UTF-8')
 
 # Create your views here.
 @login_required
@@ -189,27 +196,32 @@ def penjualan_delete(request, transaksi_id):
         'url': reverse('penjualan_delete', args=[transaksi.id])
         }
         return render(request, 'backstore/default/delete.html', context)
-    
-    
+
 def render_to_pdf(template_src, context_dict={}):
     template = get_template(template_src)
-    html  = template.render(context_dict)
+    html = template.render(context_dict)
     result = BytesIO()
-    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)  # Use UTF-8 encoding
     if pdf.err:
-        return HttpResponse("Invalid PDF", status_code=400, content_type='text/plain')
+        return HttpResponse("Invalid PDF", status=400, content_type='text/plain')
     return HttpResponse(result.getvalue(), content_type='application/pdf')
 
 @login_required
 def generate_pdf(request):
     invoice_number = "007cae"
+    now = datetime.now()
     context = {
         "bill_to": "Ethan Hunt",
         "invoice_number": f"{invoice_number}",
         "amount": locale.currency(100_000, grouping=True),
         "date": "2021-07-04",
         "pdf_title": f"Invoice #{invoice_number}",
+        "bgpdf": static('images/kwitansi.pdf'),
+        "date": now.strftime("%d %B %Y")
     }
+    
+    # return render(request, 'pdf/invoice.html', context)
+    
     response = render_to_pdf("pdf/invoice.html", context)
     filename = f"Invoice_{invoice_number}.pdf"
     """
