@@ -80,6 +80,18 @@ class Transaksi(models.Model):
     def cicilan(self):
         return Cicilan.objects.filter(transaksi_id=self.id)
     
+    @property
+    def sisa_cicilan(self):
+        numbers = [cicilan.nominal for cicilan in self.cicilan]
+    
+        # Convert each number from string to integer
+        numbers_int = [int(x) for x in numbers]
+        
+        # Calculate the sum of all integers
+        total_cicilan = sum(numbers_int)
+            
+        return self.kavling.harga_jual_cash - (total_cicilan)
+    
 class Cicilan(models.Model):
     id = models.AutoField(primary_key=True)
     unique_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)

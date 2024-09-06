@@ -71,6 +71,12 @@
                     <input type="hidden" name="is_lunas" class="form-control" id="id_is_lunas" value="0" />
                     {% include 'backstore/include/form.html' with form=form_booking %}
                     </div>
+                    {% if data.tipe_transaksi is 2 %}
+                    <div class="form-group input-blocks">
+                        <label for="id_harga_jual_cash">Sisa Cicilan:</label>
+                        <input type="text" name="harga_jual_cash" class="form-control" id="id_harga_jual_cash" disabled readonly value="{{ data.sisa_cicilan }}" />
+                        </div>
+                        {%endif%}
                     <div class="form-group input-blocks">
                         <label for="id_harga_jual_cash">Nominal Awal:</label>
                         <input type="text" name="harga_jual_cash" class="form-control" id="id_harga_jual_cash" disabled readonly value="{{ data.nominal_awal }}" />
