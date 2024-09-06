@@ -95,12 +95,12 @@
             <tr>
               <td width="110" valign="middle" class="right">No</td>
               <td width="3">:</td>
-              <td valign="middle" class="underline">KWT-{{ transaksi.id }}</td>
+              <td valign="middle" class="underline">CKV-{{ transaksi.id }}</td>
             </tr>
             <tr>
               <td valign="middle" class="right">Telah Diterima Dari</td>
               <td>:</td>
-              <td valign="middle" class="underline solid-lines">{{ transaksi.customer.nama }}</td>
+              <td valign="middle" class="underline solid-lines">{{ transaksi.transaksi.customer.nama }}</td>
             </tr>
             <tr>
               <td valign="middle" class="right">Uang Sejumlah</td>
@@ -110,7 +110,7 @@
             <tr>
               <td valign="middle" class="right">Untuk Pembayaran</td>
               <td>:</td>
-              <td valign="middle" class="underline">{{ transaksi.untuk_pembayaran }}</td>
+              <td valign="middle" class="underline">{{ transaksi.cicilan_text }}</td>
             </tr>
             <tr></tr>
             <tr>

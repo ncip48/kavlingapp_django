@@ -253,6 +253,36 @@ def generate_kwitansi(request, unique_id):
     return response
 
 @login_required
+def generate_kwitansi_cicilan(request, unique_id):
+    invoice_number = "007cae"
+    now = datetime.now()
+    cicilan = Cicilan.objects.get(unique_id=unique_id);
+    
+    context = {
+        "transaksi": cicilan,
+        "nominal":rupiah_format(cicilan.nominal),
+        "date": now.strftime("%d %B %Y"),
+        "terbilang": cicilan.terbilang
+    }
+    
+    # return render(request, 'pdf/invoice.html', context)
+    
+    response = render_to_pdf("pdf/cicilan.html", context)
+    filename = f"Invoice_{invoice_number}.pdf"
+    """
+    Tell browser to view inline (default)
+    """
+    content = f"inline; filename={filename}"
+    download = request.GET.get("download")
+    if download:
+        """
+        Tells browser to initiate download
+        """
+        content = f"attachment; filename={filename}"
+    response["Content-Disposition"] = content
+    return response
+
+@login_required
 def generate_pdf(request):
     invoice_number = "007cae"
     now = datetime.now()

@@ -91,3 +91,17 @@ class Cicilan(models.Model):
     class Meta:
         # define table name
         db_table = 'cicilan'
+        
+    @property
+    def terbilang(self):
+        terbilang =  Terbilang()
+        terbilang.parse(self.nominal)
+        return terbilang.getresult().title()
+    
+    @property
+    def transaksi_instance(self):
+        return self.transaksi
+    
+    @property
+    def cicilan_text(self):
+        return f'Pembayaran cicilan kavling {self.transaksi.kavling.kode_kavling} ke {self.pembayaran_ke}'

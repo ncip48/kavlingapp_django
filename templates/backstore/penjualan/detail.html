@@ -105,7 +105,7 @@
                                 {% if cicilan %}
                                     {% if cicilan.pembayaran_ke == forloop.counter %}
                                         <input type="text" name="tenor_{{ forloop.counter }}" class="form-control" id="id_tenor_{{ forloop.counter }}" readonly disabled value="Pembayaran ke {{cicilan.pembayaran_ke}} : {{cicilan.nominal}} | Tanggal {{cicilan.tanggal_pembayaran}}" />
-                                    {% endif %}
+                                        {% endif %}
                                 {% else %}
                                     <input type="hidden" name="pembayaran_ke" class="form-control" id="ipembayaran_ke" value="{{forloop.counter}}" />
                                     <input type="text" class="form-control" readonly disabled value="Belum ada pembayaran" />
@@ -122,6 +122,15 @@
                                 {% endif %}
                             {% endwith %}
                         </div>
+                        {% with cicilan=data.cicilan|index_list:forloop.counter|default:"" %}
+                                {% if cicilan %}
+                                    {% if cicilan.pembayaran_ke == forloop.counter %}
+                                        
+                                        Download Kwitansi : <a href="{% url 'generate_kwitansi_cicilan' cicilan.unique_id %}" target="_blank">Download</a>
+                                        {% endif %}
+                                
+                                {% endif %}
+                            {% endwith %}
                     </div>
                 </form>
                 {% endfor %}
