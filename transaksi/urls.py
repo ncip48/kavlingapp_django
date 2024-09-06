@@ -9,6 +9,8 @@ urlpatterns = [
     path('panel/transaksi/<uuid:unique_id>', transaksi_form, name='transaksi_form'),
     path('panel/transaksi/<int:transaksi_id>', transaksi_update, name='transaksi_update'),
     path('panel/create_transaksi', transaksi_create, name='transaksi_create'),
+    path('panel/kwitansi/<uuid:unique_id>', generate_kwitansi, name='generate_kwitansi'),
+    
     
     #penjualan
     path('panel/penjualan', penjualan_index, name='penjualan'),

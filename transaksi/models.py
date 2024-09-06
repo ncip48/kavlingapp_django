@@ -48,9 +48,24 @@ class Transaksi(models.Model):
             terbilang.parse(self.dp)
         return terbilang.getresult().title()
     
+    
+    @property
+    def untuk_pembayaran(self):
+        if self.tipe_transaksi == Transaksi.TransaksiTipe.BOOKING:
+            return f'Booking Kavling {self.kavling.kode_kavling}'
+        elif self.tipe_transaksi == Transaksi.TransaksiTipe.CASH:
+            return f'Pembelian Kavling {self.kavling.kode_kavling}'
+        else:
+            f'DP Kavling {self.kavling.kode_kavling}'
+        
+    
     @property
     def kavling_instance(self):
         return self.kavling
+    
+    @property
+    def customer_instance(self):
+        return self.customer
     
     @property
     def cicilan(self):

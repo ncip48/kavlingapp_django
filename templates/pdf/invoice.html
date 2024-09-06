@@ -95,27 +95,27 @@
             <tr>
               <td width="110" valign="middle" class="right">No</td>
               <td width="3">:</td>
-              <td valign="middle" class="underline">12</td>
+              <td valign="middle" class="underline">KWT-{{ transaksi.id }}</td>
             </tr>
             <tr>
               <td valign="middle" class="right">Telah Diterima Dari</td>
               <td>:</td>
-              <td valign="middle" class="underline solid-lines">Encip</td>
+              <td valign="middle" class="underline solid-lines">{{ transaksi.customer.nama }}</td>
             </tr>
             <tr>
               <td valign="middle" class="right">Uang Sejumlah</td>
               <td>:</td>
-              <td valign="middle" class="underline">Satu Juta</td>
+              <td valign="middle" class="underline">{{ terbilang }}</td>
             </tr>
             <tr>
               <td valign="middle" class="right">Untuk Pembayaran</td>
               <td>:</td>
-              <td valign="middle" class="underline">Kavling A-1</td>
+              <td valign="middle" class="underline">{{ transaksi.untuk_pembayaran }}</td>
             </tr>
             <tr></tr>
             <tr>
               <td valign="bottom" class="line-vertical right">
-                <h3>Rp 1100000</h3>
+                <h3>{{ nominal }}</h3>
               </td>
               <td></td>
               <td valign="middle" align="right" height="100" style="padding-right: -1px;">Ngawi, {{ date }}</td>

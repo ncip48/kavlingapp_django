@@ -71,6 +71,7 @@
                     <input type="hidden" name="is_lunas" class="form-control" id="id_is_lunas" value="0" />
                     {% include 'backstore/include/form.html' with form=form_booking %}
                     </div>
+                    Download Kwitansi : <a href="{% url 'generate_kwitansi' data.unique_id %}">Download</a>
                 </div>
                 </div>
                 {%if data.tipe_transaksi is 0 %}
