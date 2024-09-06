@@ -255,13 +255,14 @@ def generate_kwitansi(request, unique_id):
 @login_required
 def generate_kwitansi_cicilan(request, unique_id):
     invoice_number = "007cae"
-    now = datetime.now()
     cicilan = Cicilan.objects.get(unique_id=unique_id);
+    
+    date_obj = cicilan.tanggal_pembayaran
     
     context = {
         "transaksi": cicilan,
         "nominal":rupiah_format(cicilan.nominal),
-        "date": now.strftime("%d %B %Y"),
+        "date": date_obj.strftime("%d %B %Y"),
         "terbilang": cicilan.terbilang
     }
     
