@@ -218,8 +218,9 @@ def rupiah_format(uang):
 @login_required
 def generate_kwitansi(request, unique_id):
     invoice_number = "007cae"
-    now = datetime.now()
     trx = Transaksi.objects.get(unique_id=unique_id);
+    
+    date_obj = trx.tanggal_transaksi
     
     if trx.tipe_transaksi == 0:
         nominal = trx.pembelian_booking
@@ -231,7 +232,7 @@ def generate_kwitansi(request, unique_id):
     context = {
         "transaksi": trx,
         "nominal":rupiah_format(nominal),
-        "date": now.strftime("%d %B %Y"),
+        "date": date_obj.strftime("%d %B %Y"),
         "terbilang": trx.terbilang
     }
     
