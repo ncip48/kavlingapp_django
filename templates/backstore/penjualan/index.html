@@ -22,6 +22,9 @@
     <div class="row">
       <div class="col-12">
         <div class="box">
+          <div class="box-header with-border d-flex justify-content-between align-items-center">
+            <h4 class="box-title">List {{ title }}</h4>
+          </div>
           <div class="box-body">
             <div class="table-responsive">
               <table class="table no-margin table-hover" id="items-table">
@@ -29,6 +32,7 @@
                   <tr>
                     <th>#</th>
                     <th>Kavling</th>
+                    <th>Marketing</th>
                     <th>Customer</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -43,6 +47,7 @@
                         <td>
                           <span class="label label-primary">{{ data.kavling.kode_kavling }}</span>
                         </td>
+                        <td>{{ data.marketing.nama }}</td>
                         <td>{{ data.customer.nama }}</td>
                         <td>
                           {% if data.kavling.status == 1 %}

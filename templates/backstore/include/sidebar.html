@@ -96,6 +96,37 @@
               <span>Penjualan</span>
             </a>
           </li>
+          <li class="treeview">
+            <a href="#">
+              <img
+                src="{% static 'images/svg-icon/sidebar-menu/apps.svg' %}"
+                class="svg-icon"
+                alt=""
+              />
+              <span>Laporan (PDF)</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li
+                class="{% if request.resolver_match.url_name == 'kavling' %} active {% endif %}"
+              >
+                <a href="{% url 'kavling' %}">
+                  <i class="ti-more"></i>
+                  <span>Penjualan</span>
+                </a>
+              </li>
+              <li
+                class="{% if request.resolver_match.url_name == 'marketing' %} active {% endif %}"
+              >
+                <a href="{% url 'marketing' %}">
+                  <i class="ti-more"></i>
+                  <span>Pembayaran Cicilan</span>
+                </a>
+              </li>
+            </ul>
+          </li>
           {% if request.user.role is 0 %}
           <li
             class="{% if request.resolver_match.url_name == 'user' %} active {% endif %}"
