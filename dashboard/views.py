@@ -17,7 +17,6 @@ def dashboard(request):
     
     given_date = int(datetime.now().strftime("%d"))
     seven_days_before = (given_date + 7) % 31  #range 7 hari
-    print(given_date, seven_days_before)
     tagihanTerdekat = Transaksi.objects.annotate(
     day_of_tempo=ExtractDay('tanggal_tempo')
     ).filter(
