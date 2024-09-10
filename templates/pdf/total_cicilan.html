@@ -93,6 +93,10 @@
               <td>{{ data.sisa }}</td>
             </tr>
           {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="5">Belum ada pembayaran</td>
+          </tr>
         {% endif %}
       </tbody>
     </table>
