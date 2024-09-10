@@ -23,7 +23,7 @@ def dashboard(request):
         Q(day_of_tempo__range=[given_date, seven_days_before]),
         tipe_transaksi=2
     )
-    print(tagihanTerdekat)
+    
     context = {
         'kavlings': Kavling.objects.all(),
         'kavling': Site.objects.get(pk=1),
