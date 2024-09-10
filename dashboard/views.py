@@ -16,12 +16,12 @@ def dashboard(request):
     sisaKredit = Cicilan.objects.count()
     
     given_date = int(datetime.now().strftime("%d"))
-    seven_days_before = (given_date + 7) % 31  # Adjust for month boundaries if needed
+    seven_days_before = (given_date + 7) % 31  #range 7 hari
     print(given_date, seven_days_before)
     tagihanTerdekat = Transaksi.objects.annotate(
     day_of_tempo=ExtractDay('tanggal_tempo')
     ).filter(
-        Q(day_of_tempo__range=[10, 17]),
+        Q(day_of_tempo__range=[given_date, seven_days_before]),
         tipe_transaksi=2
     )
     print(tagihanTerdekat)
