@@ -92,6 +92,27 @@ class Transaksi(models.Model):
             
         return self.kavling.harga_jual_cash - (total_cicilan)
     
+    @property
+    def tempo(self):
+        return self.tanggal_tempo.strftime("%d")
+    
+    @property
+    def format_tanggal_tempo(self):
+        return f'Tanggal {self.tanggal_tempo.strftime("%d")}'
+    
+    @property
+    def cicilan_terakhir(self):
+        latest_cicilan = Cicilan.objects.filter(transaksi=self).order_by('-tanggal_pembayaran').first()
+        return latest_cicilan
+    
+    @property
+    def pembayaran_terakhir_ke(self):
+        last = self.cicilan_terakhir
+        if last is None:
+            return 1
+        else:
+            return self.cicilan_terakhir.pembayaran_ke + 1
+    
 class Cicilan(models.Model):
     id = models.AutoField(primary_key=True)
     unique_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)

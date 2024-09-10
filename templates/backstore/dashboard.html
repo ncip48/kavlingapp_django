@@ -36,7 +36,7 @@
             <h4 class="box-title">Kavling Booking</h4>
           </div>
           <div class="box-body">
-            <p>{{ count.booking }}</p>
+            <p class="text-dark">{{ count.booking }}</p>
           </div>
         </div>
       </div>
@@ -96,41 +96,47 @@
             <h4 class="box-title">Tagihan Terdekat</h4>
           </div>
           <div class="box-body">
-            <table class="table no-margin table-hover" id="items-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Kavling</th>
-                  <th>Customer</th>
-                  <th>Jatuh Tempo</th>
-                  <th>Pembayaran Ke</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- daftar task -->
-                {% if datas %}
-                  {% for data in datas %}
-                    <tr>
-                      <td>{{ forloop.counter }}</td>
-                    </tr>
-                  {% endfor %}
-                {% else %}
+            <div class="table-responsive">
+              <table class="table no-margin table-hover" id="items-table">
+                <thead>
                   <tr>
-                    <td colspan="5" class="text-center">Tidak ada pembayaran terdekat.</td>
+                    <th>#</th>
+                    <th>Kavling</th>
+                    <th>Customer</th>
+                    <th>Jatuh Tempo</th>
+                    <th>Pembayaran Ke</th>
                   </tr>
-                {% endif %}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <!-- daftar task -->
+                  {% if tagihanTerdekat %}
+                    {% for data in tagihanTerdekat %}
+                      <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ data.kavling.kode_kavling }}</td>
+                        <td>{{ data.customer.nama }}</td>
+                        <td>{{ data.format_tanggal_tempo }}</td>
+                        <td>{{ data.pembayaran_terakhir_ke }}</td>
+                      </tr>
+                    {% endfor %}
+                  {% else %}
+                    <tr>
+                      <td colspan="5" class="text-center">Tidak ada pembayaran terdekat.</td>
+                    </tr>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-xl-3 col-12">
-        <div class="box box-dark">
+        <div class="box box-success">
           <div class="box-header without-border">
             <h4 class="box-title">Total Pembayaran Kredit</h4>
           </div>
           <div class="box-body">
-            <p clas>{{ count.sisaKredit }}/{{ count.totalKredit }}x</p>
+            <p class="text-dark">{{ count.sisaKredit }}/{{ count.totalKredit }}x</p>
           </div>
         </div>
       </div>
