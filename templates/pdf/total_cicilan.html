@@ -1,0 +1,100 @@
+<html>
+  <head>
+    <title>Detail cicilan</title>
+  </head>
+  <style>
+    * {
+      font-size: 12pt;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #0903e8;
+      font-family: verdana;
+    }
+    
+    a:hover {
+      color: #fa3c3c;
+    }
+    
+    .table tr,
+    .table td {
+      border: 1px solid black;
+    }
+    
+    .table thead td,
+    .table tbody td {
+      text-align: center;
+      padding-top: 4px;
+    }
+    
+    .table th {
+      background-color: blanchedalmond;
+      padding-top: 4px;
+      font-weight: bold;
+    }
+    
+    .table {
+      margin-top: 20px;
+    }
+    
+    @page {
+      size: a4;
+      @frame content_frame {
+        left: 2cm;
+        right: 2cm;
+        top: 2cm;
+        bottom: 2cm;
+      }
+    }
+    
+    .header {
+      text-align: center;
+      font-weight: bold;
+      font-size: 14pt;
+      padding-bottom: 10px;
+    }
+  </style>
+  <body>
+    <table>
+      <tr>
+        <td colspan="3" class="header">Rekap Pembayaran Cicilan Kavling</td>
+      </tr>
+      <tr>
+        <td width="90">Customer</td>
+        <td width="10">:</td>
+        <td>{{ transaksi.customer.nama }}</td>
+      </tr>
+      <tr>
+        <td>Kavling</td>
+        <td>:</td>
+        <td>{{ transaksi.kavling.kode_kavling }}</td>
+      </tr>
+    </table>
+    <table class="table" width="800">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Tanggal</th>
+          <th>Pembayaran Ke</th>
+          <th>Nominal</th>
+          <th>Sisa Pembayaran</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if datas %}
+          {% for data in datas %}
+            <tr>
+              <td width="25">{{ forloop.counter }}</td>
+              <td>{{ data.format_tanggal }}</td>
+              <td width="100">{{ data.pembayaran_ke }}</td>
+              <td>{{ data.nominal }}</td>
+              <td>{{ data.sisa }}</td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  </body>
+</html>

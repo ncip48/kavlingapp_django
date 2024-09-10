@@ -97,6 +97,7 @@
             <div class="box">
             <div class="box-header d-flex justify-content-between align-items-center">
                 <h4 class="box-title">Riwayat Cicilan</h4>
+                <a class="btn btn-sm btn-primary" target="_blank" href="{% url 'cicilan_pdf' data.unique_id %}" class="btn btn-primary btn-sm">Cetak</a>
             </div>
             <div class="box-body">
                 <input type="hidden" name="kavling_id" class="form-control" id="id_kavling_id" value="{{ kavling.id }}" />

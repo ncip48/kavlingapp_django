@@ -21,6 +21,7 @@ urlpatterns = [
     #cicilan
     path('panel/cicilan/<int:transaksi_id>', cicilan_create, name='cicilan_create'),
     path('panel/cicilan/kwitansi/<uuid:unique_id>', generate_kwitansi_cicilan, name='generate_kwitansi_cicilan'),
+    path('panel/cicilan/pdf/<uuid:unique_id>', cicilan_pdf, name='cicilan_pdf'),
     
     
 ]

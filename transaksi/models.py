@@ -117,3 +117,31 @@ class Cicilan(models.Model):
     @property
     def cicilan_text(self):
         return f'Pembayaran cicilan kavling {self.transaksi.kavling.kode_kavling} ke {self.pembayaran_ke}'
+    
+    @property
+    def format_tanggal(self):
+        return self.tanggal_pembayaran.strftime("%d %b %Y")
+    
+    @property
+    def sisa(self):
+        # Get the total nominal value for all previous payments
+        total_nominal_before = self._calculate_total_nominal_before()
+        
+        # Calculate sisa based on the current pembayaran_ke
+        if self.pembayaran_ke == 1:
+            sisa = self.transaksi.kavling.harga_jual_cash - self.transaksi.dp - self.nominal
+        else:
+            sisa = self.transaksi.kavling.harga_jual_cash - self.transaksi.dp - total_nominal_before - self.nominal
+        
+        return max(sisa,0)
+
+    def _calculate_total_nominal_before(self):
+        """
+        Calculate the total nominal value of all payments before the current pembayaran_ke.
+        """
+        total_nominal = Cicilan.objects.filter(
+            transaksi=self.transaksi,
+            pembayaran_ke__lt=self.pembayaran_ke
+        ).aggregate(total_nominal=models.Sum('nominal'))['total_nominal'] or 0
+        
+        return total_nominal

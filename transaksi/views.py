@@ -217,15 +217,15 @@ def rupiah_format(uang):
 
 @login_required
 def generate_kwitansi(request, unique_id):
-    invoice_number = "007cae"
-    trx = Transaksi.objects.get(unique_id=unique_id);
+    trx = Transaksi.objects.get(unique_id=unique_id)
+    invoice_number = f'kwitansi_{trx.unique_id}'
     
     date_obj = trx.tanggal_transaksi
     
     if trx.tipe_transaksi == 0:
         nominal = trx.pembelian_booking
     elif trx.tipe_transaksi == 1:
-        nominal = trx.pembayaran_cash;
+        nominal = trx.pembayaran_cash
     elif trx.tipe_transaksi == 2:
         nominal = trx.dp
     
@@ -255,8 +255,8 @@ def generate_kwitansi(request, unique_id):
 
 @login_required
 def generate_kwitansi_cicilan(request, unique_id):
-    invoice_number = "007cae"
-    cicilan = Cicilan.objects.get(unique_id=unique_id);
+    cicilan = Cicilan.objects.get(unique_id=unique_id)
+    invoice_number = f'kwitansi_{cicilan.unique_id}'
     
     date_obj = cicilan.tanggal_pembayaran
     
@@ -270,6 +270,37 @@ def generate_kwitansi_cicilan(request, unique_id):
     # return render(request, 'pdf/invoice.html', context)
     
     response = render_to_pdf("pdf/cicilan.html", context)
+    filename = f"Invoice_{invoice_number}.pdf"
+    """
+    Tell browser to view inline (default)
+    """
+    content = f"inline; filename={filename}"
+    download = request.GET.get("download")
+    if download:
+        """
+        Tells browser to initiate download
+        """
+        content = f"attachment; filename={filename}"
+    response["Content-Disposition"] = content
+    return response
+
+@login_required
+def cicilan_pdf(request, unique_id):
+    invoice_number = "007cae"
+    transaksi = Transaksi.objects.get(unique_id=unique_id);
+    cicilan = Cicilan.objects.filter(transaksi=transaksi)
+    
+    now = datetime.now()
+    
+    context = {
+        "transaksi": transaksi,
+        "datas": cicilan,
+        "date": now.strftime("%d %B %Y"),
+    }
+    
+    # return render(request, 'pdf/total_cicilan.html', context)
+    
+    response = render_to_pdf("pdf/total_cicilan.html", context)
     filename = f"Invoice_{invoice_number}.pdf"
     """
     Tell browser to view inline (default)
