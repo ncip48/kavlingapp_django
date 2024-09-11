@@ -22,3 +22,17 @@ class User(AbstractUser):
     def name(self):
         # due date is calcualted 10 days from start_date
         return self.first_name + ' ' + self.last_name
+    
+    @property
+    def role_real(self):
+        if self.role == User.UserRole.ADMIN:
+            return "Admin"
+        elif self.role == User.UserRole.MARKETING:
+            return "Marketing"
+        
+    @property
+    def get_color(self):
+        if self.role == User.UserRole.ADMIN:
+            return "danger"
+        elif self.role == User.UserRole.MARKETING:
+            return "primary"

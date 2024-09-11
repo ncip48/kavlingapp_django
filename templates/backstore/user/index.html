@@ -35,6 +35,7 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Name</th>
+                    <th>Hak Akses</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -47,6 +48,9 @@
                         <td>{{ data.username }}</td>
                         <td>{{ data.email }}</td>
                         <td>{{ data.name }}</td>
+                        <td>
+                          <span class="label label-{{ data.get_color }}">{{ data.role_real }}</span>
+                        </td>
                         <td class="text-center">
                           <div class="list-icons d-inline-flex">
                             <a href="#" class="list-icons-item me-10 ajax_modal" data-url="{% url 'user_update' data.id %}"><i class="fa fa-pencil"></i></a>
